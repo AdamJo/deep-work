@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// used for yo generator
 const AtomTemplate = styled.div`
 `;
 
