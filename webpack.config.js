@@ -7,6 +7,8 @@ const ip = process.env.IP || '0.0.0.0'
 const port = process.env.PORT || 3000
 const DEBUG = process.env.NODE_ENV !== 'production'
 const PUBLIC_PATH = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isVendor = ({ userRequest }) => (
   userRequest &&
@@ -64,6 +66,8 @@ if (DEBUG) {
   config.output.filename = '[name].[chunkHash].js'
 
   config.plugins = config.plugins.concat([
+    new CleanWebpackPlugin(['dist']),
+    new CopyWebpackPlugin([{ from: 'public' }]),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: isVendor,
