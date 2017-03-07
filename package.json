@@ -9,7 +9,9 @@
     "email": "adam.johannesmeyer@gmail.com"
   },
   "scripts": {
-    "start": "node server",
+    "dev": "node server",
+    "prod": "npm run build && serve dist -s",
+    "prod:server": "serve dist -s",
     "test": "cross-env NODE_ENV=test jest",
     "coverage": "npm test -- --coverage --watch",
     "postcoverage": "opn coverage/lcov-report/index.html",
@@ -62,6 +64,7 @@
     "raw-loader": "^0.5.1",
     "react-addons-test-utils": "^15.4.1",
     "rimraf": "^2.6.1",
+    "serve": "^4.0.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0",
