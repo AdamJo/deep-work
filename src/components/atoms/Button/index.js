@@ -18,6 +18,9 @@ const Button = styled.div`
   cursor: pointer;
   outline: 0;
   color: ${palette('black', 0)};
+  
+  margin: 0 5px;
+  white-space: nowrap;
   &:hover {
     background: ${palette(2)};
   }
@@ -25,7 +28,7 @@ const Button = styled.div`
     background: ${palette(3)};
   }
   &:focus {
-    outline: none
+    outline: none;
   }
 `;
 Button.propTypes = {};
