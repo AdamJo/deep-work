@@ -20,24 +20,22 @@ const Time = styled.div`
   flex-direciton: row;
 `;
 
-const DayChart = () => {
+const DayChart = ({...props}) => {
   return (
-    <Wrapper>
-      <Time>
+    <Wrapper {...props}>
+      {/*<Time>
         AM
         {' '}
-        {civilianTime.map(hours => <div><div>{hours}</div><CellButton /></div>)}
+        {civilianTime.map((hours, index) => <div><div>{hours}</div><CellButton /></div>)}
       </Time>
       <Time>
         PM
         {' '}
-        {civilianTime.map(hours => <div><div>{hours}</div><CellButton /></div>)}
-      </Time>
-      {/*<Time>
-        PM
-        {' '}
-        {militaryTime.map(hours => <div><div>{hours}</div><CellButton /></div>)}
+        {civilianTime.map((hours, index) => <div><div>{hours}</div><CellButton /></div>)}
       </Time>*/}
+      <Time>
+        {militaryTime.map((hours, index) => <div key={index}><div>{hours}</div><CellButton /></div>)}
+      </Time>
     </Wrapper>
   );
 };

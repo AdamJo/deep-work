@@ -2,16 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import { ChartMenu, DayChart } from 'components'
 
-const Charts = (props) => {
-  console.log(props);
+const Wrapper = styled.div`
+  background: teal;
+`
+
+const Charts = ({...props}) => {
   return (
-    <div>
+    <Wrapper {...props}>
       <ChartMenu/>
       {/*
         if else day/week/month/year chart based on chartMenu state
       */}
       <DayChart/>
-    </div>
+    </Wrapper>
   )
 }
 

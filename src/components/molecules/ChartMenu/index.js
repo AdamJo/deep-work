@@ -20,8 +20,8 @@ const Ul = styled.ul`
 const Li = styled.li`
 `;
 
-const ChartMenu = () => {
-  return (<Ul>
+const ChartMenu = (props) => {
+  return (<Ul {...props}>
     {menuOptions.map((date, index) => <Li key={index}><Button palette="secondary">{date}</Button></Li>)}
   </Ul>
   )
