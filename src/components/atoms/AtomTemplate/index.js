@@ -1,14 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 // used for yo generator
 const AtomTemplate = styled.div`
-`
+`;
 
-AtomTemplate.propTypes = {
-}
+AtomTemplate.propTypes = {};
 
-AtomTemplate.defaultProps = {
-}
+AtomTemplate.defaultProps = {};
 
 export default AtomTemplate;

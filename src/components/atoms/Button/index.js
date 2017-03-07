@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import { font, palette } from 'styled-theme'
+import React from 'react';
+import styled from 'styled-components';
+import { font, palette } from 'styled-theme';
 
 // const backgroundColor = () =>
 //   transparent ? 'transparent' : palette(disabled ? 2 : 1)
@@ -27,12 +27,11 @@ const Button = styled.div`
   &:focus {
     outline: none
   }
-`
-Button.propTypes = {
-}
+`;
+Button.propTypes = {};
 
 Button.defaultProps = {
-  palette: 'primary'
-}
+  palette: 'primary',
+};
 
 export default Button;

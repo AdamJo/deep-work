@@ -23,7 +23,7 @@
     "build": "cross-env NODE_ENV=production webpack",
     "create": "yo arc:component --ours",
     "lightnouse": "lighthouse https://everwaking.com --output-path=./lighthouse/lighthouse.html --output html",
-    "prettier": "prettier --write --trailing-comma=all \"src\""
+    "prettier": "prettier --write --single-quote --trailing-comma=all \"src/**/*.js\""
   },
   "jest": {
     "moduleDirectories": [

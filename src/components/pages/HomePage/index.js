@@ -1,11 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import { PageTemplate, Button } from 'components'
+import { PageTemplate, Button } from 'components';
 
 const HomePage = () => {
-  return (
-    <PageTemplate><Button>Hello</Button></PageTemplate>
-  )
-}
+  return <PageTemplate><Button>Hello</Button></PageTemplate>;
+};
 
-export default HomePage
+export default HomePage;

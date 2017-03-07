@@ -1,11 +1,11 @@
-import React from 'react'
-import { mount, shallow } from 'enzyme'
-import HomePage from '.'
+import React from 'react';
+import { mount, shallow } from 'enzyme';
+import HomePage from '.';
 
 it('renders', () => {
-  shallow(<HomePage />)
-})
+  shallow(<HomePage />);
+});
 
 it('mounts', () => {
-  mount(<HomePage/>)
-})
+  mount(<HomePage />);
+});

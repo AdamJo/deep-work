@@ -1,6 +1,6 @@
-import { createStore, applyMiddleware, compose } from 'redux'; 
+import { createStore, applyMiddleware, compose } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
-import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router';
 import configureStore from './configureStore';
 
 const defaultState = {};
