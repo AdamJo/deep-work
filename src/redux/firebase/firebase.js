@@ -2,13 +2,13 @@ import * as Firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 
-const config = {
+const firebaseConfig = {
   apiKey: 'AIzaSyBVW8_G36T8u0KUJXkw2PImFRQ7ZreHQHY',
   authDomain: 'deep-work-6707c.firebaseapp.com',
   databaseURL: 'https://deep-work-6707c.firebaseio.com',
 };
 
-export const firebaseApp = Firebase.initializeApp(FIREBASE_CONFIG);
+export const firebaseApp = Firebase.initializeApp(firebaseConfig);
 export const firebaseAuth = firebaseApp.auth();
 export const firebaseDb = firebaseApp.database();
 
