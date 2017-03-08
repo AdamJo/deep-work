@@ -17,18 +17,18 @@ const FireBaseTools = {
    * Return an instance of a firebase auth provider based on the provider string.
    *
    * @param provider
-   * @returns {firebase.auth.AuthProvider}
+   * @returns {firebaseAuth.AuthProvider}
    */
   getProvider: provider => {
     switch (provider) {
       case 'facebook':
-        return new firebase.auth.FacebookAuthProvider();
+        return new firebaseAuth.FacebookAuthProvider();
       case 'github':
-        return new firebase.auth.GithubAuthProvider();
+        return new firebaseAuth.GithubAuthProvider();
       case 'google':
-        return new firebase.auth.GoogleAuthProvider();
+        return new firebaseAuth.GoogleAuthProvider();
       case 'twitter':
-        return new firebase.auth.TwitterAuthProvider();
+        return new firebaseAuth.TwitterAuthProvider();
       default:
         throw new Error('Provider is not supported!!!');
     }

@@ -5,6 +5,8 @@ import FireBaseTools from '../firebase/firebase';
 import {
   LOGIN_WITH_PROVIDER_FIREBASE,
   FETCH_FIREBASE_USER,
+  FETCH_FIREBASE_USER_SUCCESS,
+  FETCH_FIREBASE_USER_FAILURE,
   UPDATE_FIREBASE_USER,
   LOGOUT_FIREBASE_USER,
 } from './types';
