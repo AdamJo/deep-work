@@ -10,8 +10,8 @@
   },
   "scripts": {
     "dev": "node server",
-    "prod": "npm run build && serve dist -s",
-    "prod:server": "serve dist -s",
+    "prod": "npm run build && serve dist -s -p 3001",
+    "prod:server": "serve dist -s -p 3001",
     "test": "cross-env NODE_ENV=test jest",
     "coverage": "npm test -- --coverage --watch",
     "coverage:only": "npm test -- --coverage",

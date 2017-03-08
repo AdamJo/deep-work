@@ -4,7 +4,6 @@ import { font, palette } from 'styled-theme';
 
 // const backgroundColor = () =>
 //   transparent ? 'transparent' : palette(disabled ? 2 : 1)
-
 const Button = styled.div`
   /* Adjust the Button styling based on the theme */
   background: ${palette(0)};
