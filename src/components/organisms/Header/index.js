@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 
 import { Button } from 'components';
@@ -21,7 +21,10 @@ const Header = ({loginWithProvider, logoutUser, ...props}) => {
   );
 };
 
-Header.propTypes = {};
+Header.propTypes = {
+  loginWithProvider: PropTypes.func,
+  logoutUser: PropTypes.func,
+};
 
 Header.defaultProps = {};
 

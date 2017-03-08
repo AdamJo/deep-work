@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { ChartMenu, DayChart } from 'components';
 
@@ -18,7 +18,11 @@ const Charts = ({ chart, chartView, updateDay, ...props }) => {
   );
 };
 
-Charts.propTypes = {};
+Charts.propTypes = {
+  chart: PropTypes.array,
+  chartView: PropTypes.func,
+  updateDay: PropTypes.func
+};
 
 Charts.defaultProps = {};
 
