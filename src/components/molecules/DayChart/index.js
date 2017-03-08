@@ -4,7 +4,7 @@ import { range } from 'lodash';
 
 import { CellButton } from 'components';
 
-// no package and verbose = [...Array(5).keys()];
+// no package and verbose = [...Array(24).keys()];
 const civilianTime = range(12).map(data => `${data + 1} `);
 const militaryTime = range(24).map(data => `${data + 1} `);
 
