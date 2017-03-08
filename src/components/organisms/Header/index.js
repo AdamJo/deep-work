@@ -10,12 +10,13 @@ const Wrapper = styled.div`
   padding: 1rem;
 `;
 
-const Header = props => {
+const Header = (props) => {
   return (
-    <Wrapper {...props}>
-      <Button>Log In</Button>
-      <Button>Log Out</Button>
+    <Wrapper>
+      <Button onClick={props.loginWithProvider.bind(null, 'google')}>Log In</Button>
+      <Button onClick={props.logoutUser.bind(null)}>Log Out</Button>
       <Button>Settings</Button>
+      <Button onClick={() => console.log(props, props.currentUser.value)}>{'{...props}'}</Button>
     </Wrapper>
   );
 };

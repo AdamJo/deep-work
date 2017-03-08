@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { range } from 'lodash';
 
 import { CellButton } from 'components';
 
 // no package and verbose = [...Array(24).keys()];
-// adding lodash adds an extra 70kb
+// adding lodash Range adds an extra 70kb
 const civilianTime = [...Array(12).keys()].map(data => `${data + 1} `);
 const militaryTime = [...Array(24).keys()].map(data => `${data + 1} `);
 

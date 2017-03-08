@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -27,7 +27,7 @@ const Content = styled.section`
 const PageTemplate = ({ header, children, ...props }) => {
   return (
     <Wrapper {...props}>
-      <Header header={header}>{header}</Header>
+      <Header>{cloneElement(header, props)}</Header>
       <Content>{children}</Content>
     </Wrapper>
   );
