@@ -20,7 +20,7 @@ const Time = styled.div`
   flex-direciton: row;
 `;
 
-const DayChart = ({...props}) => {
+const DayChart = ({ ...props }) => {
   return (
     <Wrapper {...props}>
       {/*<Time>
@@ -34,7 +34,9 @@ const DayChart = ({...props}) => {
         {civilianTime.map((hours, index) => <div><div>{hours}</div><CellButton /></div>)}
       </Time>*/}
       <Time>
-        {militaryTime.map((hours, index) => <div key={index}><div>{hours}</div><CellButton /></div>)}
+        {militaryTime.map((hours, index) => (
+          <div key={index}><div>{hours}</div><CellButton /></div>
+        ))}
       </Time>
     </Wrapper>
   );

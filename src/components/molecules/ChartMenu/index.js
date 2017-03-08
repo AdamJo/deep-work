@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from 'components'
+import { Button } from 'components';
 
 // determines state of chart;
 
@@ -20,12 +20,15 @@ const Ul = styled.ul`
 const Li = styled.li`
 `;
 
-const ChartMenu = (props) => {
-  return (<Ul {...props}>
-    {menuOptions.map((date, index) => <Li key={index}><Button palette="secondary">{date}</Button></Li>)}
-  </Ul>
-  )
-}
+const ChartMenu = props => {
+  return (
+    <Ul {...props}>
+      {menuOptions.map((date, index) => (
+        <Li key={index}><Button palette="secondary">{date}</Button></Li>
+      ))}
+    </Ul>
+  );
+};
 
 ChartMenu.propTypes = {};
 

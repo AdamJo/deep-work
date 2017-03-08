@@ -10,7 +10,7 @@ import * as actionCreators from '../redux/actions/actionCreators';
 function mapStateToProps(state) {
   return {
     currentUser: state.currentUser,
-    chart : state.chart
+    chart: state.chart,
   };
 }
 
@@ -22,7 +22,7 @@ const Main = class Main extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        { cloneElement(this.props.children, this.props) }
+        {cloneElement(this.props.children, this.props)}
       </ThemeProvider>
     );
   }

@@ -7,18 +7,10 @@ storiesOf('Button', module)
   .add('Secondary palette', () => (
     <Button palette="secondary">Secondary</Button>
   ))
-  .add('Tertiary palette', () => (
-    <Button palette="tertiary">Tertiary</Button>
-  ))
-  .add('Danger palette', () => (
-    <Button palette="danger">Danger</Button>
-  )).add('Success palette', () => (
-    <Button palette="success">Success</Button>
-  )).add('Greyscale palette', () => (
+  .add('Tertiary palette', () => <Button palette="tertiary">Tertiary</Button>)
+  .add('Danger palette', () => <Button palette="danger">Danger</Button>)
+  .add('Success palette', () => <Button palette="success">Success</Button>)
+  .add('Greyscale palette', () => (
     <Button palette="greyscale">Greyscale</Button>
-  )).add('Danger palette', () => (
-    <Button palette="danger">Danger</Button>
-  ));
-
-
-
+  ))
+  .add('Danger palette', () => <Button palette="danger">Danger</Button>);

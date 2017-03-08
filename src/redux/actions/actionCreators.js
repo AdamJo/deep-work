@@ -1,4 +1,4 @@
-import { UPDATE_DAY, TIME_FORMAT, CHART_VIEW } from './types'
+import { UPDATE_DAY, TIME_FORMAT, CHART_VIEW } from './types';
 
 import FireBaseTools from '../firebase/firebase';
 // / FIREBASE AUTH ACTIONS
@@ -9,7 +9,6 @@ import {
   LOGOUT_FIREBASE_USER,
 } from './types';
 
-
 /**
  * @param {Array<numbers>} hours array of numbers for amount of deep/shallow work
  * @param {Date}      day day being edited       
@@ -18,7 +17,7 @@ export function updateDay(hours, day) {
   return {
     type: UPDATE_DAY,
     hours,
-    day
+    day,
   };
 }
 
@@ -38,7 +37,7 @@ export function timeFormat(format) {
 export function chartView(view) {
   return {
     type: CHART_VIEW,
-    view
+    view,
   };
 }
 

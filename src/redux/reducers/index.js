@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import { routerReducer } from 'react-router-redux';
 
-import FireBaseUserReducer from './firebase'; 
+import FireBaseUserReducer from './firebase';
 import Chart from './chart';
 
 // Combine all our reducers togeher

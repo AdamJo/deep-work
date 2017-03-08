@@ -8,17 +8,17 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
   padding: 1rem;
-`
+`;
 
-const Header = (props) => {
+const Header = props => {
   return (
     <Wrapper {...props}>
       <Button>Log In</Button>
       <Button>Log Out</Button>
       <Button>Settings</Button>
     </Wrapper>
-  )
-}
+  );
+};
 
 Header.propTypes = {};
 

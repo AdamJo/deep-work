@@ -9,6 +9,8 @@ const DEBUG = process.env.NODE_ENV !== 'production'
 const PUBLIC_PATH = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const isVendor = ({ userRequest }) => (
   userRequest &&
@@ -73,7 +75,9 @@ if (DEBUG) {
       minChunks: isVendor,
     }),
     new WebpackMd5Hash(),
+    new LodashModuleReplacementPlugin,
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
+    new BundleAnalyzerPlugin(),
   ])
 }
 

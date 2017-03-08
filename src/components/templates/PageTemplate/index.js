@@ -11,7 +11,7 @@ const Header = styled.header`
   margin: 0;
   width: 100%;
   z-index: 1;
-`
+`;
 
 const Content = styled.section`
   display: flex;
