@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import React, { cloneElement, PropTypes } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -32,5 +32,12 @@ const PageTemplate = ({ header, children, ...props }) => {
     </Wrapper>
   );
 };
+
+PageTemplate.propTypes = {
+  header: PropTypes.node.isRequired,
+  hero: PropTypes.node,
+  footer: PropTypes.node,
+  children: PropTypes.any.isRequired,
+}
 
 export default PageTemplate;
