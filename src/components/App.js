@@ -1,15 +1,34 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component, cloneElement } from 'react';
 import { injectGlobal, ThemeProvider } from 'styled-components';
 import theme from './themes/';
 import './themes/global-style';
 
-const App = ({ children }) => {
-  return (
-    <ThemeProvider theme={theme}>
-      {children}
-    </ThemeProvider>
-  );
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actionCreators from '../redux/actions/actionCreators';
+
+function mapStateToProps(state) {
+  return {
+    currentUser: state.currentUser,
+    chart : state.chart
+  };
+}
+
+export function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch);
+}
+
+const Main = class Main extends Component {
+  render() {
+    return (
+      <ThemeProvider theme={theme}>
+        { cloneElement(this.props.children, this.props) }
+      </ThemeProvider>
+    );
+  }
 };
+
+const App = connect(mapStateToProps, mapDispatchToProps)(Main);
 
 App.propTypes = {
   children: PropTypes.any,
