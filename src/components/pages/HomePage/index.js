@@ -2,11 +2,11 @@ import React from 'react';
 
 import { PageTemplate, Header, Charts} from 'components';
 
-const HomePage = () => {
+const HomePage = ({...props}) => {
   return (
-  <PageTemplate header={<Header />}>
+  <PageTemplate {...props} header={<Header />}>
     {/*<ChartMenu/>*/}
-    <Charts/>
+    <Charts {...props}/>
   </PageTemplate>);
 };
 

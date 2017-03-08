@@ -7,7 +7,7 @@ injectGlobal`
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: ${theme.fonts.primary}
+    font-family: ${theme.fonts.primary};
   }
   #app {
     background-color: #fafafa;
