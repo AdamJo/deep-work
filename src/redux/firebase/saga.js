@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
+import { call, put, fork, takeLatest } from 'redux-saga/effects'
 import FireBaseTools from './firebase'
 
 // WORKER
@@ -12,9 +12,28 @@ function* fetchUser(action) {
    }
 }
 
+function* logUser(action) {
+   try {
+      const user = yield call(FireBaseTools.loginWithProvider, action.payload);
+      yield put({type: "LOGIN_WITH_PROVIDER_FIREBASE_SUCCESS", user: user.user});
+   } catch (e) {
+      yield put({type: "LOGIN_WITH_PROVIDER_FIREBASE_FAILURE", message: e.message});
+   }
+}
+
 // WATCHERS
-function* Saga() {
+function* watchFetchUser() {
   yield takeLatest("FETCH_FIREBASE_USER", fetchUser);
 }
 
-export default Saga;
+// WATCHERS
+function* watchLogIn() {
+  yield takeLatest("LOGIN_WITH_PROVIDER_FIREBASE", logUser);
+}
+
+export default function* Saga() {
+    yield [
+        fork(watchLogIn),
+        fork(watchFetchUser)
+    ];
+}

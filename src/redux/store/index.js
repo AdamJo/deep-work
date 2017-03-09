@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router';
 import configureStore from './configureStore';
 
 const defaultState = {
-  currentUser: {logged: false},
+  currentUser: {email: null},
 };
 
 const store = configureStore(defaultState);

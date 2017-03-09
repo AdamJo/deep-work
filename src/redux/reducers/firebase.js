@@ -1,5 +1,7 @@
 import {
   LOGIN_WITH_PROVIDER_FIREBASE,
+  LOGIN_WITH_PROVIDER_FIREBASE_SUCCESS,
+  LOGIN_WITH_PROVIDER_FIREBASE_FAILURE,
   FETCH_FIREBASE_USER,
   FETCH_FIREBASE_USER_SUCCESS,
   FETCH_FIREBASE_USER_FAILURE,
@@ -12,20 +14,24 @@ export default function(state = null, action) {
     case FETCH_FIREBASE_USER:
       return action.payload;
     case FETCH_FIREBASE_USER_SUCCESS:
-    if (action.user) {
-      return action.user.providerData[0];
-    } else {
-      return {logged: false};
-    }
+      return {
+        finished: true,
+        ...action.user
+      };
     case FETCH_FIREBASE_USER_FAILURE:
       return action.payload;
-    case FETCH_FIREBASE_USER:
-      return action.payload;
     case LOGOUT_FIREBASE_USER:
-      return {logged: false};
+      return {finished: true, email: null};
     case UPDATE_FIREBASE_USER:
       return action.payload;
     case LOGIN_WITH_PROVIDER_FIREBASE:
+      return action.payload;
+    case LOGIN_WITH_PROVIDER_FIREBASE_SUCCESS:
+      return {
+        finished: true,
+        ...action.user
+      };
+    case LOGIN_WITH_PROVIDER_FIREBASE_FAILURE:
       return action.payload;
     default:
       return state;

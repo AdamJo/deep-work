@@ -45,10 +45,9 @@ export function chartView(view) {
 
 // FIREBASE ACTIONS
 export function loginWithProvider(provider) {
-  const request = FireBaseTools.loginWithProvider(provider);
   return {
     type: LOGIN_WITH_PROVIDER_FIREBASE,
-    payload: request,
+    payload: provider,
   };
 }
 
