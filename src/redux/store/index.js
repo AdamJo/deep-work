@@ -5,6 +5,7 @@ import configureStore from './configureStore';
 
 const defaultState = {
   currentUser: {email: null},
+  chart: {}
 };
 
 const store = configureStore(defaultState);

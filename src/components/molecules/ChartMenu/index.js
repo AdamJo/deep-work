@@ -23,8 +23,8 @@ const Li = styled.li`
 const ChartMenu = props => {
   return (
     <Ul {...props}>
-      {menuOptions.map((date, index) => (
-        <Li key={index}><Button palette="secondary">{date}</Button></Li>
+      {menuOptions.map((viewType, index) => (
+        <Li key={index}><Button onClick={() => props.chartView(viewType)} palette="secondary">{viewType}</Button></Li>
       ))}
     </Ul>
   );

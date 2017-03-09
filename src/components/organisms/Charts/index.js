@@ -19,7 +19,7 @@ const Charts = ({ chart, chartView, updateDay, ...props }) => {
 };
 
 Charts.propTypes = {
-  chart: PropTypes.array,
+  chart: PropTypes.object,
   chartView: PropTypes.func,
   updateDay: PropTypes.func
 };
