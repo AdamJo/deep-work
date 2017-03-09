@@ -3,9 +3,9 @@ import 'firebase/auth';
 import 'firebase/database';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBVW8_G36T8u0KUJXkw2PImFRQ7ZreHQHY',
-  authDomain: 'deep-work-6707c.firebaseapp.com',
-  databaseURL: 'https://deep-work-6707c.firebaseio.com',
+  apiKey: "AIzaSyAXB1uhTyi78vXT5d7x5SE_uO4ChA8dStc",
+  authDomain: "deep-work-34bed.firebaseapp.com",
+  databaseURL: "https://deep-work-34bed.firebaseio.com"
 };
 
 export const firebaseApp = Firebase.initializeApp(firebaseConfig);
