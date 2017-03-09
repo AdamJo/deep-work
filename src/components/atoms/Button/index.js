@@ -4,9 +4,23 @@ import { font, palette } from 'styled-theme';
 
 // const backgroundColor = () =>
 //   transparent ? 'transparent' : palette(disabled ? 2 : 1)
+
+const active = ({ active }) =>
+  active === undefined || active
+    ? palette('primary', 0)
+    : palette('secondary', 0);
+const hoverBackground = ({ active }) =>
+  active === undefined || active
+    ? palette('primary', 2)
+    : palette('secondary', 2);
+const activeBackground = ({ active }) =>
+  active === undefined || active
+    ? palette('primary', 3)
+    : palette('secondary', 3);
+
 const Button = styled.div`
   /* Adjust the Button styling based on the theme */
-  background: ${palette(0)};
+  background: ${active};
   font-weight: bold;
   display: inline-block;
   box-sizing: border-box;
@@ -21,10 +35,10 @@ const Button = styled.div`
   margin: 0 5px;
   white-space: nowrap;
   &:hover {
-    background: ${palette(2)};
+    background: ${hoverBackground};
   }
   &:active {
-    background: ${palette(3)};
+    background: ${activeBackground};
   }
   &:focus {
     outline: none;
@@ -33,7 +47,7 @@ const Button = styled.div`
 Button.propTypes = {};
 
 Button.defaultProps = {
-  palette: 'primary',
+  palette: 'primary'
 };
 
 export default Button;

@@ -24,7 +24,11 @@ const ChartMenu = props => {
   return (
     <Ul {...props}>
       {menuOptions.map((viewType, index) => (
-        <Li key={index}><Button onClick={() => props.chartView(viewType)} palette="secondary">{viewType}</Button></Li>
+        <Li key={index}>
+          <Button active={props.chart.viewType === viewType ? true : false} onClick={() => props.chartView(viewType)} palette="secondary">
+            {viewType}
+          </Button>
+        </Li>
       ))}
     </Ul>
   );
