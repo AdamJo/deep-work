@@ -47,7 +47,7 @@ class Header extends Component {
 
   render() {
     return (
-      <Wrapper>
+      <Wrapper {...this.props}>
         {this.renderUserMenu(this.props.currentUser)}
       </Wrapper>
     );
@@ -59,6 +59,8 @@ Header.propTypes = {
   logoutUser: PropTypes.func,
 };
 
-Header.defaultProps = {};
+Header.defaultProps = {
+  currentUser: {}
+};
 
 export default Header;
