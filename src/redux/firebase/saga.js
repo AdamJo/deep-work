@@ -13,8 +13,8 @@ function* fetchUser(action) {
 }
 
 // WATCHERS
-function* mySaga() {
+function* Saga() {
   yield takeLatest("FETCH_FIREBASE_USER", fetchUser);
 }
 
-export default mySaga;
+export default Saga;

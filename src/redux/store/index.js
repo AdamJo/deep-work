@@ -3,7 +3,9 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import configureStore from './configureStore';
 
-const defaultState = {};
+const defaultState = {
+  currentUser: {logged: false},
+};
 
 const store = configureStore(defaultState);
 

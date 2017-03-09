@@ -12,13 +12,17 @@ export default function(state = null, action) {
     case FETCH_FIREBASE_USER:
       return action.payload;
     case FETCH_FIREBASE_USER_SUCCESS:
-      return action.user;
+    if (action.user) {
+      return action.user.providerData[0];
+    } else {
+      return {logged: false};
+    }
     case FETCH_FIREBASE_USER_FAILURE:
       return action.payload;
     case FETCH_FIREBASE_USER:
       return action.payload;
     case LOGOUT_FIREBASE_USER:
-      return action.payload;
+      return {logged: false};
     case UPDATE_FIREBASE_USER:
       return action.payload;
     case LOGIN_WITH_PROVIDER_FIREBASE:

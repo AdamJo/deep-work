@@ -75,6 +75,7 @@ if (DEBUG) {
       minChunks: isVendor,
     }),
     new WebpackMd5Hash(),
+    // new LodashModuleReplacementPlugin,
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     // new BundleAnalyzerPlugin(),
   ])

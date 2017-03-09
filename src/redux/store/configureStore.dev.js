@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import createLogger from 'redux-logger';
-import mySaga from '../firebase/saga'
+import Saga from '../firebase/saga'
 import rootReducer from '../reducers';
 
 export default function configureStore(initialState) {
@@ -13,7 +13,7 @@ export default function configureStore(initialState) {
   );
 
   const store = createStore(rootReducer, initialState, enhancers);
-  sagaMiddleware.run(mySaga)
+  sagaMiddleware.run(Saga)
   if (module.hot) {
     module.hot.accept('../reducers/', () => {
       const nextRootReducer = require('../reducers/index').default;
