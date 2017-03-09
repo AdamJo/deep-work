@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import styled from 'styled-components';
 
 import { Button } from 'components';
@@ -10,15 +10,48 @@ const Wrapper = styled.div`
   padding: 1rem;
 `;
 
-const Header = ({loginWithProvider, logoutUser, ...props}) => {
-  return (
-    <Wrapper {...props}>
-      <Button onClick={() => loginWithProvider('google')}>Log In</Button>
-      <Button onClick={logoutUser}>Log Out</Button>
-      <Button>Settings</Button>
-      <Button onClick={() => console.log(props)}>{'{...props}'}</Button>
-    </Wrapper>
-  );
+class Header extends Component {
+
+  constructor(props) {
+      super(props);
+      this.logOut = this.logOut.bind(this);
+      this.logIn = this.logIn.bind(this);
+  }
+
+  logOut() {
+    this.props.logoutUser();
+  }
+
+  logIn() {
+    this.props.loginWithProvider('google');
+  }
+
+  renderUserMenu(currentUser) {
+    if (currentUser.finished) {
+      return (
+        <div>
+          {currentUser && currentUser.uid ? 
+            <div>
+              <Button onClick={this.logOut}>Logout</Button>
+              <Button>Settings</Button>
+            </div>
+            :
+            <Button onClick={this.logIn}>LogIn</Button>
+          }
+        </div>
+      )
+    } else {
+      return <Button>Loading</Button>
+    }
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        {this.renderUserMenu(this.props.currentUser)}
+      </Wrapper>
+    );
+  }
 };
 
 Header.propTypes = {
