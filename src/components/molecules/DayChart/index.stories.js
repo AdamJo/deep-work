@@ -3,5 +3,5 @@ import { storiesOf } from '@kadira/storybook';
 import { DayChart } from 'components';
 
 storiesOf('DayChart', module).add('default', () => (
-  <DayChart>default</DayChart>
+  <DayChart updateWorkDate={() => console.log('done')}>default</DayChart>
 ));
