@@ -1,8 +1,8 @@
-import { UPDATE_DAY, TIME_FORMAT, CHART_VIEW } from '../actions/types';
+import { UPDATE_WORK_DATE, TIME_FORMAT, CHART_VIEW } from '../actions/types';
 
 function Chart(state = {}, action) {
   switch (action.type) {
-    case UPDATE_DAY:
+    case UPDATE_WORK_DATE:
       return {
         ...state,
           date: action.date,

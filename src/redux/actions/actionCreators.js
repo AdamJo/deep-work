@@ -9,15 +9,16 @@ import {
   FETCH_FIREBASE_USER_FAILURE,
   UPDATE_FIREBASE_USER,
   LOGOUT_FIREBASE_USER,
+  UPDATE_WORK_DATE,
 } from './types';
 
 /**
  * @param {Array<numbers>} hours array of numbers for amount of deep/shallow work
  * @param {Date}      day day being edited       
  */
-export function updateDay(hours, date) {
+export function updateWorkDate(hours, date) {
   return {
-    type: UPDATE_DAY,
+    type: UPDATE_WORK_DATE,
     hours,
     date,
   };
