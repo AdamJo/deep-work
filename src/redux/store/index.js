@@ -12,6 +12,7 @@ const defaultState = {
     format: '12',
     viewType: 'day',
     date,
+    workHover: false,
   },
 };
 

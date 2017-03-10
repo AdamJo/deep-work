@@ -10,6 +10,8 @@ import {
   UPDATE_FIREBASE_USER,
   LOGOUT_FIREBASE_USER,
   UPDATE_WORK_DATE,
+  OPEN_WORK_HOVER,
+  CLOSE_WORK_HOVER
 } from './types';
 
 /**
@@ -41,6 +43,20 @@ export function chartView(view) {
   return {
     type: CHART_VIEW,
     view,
+  };
+}
+
+export function openWorkHover() {
+  return {
+    type: OPEN_WORK_HOVER,
+  };
+}
+
+export function closeWorkHover(hours, date) {
+  return {
+    type: CLOSE_WORK_HOVER,
+    hours,
+    date,
   };
 }
 
