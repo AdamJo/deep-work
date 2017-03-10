@@ -10,6 +10,7 @@ const hourType = ({ hourType }) => {
     case 2:
       return palette(1);
     default:
+      return palette('white', 0);
       break;
   }
 };
