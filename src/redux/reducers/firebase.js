@@ -30,8 +30,8 @@ export default function(state = null, action) {
       return { finished: true, email: null };
     case UPDATE_FIREBASE_USER:
       return action.payload;
-    // case LOGIN_WITH_PROVIDER_FIREBASE:
-    //   return action.payload;
+    case LOGIN_WITH_PROVIDER_FIREBASE:
+      return action.payload;
     // case LOGIN_WITH_PROVIDER_FIREBASE_SUCCESS:
     //   if (action.user) {
     //     return {
