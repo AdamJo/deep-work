@@ -38,6 +38,6 @@ PageTemplate.propTypes = {
   hero: PropTypes.node,
   footer: PropTypes.node,
   children: PropTypes.any.isRequired,
-}
+};
 
 export default PageTemplate;

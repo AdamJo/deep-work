@@ -5,14 +5,14 @@ import configureStore from './configureStore';
 
 //todo testing
 let date = new Date();
-date = date.toString().split(' ').slice(0,4).join(' ')
+date = date.toString().split(' ').slice(0, 4).join(' ');
 const defaultState = {
-  currentUser: {email: null},
+  currentUser: { email: null },
   chart: {
     format: '12',
     viewType: 'day',
-    date
-  }
+    date,
+  },
 };
 
 const store = configureStore(defaultState);

@@ -16,7 +16,7 @@ theme.palette = {
   white: ['#eff3f7', '#dee5e5', '#f5f5f5'], // 	hsl(210, 33%, 95%) - hsl(180, 12%, 88%) -	hsl(0, 0%, 96%)
   black: ['#100c08'], // hsl(30, 33%, 5%)
 
-  work: ['']
+  work: [''],
 };
 
 theme.fonts = {

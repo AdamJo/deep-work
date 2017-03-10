@@ -11,11 +11,10 @@ const Wrapper = styled.div`
 `;
 
 class Header extends Component {
-
   constructor(props) {
-      super(props);
-      this.logOut = this.logOut.bind(this);
-      this.logIn = this.logIn.bind(this);
+    super(props);
+    this.logOut = this.logOut.bind(this);
+    this.logIn = this.logIn.bind(this);
   }
 
   logOut() {
@@ -30,18 +29,16 @@ class Header extends Component {
     if (currentUser.finished) {
       return (
         <div>
-          {currentUser && currentUser.uid ? 
-            <div>
-              <Button onClick={this.logOut}>Logout</Button>
-              <Button>Settings</Button>
-            </div>
-            :
-            <Button onClick={this.logIn}>LogIn</Button>
-          }
+          {currentUser && currentUser.uid
+            ? <div>
+                <Button onClick={this.logOut}>Logout</Button>
+                <Button>Settings</Button>
+              </div>
+            : <Button onClick={this.logIn}>LogIn</Button>}
         </div>
-      )
+      );
     } else {
-      return <Button>Loading</Button>
+      return <Button>Loading</Button>;
     }
   }
 
@@ -52,7 +49,7 @@ class Header extends Component {
       </Wrapper>
     );
   }
-};
+}
 
 Header.propTypes = {
   loginWithProvider: PropTypes.func,
@@ -60,7 +57,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  currentUser: {}
+  currentUser: {},
 };
 
 export default Header;

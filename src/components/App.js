@@ -20,8 +20,8 @@ export function mapDispatchToProps(dispatch) {
 
 const Main = class Main extends Component {
   constructor(props) {
-      super(props);
-      this.props.fetchUser();
+    super(props);
+    this.props.fetchUser();
   }
 
   render() {

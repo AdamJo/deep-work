@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
-const hourType = ({hourType}) => {
+const hourType = ({ hourType }) => {
   switch (hourType) {
     case 1:
       return palette(0);
@@ -22,11 +22,11 @@ const CellButton = styled.button`
 
 CellButton.propTypes = {
   hourType: PropTypes.number,
-  palette: PropTypes.string
+  palette: PropTypes.string,
 };
 
 CellButton.defaultProps = {
-  palette: 'greyscale'
+  palette: 'greyscale',
 };
 
 export default CellButton;

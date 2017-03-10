@@ -5,18 +5,18 @@ function Chart(state = {}, action) {
     case UPDATE_WORK_DATE:
       return {
         ...state,
-          date: action.date,
-          hours: action.hours,
+        date: action.date,
+        hours: action.hours,
       };
     case TIME_FORMAT:
       return {
         ...state,
-          format: action.format,
-        };
+        format: action.format,
+      };
     case CHART_VIEW:
       return {
         ...state,
-          viewType: action.view,
+        viewType: action.view,
       };
     default:
       return state;

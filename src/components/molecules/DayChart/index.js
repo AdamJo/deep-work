@@ -37,14 +37,23 @@ function calcTime(index) {
   return allHours;
 }
 
-const DayChart = ({ chart={format: '12', date: 'Thu Mar 09 2017'}, updateWorkDate, ...props }) => {
+const DayChart = (
+  {
+    chart = { format: '12', date: 'Thu Mar 09 2017' },
+    updateWorkDate,
+    ...props
+  },
+) => {
   return (
     <Wrapper {...props}>
       <Time>
         {time.map((hours, index) => (
           <div key={index}>
             <div>{renderTimeLine(chart.format, hours)}</div>
-            <CellButton hourType={allHours[index]} onClick={() => updateWorkDate(calcTime(index), chart.date)} />
+            <CellButton
+              hourType={allHours[index]}
+              onClick={() => updateWorkDate(calcTime(index), chart.date)}
+            />
           </div>
         ))}
       </Time>

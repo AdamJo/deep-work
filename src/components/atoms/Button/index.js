@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
@@ -50,7 +50,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  palette: 'primary'
+  palette: 'primary',
 };
 
 export default Button;
