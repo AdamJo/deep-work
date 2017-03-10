@@ -6,14 +6,14 @@ const Wrapper = styled.div`
   background: teal;
 `;
 
-const Charts = ({ chart, chartView, updateDay, ...props }) => {
+const Charts = ({ chart, chartView, updateWorkDate, timeFormat, ...props }) => {
   return (
     <Wrapper {...props}>
-      <ChartMenu chart={chart} chartView={chartView} />
+      <ChartMenu timeFormat={timeFormat} chart={chart} chartView={chartView} />
       {/*
         if else day/week/month/year chart based on chartMenu state
       */}
-      <DayChart chart={chart} updateDay={updateDay} />
+      <DayChart chart={chart} updateWorkDate={updateWorkDate} />
     </Wrapper>
   );
 };
