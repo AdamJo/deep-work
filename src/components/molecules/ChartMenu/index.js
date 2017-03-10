@@ -20,16 +20,20 @@ const Ul = styled.ul`
 const Li = styled.li`
 `;
 
-const ChartMenu = props => {
+const ChartMenu = ({chartView, chart={viewType: 'day', format: '12'}, timeFormat, ...props}) => {
   return (
     <Ul {...props}>
       {menuOptions.map((viewType, index) => (
         <Li key={index}>
-          <Button active={props.chart.viewType === viewType ? true : false} onClick={() => props.chartView(viewType)} palette="secondary">
+          <Button active={chart.viewType === viewType ? true : false} onClick={() => chartView(viewType)} palette="secondary">
             {viewType}
           </Button>
-        </Li>
+        </Li>        
       ))}
+      <Li>
+        <Button active={chart.format === '12' ? true : false} onClick={() => timeFormat('12')}>12h</Button>
+        <Button active={chart.format === '24' ? true : false} onClick={() => timeFormat('24')}>24h</Button>
+      </Li>
     </Ul>
   );
 };
