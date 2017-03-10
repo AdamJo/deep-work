@@ -3,9 +3,16 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import configureStore from './configureStore';
 
+//todo testing
+let date = new Date();
+date = date.toString().split(' ').slice(0,4).join(' ')
 const defaultState = {
   currentUser: {email: null},
-  chart: {}
+  chart: {
+    format: '12',
+    viewType: 'day',
+    date
+  }
 };
 
 const store = configureStore(defaultState);

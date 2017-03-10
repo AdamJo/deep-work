@@ -15,11 +15,11 @@ import {
  * @param {Array<numbers>} hours array of numbers for amount of deep/shallow work
  * @param {Date}      day day being edited       
  */
-export function updateDay(hours, day) {
+export function updateDay(hours, date) {
   return {
     type: UPDATE_DAY,
     hours,
-    day,
+    date,
   };
 }
 

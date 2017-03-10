@@ -5,7 +5,7 @@ function Chart(state = {}, action) {
     case UPDATE_DAY:
       return {
         ...state,
-          day: action.day,
+          date: action.date,
           hours: action.hours,
       };
     case TIME_FORMAT:
