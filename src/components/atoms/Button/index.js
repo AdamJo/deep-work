@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
@@ -44,7 +44,10 @@ const Button = styled.div`
     outline: none;
   }
 `;
-Button.propTypes = {};
+Button.propTypes = {
+  action: PropTypes.string,
+  palette: PropTypes.string,
+};
 
 Button.defaultProps = {
   palette: 'primary'

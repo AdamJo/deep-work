@@ -21,9 +21,8 @@ const Charts = ({ chart, chartView, updateDay, ...props }) => {
 Charts.propTypes = {
   chart: PropTypes.object,
   chartView: PropTypes.func,
-  updateDay: PropTypes.func
+  updateWorkDate: PropTypes.func,
+  timeFormat: PropTypes.func,
 };
-
-Charts.defaultProps = {};
 
 export default Charts;

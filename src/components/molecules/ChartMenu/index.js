@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { Button } from 'components';
 
@@ -34,8 +34,10 @@ const ChartMenu = props => {
   );
 };
 
-ChartMenu.propTypes = {};
-
-ChartMenu.defaultProps = {};
+ChartMenu.propTypes = {
+  chartView: PropTypes.func,
+  timeFormat: PropTypes.func,
+  chart: PropTypes.object,
+};
 
 export default ChartMenu;
