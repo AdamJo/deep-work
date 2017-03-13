@@ -8,17 +8,18 @@ const hourType = ({ hourType }) => {
       return palette(0);
       break;
     case 2:
-      return palette(1);
+      return `linear-gradient(bottom, #838383 50%, #eff3f7 0)`;
     default:
       return palette('white', 0);
       break;
   }
 };
 
-const CellButton = styled.button`
+const CellButton = styled.div`
   background: ${hourType};
-  width: 20px;
+  width: 40px;
   height: 20px;
+  user-select: none;
 `;
 
 CellButton.propTypes = {
