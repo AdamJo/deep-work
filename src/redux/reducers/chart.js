@@ -21,14 +21,12 @@ function Chart(state = {}, action) {
     case OPEN_WORK_HOVER:
       return {
         ...state,
-        workHover: true
+        workHover: false,
       }
     case CLOSE_WORK_HOVER:
       return {
         ...state,
-        workHover: false,
-        date: action.date,
-        hours: action.hours
+        workHover: true,
       }
     default:
       return state;

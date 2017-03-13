@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import styled, { keyframes} from 'styled-components';
+import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
 const hourType = ({ hourType }) => {
@@ -15,24 +15,17 @@ const hourType = ({ hourType }) => {
   }
 };
 
-const floatUp = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`
-
 const hidden = ({ hidden }) => hidden ? 'none' : 'block';
+const deep = ({deep}) => deep ? 'left' : 'bottom';
 
 const CellButton = styled.button`
   background: ${hourType};
   display: ${hidden};
   width: 20px;
   height: 20px;
-  animation: ${floatUp} 2s linear infinite;
+
+  &:hover {
+  }
 `;
 
 CellButton.propTypes = {
