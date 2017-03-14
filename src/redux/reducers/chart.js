@@ -27,6 +27,10 @@ function Chart(state = {}, action) {
       return {
         ...state,
         workHover: true,
+    case WORK_HOUR_RANGE:
+      return {
+        ...state,
+        hourRange: action.hourRange,
       }
     default:
       return state;

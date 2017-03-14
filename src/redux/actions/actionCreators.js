@@ -56,7 +56,14 @@ export function closeWorkHover(hours, date) {
   return {
     type: CLOSE_WORK_HOVER,
     hours,
-    date,
+    date
+  };
+}
+
+export function workHourRange(min, max) {
+  return {
+    type: WORK_HOUR_RANGE,
+    hourRange: [min, max]
   };
 }
 
