@@ -65,10 +65,10 @@ export function closeWorkHover(hours, date) {
   };
 }
 
-export function workHourRange(min, max) {
+export function workHourRange(range) {
   return {
     type: WORK_HOUR_RANGE,
-    hourRange: [min, max],
+    hourRange: {min: range[0], max: range[1]},
   };
 }
 

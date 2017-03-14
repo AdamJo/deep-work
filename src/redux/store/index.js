@@ -13,7 +13,10 @@ const defaultState = {
     viewType: 'day',
     date,
     workHover: false,
-    hoursRange: [8, 18]
+    hourRange: {
+      min: 8,
+      max: 18,
+    }
   },
 };
 

@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 
 const Charts = (
   {
-    chart = { format: '12', hoursRange: [8, 16] },
+    chart = { format: '12', hourRange: {min: 8,max: 18} },
     chartView,
     updateWorkDate,
     updateTimeFormat,
@@ -28,10 +28,10 @@ const Charts = (
         chart={chart}
         chartView={chartView}
       />
-      <Slider hoursRange={chart.hoursRange} workHourRange={workHourRange} timeFormat={chart.format} />
+      <Slider hourRange={chart.hourRange} workHourRange={workHourRange} timeFormat={chart.format} />
       <DayChart
         chart={chart}
-        hoursRange={chart.hoursRange}
+        hourRange={chart.hourRange}
         updateWorkDate={updateWorkDate}
         closeWorkHover={closeWorkHover}
         openWorkHover={openWorkHover}
@@ -45,6 +45,7 @@ Charts.propTypes = {
   chartView: PropTypes.func,
   updateWorkDate: PropTypes.func,
   timeFormat: PropTypes.func,
+  hourRange: PropTypes.object
 };
 
 export default Charts;

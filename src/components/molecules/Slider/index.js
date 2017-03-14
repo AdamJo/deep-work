@@ -27,12 +27,12 @@ const civilian = {
   24: '12am',
 };
 
-const Slider = ({ timeFormat, workHourRange, hoursRange }) => (
+const Slider = ({ timeFormat, workHourRange, hourRange }) => (
   <Wrapper>
     <Range
       allowCross={false}
       marks={timeFormat === '24' ? military : civilian}
-      defaultValue={hoursRange}
+      defaultValue={[hourRange.min, hourRange.max]}
       min={1}
       max={24}
       onChange={workHourRange}
@@ -43,7 +43,7 @@ const Slider = ({ timeFormat, workHourRange, hoursRange }) => (
 Slider.propTypes = {
   workHourRange: PropTypes.func,
   timeFormat: PropTypes.string,
-  hoursRange: PropTypes.array,
+  hourRange: PropTypes.object,
 };
 
 export default Slider;

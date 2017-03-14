@@ -38,7 +38,10 @@ function Chart(state = {}, action) {
     case WORK_HOUR_RANGE:
       return {
         ...state,
-        hourRange: action.hourRange,
+        hourRange: {
+          min: action.hourRange.min,
+          max: action.hourRange.max,
+        }
       };
     default:
       return state;
