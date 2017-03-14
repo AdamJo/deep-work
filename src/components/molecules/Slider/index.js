@@ -27,7 +27,7 @@ const civilian = {
   24: '12am',
 };
 
-const Slider = ({ timeFormat, workHourRange, hourRange }) => (
+const Slider = ({ timeFormat, workHourRange, hourRange={min: 8, max: 16}, }) => (
   <Wrapper>
     <Range
       allowCross={false}
