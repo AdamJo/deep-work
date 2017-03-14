@@ -1,4 +1,4 @@
-import { UPDATE_WORK_DATE, TIME_FORMAT, CHART_VIEW, CLOSE_WORK_HOVER, OPEN_WORK_HOVER } from '../actions/types';
+import { UPDATE_WORK_DATE, UPDATE_TIME_FORMAT, CHART_VIEW, CLOSE_WORK_HOVER, OPEN_WORK_HOVER, WORK_HOUR_RANGE } from '../actions/types';
 
 function Chart(state = {}, action) {
   switch (action.type) {
