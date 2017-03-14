@@ -1,4 +1,12 @@
-import { UPDATE_DAY, TIME_FORMAT, CHART_VIEW } from './types';
+import {
+  UPDATE_TIME_FORMAT,
+  TIME_FORMAT,
+  CHART_VIEW,
+  WORK_HOUR_RANGE,
+  UPDATE_WORK_DATE,
+  OPEN_WORK_HOVER,
+  CLOSE_WORK_HOVER,
+} from './types';
 
 import FireBaseTools from '../firebase/firebase';
 // / FIREBASE AUTH ACTIONS
@@ -9,9 +17,6 @@ import {
   FETCH_FIREBASE_USER_FAILURE,
   UPDATE_FIREBASE_USER,
   LOGOUT_FIREBASE_USER,
-  UPDATE_WORK_DATE,
-  OPEN_WORK_HOVER,
-  CLOSE_WORK_HOVER
 } from './types';
 
 /**
