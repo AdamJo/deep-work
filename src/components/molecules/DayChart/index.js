@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 
-import { CellButton, HoverWork } from 'components';
+import { CellButton, HoverWork, Hours } from 'components';
 
 // no package and verbose = [...Array(24).keys()];
 // adding lodash Range adds an extra 70kb
@@ -14,10 +14,6 @@ const Wrapper = styled.div`
   justifyContent: space-between;
   flex-wrap: wrap;
   text-align: center;
-  user-select: none;
-`;
-
-const Hours = styled.div`
   user-select: none;
 `;
 
@@ -70,7 +66,7 @@ const DayChart = (
       {/*onMouseDown={() => findWork()}*/}
       {time.map((hours, index) => (
         <div key={index}>
-          <Hours >{renderTimeLine(chart.format, hours)}</Hours>
+          <Hours timeFormat={chart.format} hour={hour} />
           <div style={{display: 'flex'}} >
             <CellButton
               hourType={allHours[index * 2]}
