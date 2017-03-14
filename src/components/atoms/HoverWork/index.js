@@ -16,7 +16,7 @@ const hourType = ({ hourType }) => {
 };
 
 const hidden = ({ hidden }) => hidden ? 'none' : 'block';
-const deep = ({deep}) => deep ? 'left' : 'bottom';
+const deep = ({ deep }) => deep ? 'left' : 'bottom';
 
 const CellButton = styled.button`
   background: ${hourType};

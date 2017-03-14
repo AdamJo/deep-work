@@ -1,4 +1,11 @@
-import { UPDATE_WORK_DATE, UPDATE_TIME_FORMAT, CHART_VIEW, CLOSE_WORK_HOVER, OPEN_WORK_HOVER, WORK_HOUR_RANGE } from '../actions/types';
+import {
+  UPDATE_WORK_DATE,
+  UPDATE_TIME_FORMAT,
+  CHART_VIEW,
+  CLOSE_WORK_HOVER,
+  OPEN_WORK_HOVER,
+  WORK_HOUR_RANGE,
+} from '../actions/types';
 
 function Chart(state = {}, action) {
   switch (action.type) {
@@ -21,17 +28,18 @@ function Chart(state = {}, action) {
     case OPEN_WORK_HOVER:
       return {
         ...state,
-        workHover: false,
-      }
+        workHover: true,
+      };
     case CLOSE_WORK_HOVER:
       return {
         ...state,
-        workHover: true,
+        workHover: false,
+      };
     case WORK_HOUR_RANGE:
       return {
         ...state,
         hourRange: action.hourRange,
-      }
+      };
     default:
       return state;
   }

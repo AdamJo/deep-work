@@ -13,12 +13,13 @@ function renderTimeLine(format, hour) {
   }
 }
 
-
 const Hour = styled.div`
   user-select: none;
 `;
 
-const Hours = ({timeFormat, hour}) => <Hour >{renderTimeLine(timeFormat, hour)}</Hour>
+const Hours = ({ timeFormat, hour }) => (
+  <Hour>{renderTimeLine(timeFormat, hour)}</Hour>
+);
 
 Hours.propTypes = {};
 

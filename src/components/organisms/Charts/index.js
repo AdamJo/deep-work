@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
-import { ChartMenu, DayChart } from 'components';
+import { ChartMenu, DayChart, Slider } from 'components';
 
 const Wrapper = styled.div`
   background: teal;
@@ -8,21 +8,26 @@ const Wrapper = styled.div`
 
 const Charts = (
   {
-    chart,
+    chart = { format: '12' },
     chartView,
     updateWorkDate,
-    timeFormat,
+    updateTimeFormat,
     closeWorkHover,
     openWorkHover,
     ...props
-  }
+  },
 ) => {
   return (
     <Wrapper {...props}>
-      <ChartMenu timeFormat={timeFormat} chart={chart} chartView={chartView} />
       {/*
         if else day/week/month/year chart based on chartMenu state
       */}
+      <ChartMenu
+        updateTimeFormat={updateTimeFormat}
+        chart={chart}
+        chartView={chartView}
+      />
+      <Slider timeFormat={chart.format} />
       <DayChart
         chart={chart}
         updateWorkDate={updateWorkDate}

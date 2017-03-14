@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Range from 'rc-slider/lib/Range'; 
-
+import Range from 'rc-slider/lib/Range';
 
 function log(value) {
   console.log(value); //eslint-disable-line
@@ -25,14 +24,21 @@ const civilian = {
   12: '12pm',
   16: '4pm',
   20: '8pm',
-  24: '12am'
+  24: '12am',
 };
 
-const Slider = ({timeFormat, workHourRange}) => (
+const Slider = ({ timeFormat, workHourRange }) => (
   <div style={style}>
-    <Range allowCross={false} marks={timeFormat === '24' ? military : civilian} defaultValue={[8, 18]} min={1} max={24} onChange={log} />
+    <Range
+      allowCross={false}
+      marks={timeFormat === '24' ? military : civilian}
+      defaultValue={[8, 18]}
+      min={1}
+      max={24}
+      onChange={log}
+    />
   </div>
-)
+);
 
 Slider.propTypes = {};
 

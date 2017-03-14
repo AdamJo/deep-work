@@ -24,7 +24,7 @@ const ChartMenu = (
   {
     chartView,
     chart = { viewType: 'day', format: '12' },
-    timeFormat,
+    updateTimeFormat,
     ...props
   },
 ) => {
@@ -44,13 +44,13 @@ const ChartMenu = (
       <Li>
         <Button
           active={chart.format === '12' ? true : false}
-          onClick={() => timeFormat('12')}
+          onClick={() => updateTimeFormat('12')}
         >
           12h
         </Button>
         <Button
           active={chart.format === '24' ? true : false}
-          onClick={() => timeFormat('24')}
+          onClick={() => updateTimeFormat('24')}
         >
           24h
         </Button>

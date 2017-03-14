@@ -47,7 +47,7 @@ function calcTime(index, drag) {
 
 const DayChart = (
   {
-    chart={ format: '12', date: 'Thu Mar 09 2017' },
+    chart = { format: '12', date: 'Thu Mar 09 2017' },
     updateWorkDate,
     closeWorkHover,
     openWorkHover,
@@ -55,32 +55,43 @@ const DayChart = (
   },
 ) => {
   return (
-  <div>
+    <div>
 
-    <Wrapper {...props}
-      onMouseDown={() => openWorkHover()}
-      onMouseUp={() => closeWorkHover()}
-    >
-      {time.map((hour, index) => (
-        <div key={index}>
-          <Hours timeFormat={chart.format} hour={hour} />
-          <div style={{display: 'flex'}} >
-            <CellButton
-              hourType={allHours[index * 2]}
-              onMouseDown={() => updateWorkDate(calcTime(index * 2, false), chart.date)}
-              onMouseEnter={chart.workHover ? () => updateWorkDate(calcTime(index * 2), chart.date) : ''}
-            ></CellButton>
+      <Wrapper
+        {...props}
+        onMouseDown={() => openWorkHover()}
+        onMouseUp={() => closeWorkHover()}
+      >
+        {time.map((hour, index) => (
+          <div key={index}>
+            <Hours timeFormat={chart.format} hour={hour} />
+            <div style={{ display: 'flex' }}>
+              <CellButton
+                hourType={allHours[index * 2]}
+                onMouseDown={() =>
+                  updateWorkDate(calcTime(index * 2, false), chart.date)}
+                onMouseEnter={
+                  chart.workHover
+                    ? () => updateWorkDate(calcTime(index * 2), chart.date)
+                    : ''
+                }
+              />
               &nbsp;
-            <CellButton
-              hourType={allHours[index * 2 + 1]}
-              onMouseDown={() => updateWorkDate(calcTime(index * 2 + 1, false), chart.date)}
-              onMouseEnter={chart.workHover ? () => updateWorkDate(calcTime(index * 2 + 1), chart.date) : ''}
-            ></CellButton>
+              <CellButton
+                hourType={allHours[index * 2 + 1]}
+                onMouseDown={() =>
+                  updateWorkDate(calcTime(index * 2 + 1, false), chart.date)}
+                onMouseEnter={
+                  chart.workHover
+                    ? () => updateWorkDate(calcTime(index * 2 + 1), chart.date)
+                    : ''
+                }
+              />
+            </div>
           </div>
-        </div>
-      ))}
-    </Wrapper>
-      </div>
+        ))}
+      </Wrapper>
+    </div>
   );
 };
 

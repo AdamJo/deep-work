@@ -37,7 +37,7 @@ export function updateWorkDate(hours, date) {
 export function updateTimeFormat(format) {
   return {
     type: UPDATE_TIME_FORMAT,
-    format
+    format,
   };
 }
 
@@ -61,14 +61,14 @@ export function closeWorkHover(hours, date) {
   return {
     type: CLOSE_WORK_HOVER,
     hours,
-    date
+    date,
   };
 }
 
 export function workHourRange(min, max) {
   return {
     type: WORK_HOUR_RANGE,
-    hourRange: [min, max]
+    hourRange: [min, max],
   };
 }
 
