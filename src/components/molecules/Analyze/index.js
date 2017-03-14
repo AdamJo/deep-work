@@ -3,10 +3,36 @@ import styled from 'styled-components';
 
 import { TotalHours } from 'components';
 
+
+function calcHours(hours, hourRange, deep) {
+  return hours.reduce((acc, hour, index, arr) => {
+    const calcRangeHour = Math.round(index / 2);
+    const min = calcRangeHour >= hourRange.min;
+    const max = calcRangeHour <= hourRange.max;
+    if (deep && min && max) {
+      if (hour === 1) {
+        print('this too', acc + .5)
+        return acc + .5
+      } else {
+        return acc + 0
+      }
+    } else if (!deep && min && max) {
+      if (hour === 2) {
+        return acc + .5
+      } else {
+        return acc + 0
+      }
+    } else {
+      return acc + 0;
+    }
+  }, 0)
+}
+
 const Wrapper = styled.div`
   display: flex;
   background: lightgreen;
 `
+
 const Analyze =  (
   {
     hours,
@@ -16,6 +42,9 @@ const Analyze =  (
 ) => {
   return (
     <Wrapper {...props}>
+      <TotalHours>deep: {calcHours(hours, hourRange, true)}</TotalHours>
+      ---
+      <TotalHours>shallow: {calcHours(hours, hourRange, false)}</TotalHours>
     </Wrapper>
   ) 
 }
