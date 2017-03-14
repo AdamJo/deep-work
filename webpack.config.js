@@ -12,6 +12,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
+const StringReplacePlugin = require("string-replace-webpack-plugin");
+
 const isVendor = ({ userRequest }) => (
   userRequest &&
   userRequest.indexOf('node_modules') >= 0 &&
@@ -36,6 +38,7 @@ const config = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'process.env.PUBLIC_PATH': JSON.stringify(PUBLIC_PATH),
     }),
+    new StringReplacePlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(__dirname, '/public/index.html'),
@@ -43,6 +46,17 @@ const config = {
   ],
   module: {
     rules: [
+      // replaces print with console.log to ease the switching from Python3
+      { test: /\.js$/, loader: StringReplacePlugin.replace({
+          replacements: [
+              {
+                  pattern: /print\((\'\w*?\')\);/ig,
+                  replacement: function (match, p1, offset, string) {
+                      return `console.log(${p1})`;
+                  }
+              }
+          ]})
+      },
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.png$/, loader: 'url-loader?prefix=images/&limit=8000&mimetype=image/png' },
       { test: /\.jpg$/, loader: 'url-loader?prefix=images/&limit=8000&mimetype=image/jpeg' },
