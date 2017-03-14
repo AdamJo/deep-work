@@ -8,12 +8,13 @@ const Wrapper = styled.div`
 
 const Charts = (
   {
-    chart = { format: '12' },
+    chart = { format: '12', hoursRange: [8, 16] },
     chartView,
     updateWorkDate,
     updateTimeFormat,
     closeWorkHover,
     openWorkHover,
+    workHourRange,
     ...props
   },
 ) => {
@@ -27,9 +28,10 @@ const Charts = (
         chart={chart}
         chartView={chartView}
       />
-      <Slider timeFormat={chart.format} />
+      <Slider hoursRange={chart.hoursRange} workHourRange={workHourRange} timeFormat={chart.format} />
       <DayChart
         chart={chart}
+        hoursRange={chart.hoursRange}
         updateWorkDate={updateWorkDate}
         closeWorkHover={closeWorkHover}
         openWorkHover={openWorkHover}

@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import styled from 'styled-components';
 import Range from 'rc-slider/lib/Range';
 
-function log(value) {
-  console.log(value); //eslint-disable-line
-}
+const Wrapper = styled.div`
+  width: 400px;
+  margin: 50px;
+`
 
-const style = { width: 400, margin: 50 };
 const military = {
   1: '01:00',
   4: '04:00',
@@ -27,21 +27,23 @@ const civilian = {
   24: '12am',
 };
 
-const Slider = ({ timeFormat, workHourRange }) => (
-  <div style={style}>
+const Slider = ({ timeFormat, workHourRange, hoursRange }) => (
+  <Wrapper>
     <Range
       allowCross={false}
       marks={timeFormat === '24' ? military : civilian}
-      defaultValue={[8, 18]}
+      defaultValue={hoursRange}
       min={1}
       max={24}
-      onChange={log}
+      onChange={workHourRange}
     />
-  </div>
+  </Wrapper>
 );
 
-Slider.propTypes = {};
-
-Slider.defaultProps = {};
+Slider.propTypes = {
+  workHourRange: PropTypes.func,
+  timeFormat: PropTypes.string,
+  hoursRange: PropTypes.array,
+};
 
 export default Slider;

@@ -51,6 +51,7 @@ const DayChart = (
     updateWorkDate,
     closeWorkHover,
     openWorkHover,
+    hoursRange,
     ...props
   },
 ) => {
@@ -100,6 +101,7 @@ DayChart.propTypes = {
   updateWorkDate: PropTypes.func,
   closeWorkHover: PropTypes.func,
   openWorkHover: PropTypes.func,
+  hoursRange: PropTypes.array,
 };
 
 DayChart.defaultProps = {};
