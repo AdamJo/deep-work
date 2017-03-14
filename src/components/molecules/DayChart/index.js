@@ -40,16 +40,10 @@ function deepOrShallow(index) {
   }
 }
 
-function calcTime(index, half) {
+function calcTime(index, drag) {
   allHours[index] = deepOrShallow(allHours[index]);
   return allHours;
 }
-
-function findWork(index) {
-  allHours[index] = deepOrShallow(allHours[index]);
-}
-
-
 
 const DayChart = (
   {
@@ -61,26 +55,32 @@ const DayChart = (
   },
 ) => {
   return (
+  <div>
+
     <Wrapper {...props}
+      onMouseDown={() => openWorkHover()}
+      onMouseUp={() => closeWorkHover()}
     >
-      {/*onMouseDown={() => findWork()}*/}
-      {time.map((hours, index) => (
+      {time.map((hour, index) => (
         <div key={index}>
           <Hours timeFormat={chart.format} hour={hour} />
           <div style={{display: 'flex'}} >
             <CellButton
               hourType={allHours[index * 2]}
-              onClick={() => updateWorkDate(calcTime(index * 2), chart.date)}
+              onMouseDown={() => updateWorkDate(calcTime(index * 2, false), chart.date)}
+              onMouseEnter={chart.workHover ? () => updateWorkDate(calcTime(index * 2), chart.date) : ''}
             ></CellButton>
               &nbsp;
             <CellButton
               hourType={allHours[index * 2 + 1]}
-              onClick={() => updateWorkDate(calcTime(index * 2 + 1), chart.date)}
+              onMouseDown={() => updateWorkDate(calcTime(index * 2 + 1, false), chart.date)}
+              onMouseEnter={chart.workHover ? () => updateWorkDate(calcTime(index * 2 + 1), chart.date) : ''}
             ></CellButton>
           </div>
         </div>
       ))}
     </Wrapper>
+      </div>
   );
 };
 
