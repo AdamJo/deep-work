@@ -50,7 +50,7 @@ const config = {
       { test: /\.js$/, loader: StringReplacePlugin.replace({
           replacements: [
               {
-                  pattern: /print\((\'\w*?\')\);/ig,
+                  pattern: /print\((.*)\);?/ig,
                   replacement: function (match, p1, offset, string) {
                       return `console.log(${p1})`;
                   }
