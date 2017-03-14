@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
-import { ChartMenu, DayChart, Slider } from 'components';
+import { ChartMenu, DayChart, Slider, Analyze } from 'components';
 
 const Wrapper = styled.div`
   background: teal;
@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 
 const Charts = (
   {
-    chart = { format: '12', hourRange: {min: 8,max: 18} },
+    chart = { hours: [0], format: '12', hourRange: {min: 8,max: 18} },
     chartView,
     updateWorkDate,
     updateTimeFormat,
@@ -29,6 +29,7 @@ const Charts = (
         chartView={chartView}
       />
       <Slider hourRange={chart.hourRange} workHourRange={workHourRange} timeFormat={chart.format} />
+      <Analyze hours={chart.hours} hourRange={chart.hourRange}/>
       <DayChart
         chart={chart}
         hourRange={chart.hourRange}
@@ -45,7 +46,11 @@ Charts.propTypes = {
   chartView: PropTypes.func,
   updateWorkDate: PropTypes.func,
   timeFormat: PropTypes.func,
-  hourRange: PropTypes.object
+  hourRange: PropTypes.object,
 };
+
+Charts.defaultProps = {
+  chart: { hours: [0], format: '12', hourRange: {min: 8,max: 18} },
+}
 
 export default Charts;

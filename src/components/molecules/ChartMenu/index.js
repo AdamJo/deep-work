@@ -23,9 +23,9 @@ const Li = styled.li`
 const ChartMenu = (
   {
     chartView,
-    chart = { viewType: 'day', format: '12' },
+    chart,
     updateTimeFormat,
-    ...props
+    ...props,
   },
 ) => {
   return (
@@ -63,6 +63,10 @@ ChartMenu.propTypes = {
   chartView: PropTypes.func,
   timeFormat: PropTypes.func,
   chart: PropTypes.object,
+};
+
+ChartMenu.defaultProps = {
+  chart: { viewType: 'day', format: '12' },
 };
 
 export default ChartMenu;

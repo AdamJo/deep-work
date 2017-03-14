@@ -51,12 +51,12 @@ function renderTimeFrame(index) {
 
 const DayChart = (
   {
-    chart = { format: '12', date: 'Thu Mar 09 2017' },
+    chart,
     updateWorkDate,
     closeWorkHover,
     openWorkHover,
-    hourRange={min: 8, max: 16},
-    ...props
+    hourRange,
+    ...props,
   },
 ) => {
   return (
@@ -67,7 +67,7 @@ const DayChart = (
         onMouseUp={() => closeWorkHover()}
       >
         {time.map((hour, index) => {
-          if (index <= hourRange.max && index >= hourRange.min) return ( 
+          if (index <= hourRange.max && index >= hourRange.min - 1) return ( 
             <div key={index}>
               <Hours timeFormat={chart.format} hour={hour} />
               <div style={{ display: 'flex' }}>
@@ -109,6 +109,9 @@ DayChart.propTypes = {
   hourRange: PropTypes.object,
 };
 
-DayChart.defaultProps = {};
+DayChart.defaultProps = {
+  chart: { format: '12', date: 'Thu Mar 09 2017' },
+  hourRange: {min: 1, max: 24},
+};
 
 export default DayChart;

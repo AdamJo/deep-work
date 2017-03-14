@@ -54,5 +54,9 @@ Analyze.propTypes = {
   hourRange: PropTypes.object,
 };
 
+Analyze.defaultProps = {
+  hours: [0],
+  hourRange: {min: 1, max: 24},
+};
 
 export default Analyze;

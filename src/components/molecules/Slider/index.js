@@ -5,6 +5,8 @@ import Range from 'rc-slider/lib/Range';
 const Wrapper = styled.div`
   width: 400px;
   margin: 50px;
+  display: flex;
+  justifyContent: center;
 `
 
 const military = {
@@ -27,7 +29,7 @@ const civilian = {
   24: '12am',
 };
 
-const Slider = ({ timeFormat, workHourRange, hourRange={min: 8, max: 16}, }) => (
+const Slider = ({ timeFormat, workHourRange, hourRange }) => (
   <Wrapper>
     <Range
       allowCross={false}
@@ -44,6 +46,10 @@ Slider.propTypes = {
   workHourRange: PropTypes.func,
   timeFormat: PropTypes.string,
   hourRange: PropTypes.object,
+};
+
+Slider.defaultProps = {
+  hourRange: {min: 1, max: 24},
 };
 
 export default Slider;
