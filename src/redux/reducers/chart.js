@@ -8,7 +8,7 @@ function Chart(state = {}, action) {
         date: action.date,
         hours: action.hours,
       };
-    case TIME_FORMAT:
+    case UPDATE_TIME_FORMAT:
       return {
         ...state,
         format: action.format,

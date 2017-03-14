@@ -29,10 +29,10 @@ export function updateWorkDate(hours, date) {
 /**
  * @param {string} format toggle between military (24h) and civilian time (am / pm)
  */
-export function timeFormat(format) {
+export function updateTimeFormat(format) {
   return {
-    type: TIME_FORMAT,
-    format,
+    type: UPDATE_TIME_FORMAT,
+    format
   };
 }
 
