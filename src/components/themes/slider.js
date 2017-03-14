@@ -1,4 +1,7 @@
 import { injectGlobal } from 'styled-components';
+import theme from 'components/themes';
+import { font, palette } from 'styled-theme';
+
 injectGlobal`
   .rc-slider {
     position: relative;
@@ -57,10 +60,10 @@ injectGlobal`
     vertical-align: middle;
     text-align: center;
     cursor: pointer;
-    color: #999;
+    color: ${theme.palette.primary[3]};
   }
   .rc-slider-mark-text-active {
-    color: #666;
+    color: ${theme.palette.primary[1]};
   }
   .rc-slider-step {
     position: absolute;
