@@ -34,7 +34,7 @@ const Slider = ({ timeFormat, workHourRange, hourRange }) => (
     <Range
       allowCross={false}
       marks={timeFormat === '24' ? military : civilian}
-      defaultValue={[hourRange.min, hourRange.max]}
+      value={[hourRange.min, hourRange.max]}
       min={1}
       max={24}
       onChange={workHourRange}

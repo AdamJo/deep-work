@@ -11,7 +11,6 @@ function calcHours(hours, hourRange, deep) {
     const max = calcRangeHour <= hourRange.max;
     if (deep && min && max) {
       if (hour === 1) {
-        print('this too', acc + .5)
         return acc + .5
       } else {
         return acc + 0

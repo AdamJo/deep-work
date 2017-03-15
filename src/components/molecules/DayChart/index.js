@@ -6,7 +6,6 @@ import { CellButton, HoverWork, Hours } from 'components';
 // no package and verbose = [...Array(24).keys()];
 // adding lodash Range adds an extra 70kb
 const time = [...Array(24).keys()].map(data => `${data + 1} `);
-const allHours = [...Array(48).keys()].map(data => 0);
 
 const Wrapper = styled.div`
   display: flex;
@@ -40,9 +39,9 @@ function deepOrShallow(index) {
   }
 }
 
-function calcTime(index) {
-  allHours[index] = deepOrShallow(allHours[index]);
-  return allHours;
+function calcTime(index, hours) {
+  hours[index] = deepOrShallow(hours[index]);
+  return hours;
 }
 
 function renderTimeFrame(index) {
@@ -72,23 +71,23 @@ const DayChart = (
               <Hours timeFormat={chart.format} hour={hour} />
               <div style={{ display: 'flex' }}>
                 <CellButton
-                  hourType={allHours[index * 2]}
+                  hourType={chart.hours[index * 2]}
                   onMouseDown={() =>
-                    updateWorkDate(calcTime(index * 2), chart.date)}
+                    updateWorkDate(calcTime(index * 2, chart.hours), chart.date)}
                   onMouseEnter={
                     chart.workHover
-                      ? () => updateWorkDate(calcTime(index * 2), chart.date)
+                      ? () => updateWorkDate(calcTime(index * 2, chart.hours), chart.date)
                       : ''
                   }
                 />
                 &nbsp;
                 <CellButton
-                  hourType={allHours[index * 2 + 1]}
+                  hourType={chart.hours[index * 2 + 1]}
                   onMouseDown={() =>
-                    updateWorkDate(calcTime(index * 2 + 1), chart.date)}
+                    updateWorkDate(calcTime(index * 2 + 1, chart.hours), chart.date)}
                   onMouseEnter={
                     chart.workHover
-                      ? () => updateWorkDate(calcTime(index * 2 + 1), chart.date)
+                      ? () => updateWorkDate(calcTime(index * 2 + 1, chart.hours), chart.date)
                       : ''
                   }
                 />
@@ -110,7 +109,7 @@ DayChart.propTypes = {
 };
 
 DayChart.defaultProps = {
-  chart: { format: '12', date: 'Thu Mar 09 2017' },
+  chart: { format: '12', date: 'Thu Mar 09 2017', hours: [0] },
   hourRange: {min: 1, max: 24},
 };
 
