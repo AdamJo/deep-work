@@ -2,7 +2,6 @@ import React, { PropTypes, Component, cloneElement } from 'react';
 import { injectGlobal, ThemeProvider } from 'styled-components';
 import theme from './themes/';
 import './themes/global-style';
-import './themes/slider';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';

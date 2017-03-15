@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import Range from 'rc-slider/lib/Range';
+import './rc-slider';
 
 const Wrapper = styled.div`
   width: 400px;
