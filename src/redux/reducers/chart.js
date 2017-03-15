@@ -5,6 +5,8 @@ import {
   CLOSE_WORK_HOVER,
   OPEN_WORK_HOVER,
   WORK_HOUR_RANGE,
+  GET_USER_INFO_SUCCESS,
+  GET_USER_INFO_FAILURE,
 } from '../actions/types';
 
 function Chart(state = {}, action) {
@@ -43,6 +45,12 @@ function Chart(state = {}, action) {
           max: action.hourRange.max,
         }
       };
+    case GET_USER_INFO_SUCCESS:
+      return {
+        ...action.userData
+      };
+    case GET_USER_INFO_FAILURE:
+      return state;
     default:
       return state;
   }

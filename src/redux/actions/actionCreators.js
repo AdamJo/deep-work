@@ -17,6 +17,8 @@ import {
   FETCH_FIREBASE_USER_FAILURE,
   UPDATE_FIREBASE_USER,
   LOGOUT_FIREBASE_USER,
+  SET_USER_INFO,
+  GET_USER_INFO,
 } from './types';
 
 /**
@@ -81,10 +83,8 @@ export function loginWithProvider(provider) {
 }
 
 export function fetchUser() {
-  const request = FireBaseTools.fetchUser();
   return {
     type: FETCH_FIREBASE_USER,
-    payload: request,
   };
 }
 
@@ -102,4 +102,19 @@ export function logoutUser(user) {
     type: LOGOUT_FIREBASE_USER,
     payload: request,
   };
+}
+
+export function setUserInfo(path, payload) {
+  return {
+    type: SET_USER_INFO,
+    path,
+    payload
+  }
+}
+
+export function getUserInfo(path) {
+  return {
+    type: GET_USER_INFO,
+    path
+  }
 }

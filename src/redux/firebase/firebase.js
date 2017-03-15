@@ -96,6 +96,13 @@ const FireBaseTools = {
    * @returns {!firebase.database.Reference|firebase.database.Reference}
    */
   getDatabaseReference: path => firebaseDb.ref(path),
+
+  writeToUserDatabase: (path, payload) => {
+    return firebaseDb.ref(path).set(payload)
+  },
+  getUserInfo: (path) => firebaseDb.ref(path).once('value').then(snapshot => {
+    return snapshot.val();
+  }),
 };
 
 export default FireBaseTools;
