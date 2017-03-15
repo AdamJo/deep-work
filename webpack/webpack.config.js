@@ -7,6 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const StringReplacePlugin = require("string-replace-webpack-plugin");
 
 const ip = process.env.IP || '0.0.0.0'
@@ -43,6 +44,7 @@ const config = {
       filename: 'index.html',
       template: path.join(__dirname, '../public/index.html'),
     }),
+    new ProgressBarPlugin(),
   ],
   module: {
     rules: [
