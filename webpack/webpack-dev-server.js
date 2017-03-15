@@ -12,11 +12,12 @@ new WebpackDevServer(webpack(config), {
   host: ip,
   stats: false,
   historyApiFallback: true,
-  contentBase: 'public'
+  contentBase: 'public',
+  compress: true,
 }).listen(port, ip, (err) => {
   if (err) {
     return console.log(err)
   }
 
-  console.log(`Listening at http://${ip}:${port}`)
+  console.info(`\nlocal: http://${ip}:${port}`)
 })

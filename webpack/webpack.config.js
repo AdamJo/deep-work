@@ -3,16 +3,16 @@ const webpack = require('webpack')
 const WebpackMd5Hash = require('webpack-md5-hash')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const ip = process.env.IP || '0.0.0.0'
-const port = process.env.PORT || 3000
-const DEBUG = process.env.NODE_ENV !== 'production'
-const PUBLIC_PATH = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/')
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 // const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
 const StringReplacePlugin = require("string-replace-webpack-plugin");
+
+const ip = process.env.IP || '0.0.0.0'
+const port = process.env.PORT || 3000
+const DEBUG = process.env.NODE_ENV !== 'production'
+const PUBLIC_PATH = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/')
 
 const isVendor = ({ userRequest }) => (
   userRequest &&
@@ -23,10 +23,10 @@ const isVendor = ({ userRequest }) => (
 const config = {
   devtool: DEBUG ? 'eval' : false,
   entry: {
-    app: [path.join(__dirname, 'src')],
+    app: [path.join(__dirname, '../src')],
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '../dist'),
     filename: '[name].[hash].js',
     publicPath: PUBLIC_PATH,
   },
@@ -41,7 +41,7 @@ const config = {
     new StringReplacePlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.join(__dirname, '/public/index.html'),
+      template: path.join(__dirname, '../public/index.html'),
     }),
   ],
   module: {
