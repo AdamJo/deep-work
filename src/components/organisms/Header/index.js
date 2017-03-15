@@ -30,7 +30,6 @@ class Header extends Component {
   getInfo() {
     const path = `/users/${this.props.currentUser.uid}/`;
     this.props.getUserInfo(path);
-
   }
   setInfo() {
     const path = `/users/${this.props.currentUser.uid}/`;

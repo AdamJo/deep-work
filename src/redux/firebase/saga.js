@@ -33,10 +33,18 @@ function* logUser(action) {
 // worker Saga: will be fired on SET_USER_INFO actions
 function* setUserInfo(action) {
   try {
-    const saveUser = yield call(FireBaseTools.writeToUserDatabase, action.path, action.payload);
+    const saveUser = yield call(
+      FireBaseTools.writeToUserDatabase,
+      action.path,
+      action.payload,
+    );
     yield put({ type: 'SET_USER_INFO_SUCCESS', save: true });
   } catch (e) {
-      yield put({ type: 'SET_USER_INFO_FAILURE', message: e.message, save: false });
+    yield put({
+      type: 'SET_USER_INFO_FAILURE',
+      message: e.message,
+      save: false,
+    });
   }
 }
 
@@ -46,7 +54,11 @@ function* getUserInfo(action) {
     const getUser = yield call(FireBaseTools.getUserInfo, action.path);
     yield put({ type: 'GET_USER_INFO_SUCCESS', userData: getUser });
   } catch (e) {
-    yield put({ type: 'GET_USER_INFO_FAILURE', message: e.message, userInfo: getUserInfo });
+    yield put({
+      type: 'GET_USER_INFO_FAILURE',
+      message: e.message,
+      userInfo: getUserInfo,
+    });
   }
 }
 
@@ -68,5 +80,10 @@ function* watchGetUserInfo() {
 }
 
 export default function* Saga() {
-  yield [fork(watchLogIn), fork(watchFetchUser), fork(watchGetUserInfo), fork(watchSetUserInfo)];
+  yield [
+    fork(watchLogIn),
+    fork(watchFetchUser),
+    fork(watchGetUserInfo),
+    fork(watchSetUserInfo),
+  ];
 }

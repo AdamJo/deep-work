@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 
 const Charts = (
   {
-    chart = { hours: [0], format: '12', hourRange: {min: 8,max: 18} },
+    chart = { hours: [0], format: '12', hourRange: { min: 8, max: 18 } },
     chartView,
     updateWorkDate,
     updateTimeFormat,
@@ -28,8 +28,12 @@ const Charts = (
         chart={chart}
         chartView={chartView}
       />
-      <Slider hourRange={chart.hourRange} workHourRange={workHourRange} timeFormat={chart.format} />
-      <Analyze hours={chart.hours} hourRange={chart.hourRange}/>
+      <Slider
+        hourRange={chart.hourRange}
+        workHourRange={workHourRange}
+        timeFormat={chart.format}
+      />
+      <Analyze hours={chart.hours} hourRange={chart.hourRange} />
       <DayChart
         chart={chart}
         hourRange={chart.hourRange}
@@ -50,7 +54,7 @@ Charts.propTypes = {
 };
 
 Charts.defaultProps = {
-  chart: { hours: [0], format: '12', hourRange: {min: 8,max: 18} },
-}
+  chart: { hours: [0], format: '12', hourRange: { min: 8, max: 18 } },
+};
 
 export default Charts;

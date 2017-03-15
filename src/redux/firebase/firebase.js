@@ -98,9 +98,9 @@ const FireBaseTools = {
   getDatabaseReference: path => firebaseDb.ref(path),
 
   writeToUserDatabase: (path, payload) => {
-    return firebaseDb.ref(path).set(payload)
+    return firebaseDb.ref(path).set(payload);
   },
-  getUserInfo: (path) => firebaseDb.ref(path).once('value').then(snapshot => {
+  getUserInfo: path => firebaseDb.ref(path).once('value').then(snapshot => {
     return snapshot.val();
   }),
 };

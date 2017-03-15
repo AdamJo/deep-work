@@ -70,7 +70,7 @@ export function closeWorkHover(hours, date) {
 export function workHourRange(range) {
   return {
     type: WORK_HOUR_RANGE,
-    hourRange: {min: range[0], max: range[1]},
+    hourRange: { min: range[0], max: range[1] },
   };
 }
 
@@ -108,13 +108,13 @@ export function setUserInfo(path, payload) {
   return {
     type: SET_USER_INFO,
     path,
-    payload
-  }
+    payload,
+  };
 }
 
 export function getUserInfo(path) {
   return {
     type: GET_USER_INFO,
-    path
-  }
+    path,
+  };
 }

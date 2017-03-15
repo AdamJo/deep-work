@@ -43,11 +43,11 @@ function Chart(state = {}, action) {
         hourRange: {
           min: action.hourRange.min,
           max: action.hourRange.max,
-        }
+        },
       };
     case GET_USER_INFO_SUCCESS:
       return {
-        ...action.userData
+        ...action.userData,
       };
     case GET_USER_INFO_FAILURE:
       return state;

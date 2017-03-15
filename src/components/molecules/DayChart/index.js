@@ -45,7 +45,7 @@ function calcTime(index, hours) {
 }
 
 function renderTimeFrame(index) {
-  return 
+  return;
 }
 
 const DayChart = (
@@ -55,7 +55,7 @@ const DayChart = (
     closeWorkHover,
     openWorkHover,
     hourRange,
-    ...props,
+    ...props
   },
 ) => {
   return (
@@ -66,34 +66,49 @@ const DayChart = (
         onMouseUp={() => closeWorkHover()}
       >
         {time.map((hour, index) => {
-          if (index <= hourRange.max && index >= hourRange.min - 1) return ( 
-            <div key={index}>
-              <Hours timeFormat={chart.format} hour={hour} />
-              <div style={{ display: 'flex' }}>
-                <CellButton
-                  hourType={chart.hours[index * 2]}
-                  onMouseDown={() =>
-                    updateWorkDate(calcTime(index * 2, chart.hours), chart.date)}
-                  onMouseEnter={
-                    chart.workHover
-                      ? () => updateWorkDate(calcTime(index * 2, chart.hours), chart.date)
-                      : ''
-                  }
-                />
-                &nbsp;
-                <CellButton
-                  hourType={chart.hours[index * 2 + 1]}
-                  onMouseDown={() =>
-                    updateWorkDate(calcTime(index * 2 + 1, chart.hours), chart.date)}
-                  onMouseEnter={
-                    chart.workHover
-                      ? () => updateWorkDate(calcTime(index * 2 + 1, chart.hours), chart.date)
-                      : ''
-                  }
-                />
+          if (index <= hourRange.max && index >= hourRange.min - 1)
+            return (
+              <div key={index}>
+                <Hours timeFormat={chart.format} hour={hour} />
+                <div style={{ display: 'flex' }}>
+                  <CellButton
+                    hourType={chart.hours[index * 2]}
+                    onMouseDown={() =>
+                      updateWorkDate(
+                        calcTime(index * 2, chart.hours),
+                        chart.date,
+                      )}
+                    onMouseEnter={
+                      chart.workHover
+                        ? () =>
+                            updateWorkDate(
+                              calcTime(index * 2, chart.hours),
+                              chart.date,
+                            )
+                        : ''
+                    }
+                  />
+                  &nbsp;
+                  <CellButton
+                    hourType={chart.hours[index * 2 + 1]}
+                    onMouseDown={() =>
+                      updateWorkDate(
+                        calcTime(index * 2 + 1, chart.hours),
+                        chart.date,
+                      )}
+                    onMouseEnter={
+                      chart.workHover
+                        ? () =>
+                            updateWorkDate(
+                              calcTime(index * 2 + 1, chart.hours),
+                              chart.date,
+                            )
+                        : ''
+                    }
+                  />
+                </div>
               </div>
-            </div>
-          )
+            );
         })}
       </Wrapper>
     </div>
@@ -110,7 +125,7 @@ DayChart.propTypes = {
 
 DayChart.defaultProps = {
   chart: { format: '12', date: 'Thu Mar 09 2017', hours: [0] },
-  hourRange: {min: 1, max: 24},
+  hourRange: { min: 1, max: 24 },
 };
 
 export default DayChart;

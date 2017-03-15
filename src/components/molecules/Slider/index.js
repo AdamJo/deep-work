@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import Range from 'rc-slider/lib/Range';
 
@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   margin: 50px;
   display: flex;
   justifyContent: center;
-`
+`;
 
 const military = {
   1: '01:00',
@@ -49,7 +49,7 @@ Slider.propTypes = {
 };
 
 Slider.defaultProps = {
-  hourRange: {min: 1, max: 24},
+  hourRange: { min: 1, max: 24 },
 };
 
 export default Slider;

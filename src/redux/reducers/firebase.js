@@ -35,12 +35,12 @@ export default function(state = null, action) {
     case SET_USER_INFO_SUCCESS:
       return {
         ...state,
-        save: action.save
+        save: action.save,
       };
     case SET_USER_INFO_FAILURE:
       return {
         ...state,
-        save: action.save
+        save: action.save,
       };
     default:
       return state;

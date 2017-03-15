@@ -25,7 +25,7 @@ const ChartMenu = (
     chartView,
     chart,
     updateTimeFormat,
-    ...props,
+    ...props
   },
 ) => {
   return (
