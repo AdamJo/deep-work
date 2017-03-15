@@ -15,6 +15,8 @@ class Header extends Component {
     super(props);
     this.logOut = this.logOut.bind(this);
     this.logIn = this.logIn.bind(this);
+    this.getInfo = this.getInfo.bind(this);
+    this.setInfo = this.setInfo.bind(this);
   }
 
   logOut() {
@@ -25,6 +27,16 @@ class Header extends Component {
     this.props.loginWithProvider('google');
   }
 
+  getInfo() {
+    const path = `/users/${this.props.currentUser.uid}/`;
+    this.props.getUserInfo(path);
+
+  }
+  setInfo() {
+    const path = `/users/${this.props.currentUser.uid}/`;
+    this.props.setUserInfo(path, this.props.chart);
+  }
+
   renderUserMenu(currentUser) {
     if (currentUser.finished) {
       return (
@@ -32,7 +44,8 @@ class Header extends Component {
           {currentUser && currentUser.uid
             ? <div>
                 <Button onClick={this.logOut}>Logout</Button>
-                <Button>Settings</Button>
+                <Button onClick={this.getInfo}>getInfo</Button>
+                <Button onClick={this.setInfo}>setInfo</Button>
               </div>
             : <Button onClick={this.logIn}>LogIn</Button>}
         </div>
