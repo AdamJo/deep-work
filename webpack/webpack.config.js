@@ -86,6 +86,9 @@ if (DEBUG) {
   config.plugins = config.plugins.concat([
     new CleanWebpackPlugin(['dist']),
     new CopyWebpackPlugin([{ from: 'public' }]),
+    new webpack.DefinePlugin({
+      'process.env': {NODE_ENV: '"production"'}
+    }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: isVendor,
