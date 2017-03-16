@@ -42,7 +42,10 @@ const ChartMenu = (
         </Li>
       ))}
       <li>
-        <TimeFormat updateTimeFormat={updateTimeFormat} format={chart.format === '12' ? true : false}/>
+        <TimeFormat
+          updateTimeFormat={updateTimeFormat}
+          format={chart.format === '12' ? true : false}
+        />
       </li>
     </Ul>
   );

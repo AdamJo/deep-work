@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 
 function renderTimeLine(format, hour) {
@@ -21,7 +21,10 @@ const Hours = ({ timeFormat, hour }) => (
   <Hour>{renderTimeLine(timeFormat, hour)}</Hour>
 );
 
-Hours.propTypes = {};
+Hours.propTypes = {
+  timeFormat: PropTypes.string,
+  hour: PropTypes.string,
+};
 
 Hours.defaultProps = {};
 

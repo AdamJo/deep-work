@@ -3,19 +3,23 @@ import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
 function handleInputChange(event, updateTimeFormat) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const timeFormat = value ? '24' : '12';
-    updateTimeFormat(timeFormat);
+  const target = event.target;
+  const value = target.type === 'checkbox' ? target.checked : target.value;
+  const timeFormat = value ? '24' : '12';
+  updateTimeFormat(timeFormat);
 }
 
-const ToggleButton = ({updateTimeFormat, format}) => {
+const ToggleButton = ({ updateTimeFormat, format }) => {
   return (
     <Switch>
-      <input type='checkbox' onChange={(event) => handleInputChange(event, updateTimeFormat)} />
+      <input
+        type="checkbox"
+        onChange={event => handleInputChange(event, updateTimeFormat)}
+      />
       <Slide />
     </Switch>
-  )};
+  );
+};
 
 const Switch = styled.label`
   position: relative;
@@ -56,9 +60,12 @@ const Slide = styled.div`
     background-color: white;
     transition: .4s;
   }
-`
+`;
 
-ToggleButton.propTypes = {};
+ToggleButton.propTypes = {
+  updateTimeFormat: PropTypes.func,
+  format: PropTypes.bool,
+};
 
 ToggleButton.defaultProps = {};
 
