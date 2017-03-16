@@ -31,11 +31,11 @@ const Switch = styled.label`
   height: 34px;
 
   > input:checked + div {
-    // background-color: #2196F3;
+    box-shadow: inset -10px 0 10px -10px ${palette('primary', 2)};
   }
 
   > input:focus + div {
-    box-shadow: 0 0 1px #2196F3;
+    // box-shadow: 10px 0 10px -10px ${palette('primary', 2)};
   }
 
   > input:checked + div:before {
@@ -50,7 +50,8 @@ const Slide = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: ${palette('secondary', 2)};
+  box-shadow: inset 10px 0 10px -10px ${palette('primary', 2)};
   transition: .4s;
 
   &:before {
@@ -60,7 +61,7 @@ const Slide = styled.div`
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: ${palette('primary', 1)};
     transition: .4s;
   }
 `;
