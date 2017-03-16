@@ -1,6 +1,6 @@
 import { injectGlobal } from 'styled-components';
 import theme from 'components/themes';
-import { font, palette } from 'styled-theme';
+import { palette } from 'styled-theme';
 
 injectGlobal`
   .rc-slider {
@@ -19,7 +19,7 @@ injectGlobal`
   .rc-slider-rail {
     position: absolute;
     width: 100%;
-    background-color: #e9e9e9;
+    background-color: ${theme.palette.white[2]};
     height: 4px;
   }
   .rc-slider-track {
@@ -27,7 +27,7 @@ injectGlobal`
     left: 0;
     height: 4px;
     border-radius: 6px;
-    background-color: #abe2fb;
+    background-color: ${theme.palette.secondary[1]};
   }
   .rc-slider-handle {
     position: absolute;
@@ -37,15 +37,15 @@ injectGlobal`
     height: 14px;
     cursor: pointer;
     border-radius: 50%;
-    border: solid 2px #96dbfa;
-    background-color: #fff;
+    border: solid 2px ${theme.palette.tertiary[2]};
+    background-color: ${theme.palette.white[2]};
   }
   .rc-slider-handle:hover {
-    border-color: #57c5f7;
+    border-color: ${theme.palette.tertiary[4]};
   }
   .rc-slider-handle-active:active {
-    border-color: #57c5f7;
-    box-shadow: 0 0 5px #57c5f7;
+    border-color: ${theme.palette.tertiary[4]};
+    box-shadow: 0 0 5px ${theme.palette.tertiary[4]};
   }
   .rc-slider-mark {
     position: absolute;
@@ -77,8 +77,8 @@ injectGlobal`
     margin-left: -4px;
     width: 8px;
     height: 8px;
-    border: 2px solid #e9e9e9;
-    background-color: #fff;
+    border: 2px solid ${theme.palette.white[1]};
+    background-color: ${theme.palette.white[0]};
     cursor: pointer;
     border-radius: 50%;
     vertical-align: middle;
@@ -90,24 +90,24 @@ injectGlobal`
     margin-left: -4px;
   }
   .rc-slider-dot-active {
-    border-color: #96dbfa;
+    border-color: ${theme.palette.tertiary[1]};
   }
-  .rc-slider-disabled {
-    background-color: #e9e9e9;
-  }
-  .rc-slider-disabled .rc-slider-track {
-    background-color: #ccc;
-  }
-  .rc-slider-disabled .rc-slider-handle,
-  .rc-slider-disabled .rc-slider-dot {
-    border-color: #ccc;
-    background-color: #fff;
-    cursor: not-allowed;
-  }
-  .rc-slider-disabled .rc-slider-mark-text,
-  .rc-slider-disabled .rc-slider-dot {
-    cursor: not-allowed !important;
-  }
+  // .rc-slider-disabled {
+  //   background-color: #e9e9e9;
+  // }
+  // .rc-slider-disabled .rc-slider-track {
+  //   background-color: #ccc;
+  // }
+  // .rc-slider-disabled .rc-slider-handle,
+  // .rc-slider-disabled .rc-slider-dot {
+  //   border-color: #ccc;
+  //   background-color: #fff;
+  //   cursor: not-allowed;
+  // }
+  // .rc-slider-disabled .rc-slider-mark-text,
+  // .rc-slider-disabled .rc-slider-dot {
+  //   cursor: not-allowed !important;
+  // }
   .rc-slider-vertical {
     width: 14px;
     height: 100%;
