@@ -20,11 +20,11 @@ const ToggleButton = ({updateTimeFormat, format}) => {
 const Switch = styled.label`
   position: relative;
   display: inline-block;
-  width: 120px;
+  width: 60px;
   height: 34px;
 
   > input:checked + div {
-    background-color: #2196F3;
+    // background-color: #2196F3;
   }
 
   > input:focus + div {
@@ -32,7 +32,7 @@ const Switch = styled.label`
   }
 
   > input:checked + div:before {
-    transform: translateX(80px);
+    transform: translateX(26px);
   }
 `;
 

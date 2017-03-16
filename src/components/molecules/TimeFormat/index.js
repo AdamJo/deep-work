@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
-import { Button, ToggleButton } from 'components';
+import { Button, ToggleButton, HourFormat } from 'components';
 
 const Wrapper = styled.div`
   display: flex;
@@ -9,18 +9,16 @@ const Wrapper = styled.div`
 `
 
 const TimeFormat = (  {
-    format,
     updateTimeFormat,
-    ...props
+    format,
   }) => (
     <Wrapper>
-      <span>12</span>
-      <ToggleButton updateTimeFormat={updateTimeFormat} active={format}/>
-      {/*<RcToggle updateTimeFormat={updateTimeFormat} active={format}/>*/}
-      <span>24</span>
+      <HourFormat format={format}>12</HourFormat>
+      <ToggleButton updateTimeFormat={updateTimeFormat} format={format}/>
+      {/*<RcToggle updateTimeFormat={updateTimeFormat} format={format}/>*/}
+      <HourFormat format={!format}>24</HourFormat>
     </Wrapper>
   );
-
 /*<RcToggle updateTimeFormat={updateTimeFormat} format={format}/>*/
 /*<Button
   active={format === '12' ? true : false}
