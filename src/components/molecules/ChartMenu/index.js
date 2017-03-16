@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
-import { Button } from 'components';
+import { Button, TimeFormat } from 'components';
 
 // determines state of chart;
 
@@ -41,20 +41,9 @@ const ChartMenu = (
           </Button>
         </Li>
       ))}
-      <Li>
-        <Button
-          active={chart.format === '12' ? true : false}
-          onClick={() => updateTimeFormat('12')}
-        >
-          12h
-        </Button>
-        <Button
-          active={chart.format === '24' ? true : false}
-          onClick={() => updateTimeFormat('24')}
-        >
-          24h
-        </Button>
-      </Li>
+      <li>
+        <TimeFormat updateTimeFormat={updateTimeFormat} active={chart.format === '12' ? true : false}/>
+      </li>
     </Ul>
   );
 };
