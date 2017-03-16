@@ -7,7 +7,6 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.header`
-  background: red;
   margin: 0;
   width: 100%;
   z-index: 1;
