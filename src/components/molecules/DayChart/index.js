@@ -16,6 +16,10 @@ const Wrapper = styled.div`
   user-select: none;
 `;
 
+const DayWrapper = styled.div`
+  display: flex;
+`
+
 function renderTimeLine(format, hour) {
   if (format === '12') {
     if (hour > 12) {
@@ -68,7 +72,7 @@ const DayChart = class DayChart extends PureComponent {
                     timeFormat={this.props.chart.format}
                     hour={hour}
                   />
-                  <div style={{ display: 'flex' }}>
+                  <DayWrapper>
                     <CellButton
                       hourType={this.props.chart.hours[index * 2]}
                       onMouseDown={() =>
@@ -97,14 +101,14 @@ const DayChart = class DayChart extends PureComponent {
                       onMouseEnter={
                         this.props.chart.workHover
                           ? () =>
-                              updateWorkDate(
+                              this.props.updateWorkDate(
                                 calcTime(index * 2 + 1, this.props.chart.hours),
                                 this.props.chart.date,
                               )
                           : ''
                       }
                     />
-                  </div>
+                  </DayWrapper>
                 </div>
               );
           })}
