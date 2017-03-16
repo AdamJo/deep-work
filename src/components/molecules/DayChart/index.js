@@ -66,7 +66,7 @@ const DayChart = class DayChart extends PureComponent {
                 <div key={index}>
                   <Hours
                     timeFormat={this.props.chart.format}
-                    hour={this.props.hour}
+                    hour={hour}
                   />
                   <div style={{ display: 'flex' }}>
                     <CellButton

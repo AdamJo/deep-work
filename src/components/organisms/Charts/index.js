@@ -5,7 +5,7 @@ import { palette } from 'styled-theme';
 import { ChartMenu, DayChart, Slider, Analyze } from 'components';
 
 const Wrapper = styled.div`
-  background: ${palette('greyscale', 4)}
+  // background: ${palette('greyscale', 4)}
 `;
 
 const Charts = (

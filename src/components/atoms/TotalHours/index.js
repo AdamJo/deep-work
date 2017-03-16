@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
 const TotalHours = styled.div`
-  background: ${palette(0)};
+  // background: ${palette(0)};
 `;
 
 TotalHours.propTypes = {};

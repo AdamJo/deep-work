@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
+import theme from 'components/themes';
 import { font, palette } from 'styled-theme';
 
 const hourType = ({ hourType }) => {
@@ -8,7 +9,7 @@ const hourType = ({ hourType }) => {
       return palette(0);
       break;
     case 2:
-      return `linear-gradient(bottom, #838383 50%, #eff3f7 0)`;
+      return `linear-gradient(bottom, ${theme.palette.greyscale[1]} 50%, ${theme.palette.white[0]} 0)`;
     default:
       return palette('white', 0);
       break;

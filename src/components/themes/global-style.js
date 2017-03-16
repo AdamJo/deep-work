@@ -10,7 +10,7 @@ injectGlobal`
     font-family: ${theme.fonts.primary};
   }
   #app {
-    background-color: #fafafa;
+    background-color: ${theme.palette.white[1]};
     min-height: 100%;
     min-width: 100%;
   }

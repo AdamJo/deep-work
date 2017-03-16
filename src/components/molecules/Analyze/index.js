@@ -31,7 +31,6 @@ function calcHours(hours, hourRange, deep) {
 
 const Wrapper = styled.div`
   display: flex;
-  background: lightgreen;
 `;
 
 const Analyze = (
