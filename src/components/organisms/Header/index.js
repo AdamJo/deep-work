@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 
 import { Button } from 'components';
@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   padding: 1rem;
 `;
 
-class Header extends Component {
+class Header extends PureComponent {
   constructor(props) {
     super(props);
     this.logOut = this.logOut.bind(this);

@@ -1,4 +1,4 @@
-import React, { PropTypes, Component, cloneElement } from 'react';
+import React, { PropTypes, PureComponent, cloneElement } from 'react';
 import { injectGlobal, ThemeProvider } from 'styled-components';
 import theme from './themes/';
 import './themes/global-style';
@@ -18,7 +18,7 @@ export function mapDispatchToProps(dispatch) {
   return bindActionCreators(actionCreators, dispatch);
 }
 
-const Main = class Main extends Component {
+const Main = class Main extends PureComponent {
   constructor(props) {
     super(props);
     this.props.fetchUser();

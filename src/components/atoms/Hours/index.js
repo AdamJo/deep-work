@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 
 function renderTimeLine(format, hour) {
@@ -17,9 +17,13 @@ const Hour = styled.div`
   user-select: none;
 `;
 
-const Hours = ({ timeFormat, hour }) => (
-  <Hour>{renderTimeLine(timeFormat, hour)}</Hour>
-);
+const Hours = class Hours extends PureComponent {
+  render() {
+    return (
+      <Hour>{renderTimeLine(this.props.timeFormat, this.props.hour)}</Hour>
+    );
+  }
+};
 
 Hours.propTypes = {
   timeFormat: PropTypes.string,

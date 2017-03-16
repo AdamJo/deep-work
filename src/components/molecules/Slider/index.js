@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 import Range from 'rc-slider/lib/Range';
 import './rc-slider';
@@ -30,7 +30,7 @@ const civilian = {
   24: '12am',
 };
 
-const Slider = ({ timeFormat, workHourRange, hourRange }) => (
+/*const Slider = ({ timeFormat, workHourRange, hourRange }) => (
   <Wrapper>
     <Range
       allowCross={false}
@@ -41,7 +41,24 @@ const Slider = ({ timeFormat, workHourRange, hourRange }) => (
       onChange={workHourRange}
     />
   </Wrapper>
-);
+);*/
+
+const Slider = class Slider extends PureComponent {
+  render() {
+    return (
+      <Wrapper>
+        <Range
+          allowCross={false}
+          marks={this.props.timeFormat === '24' ? military : civilian}
+          value={[this.props.hourRange.min, this.props.hourRange.max]}
+          min={1}
+          max={24}
+          onChange={this.props.workHourRange}
+        />
+      </Wrapper>
+    );
+  }
+};
 
 Slider.propTypes = {
   workHourRange: PropTypes.func,

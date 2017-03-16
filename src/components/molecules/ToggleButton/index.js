@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
@@ -9,16 +9,19 @@ function handleInputChange(event, updateTimeFormat) {
   updateTimeFormat(timeFormat);
 }
 
-const ToggleButton = ({ updateTimeFormat, format }) => {
-  return (
-    <Switch>
-      <input
-        type="checkbox"
-        onChange={event => handleInputChange(event, updateTimeFormat)}
-      />
-      <Slide />
-    </Switch>
-  );
+const ToggleButton = class ToggleButton extends PureComponent {
+  render() {
+    return (
+      <Switch>
+        <input
+          type="checkbox"
+          onChange={event =>
+            handleInputChange(event, this.props.updateTimeFormat)}
+        />
+        <Slide />
+      </Switch>
+    );
+  }
 };
 
 const Switch = styled.label`

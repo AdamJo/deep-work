@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 
 import { CellButton, HoverWork, Hours } from 'components';
@@ -48,71 +48,70 @@ function renderTimeFrame(index) {
   return;
 }
 
-const DayChart = (
-  {
-    chart,
-    updateWorkDate,
-    closeWorkHover,
-    openWorkHover,
-    hourRange,
-    ...props
-  },
-) => {
-  return (
-    <div>
-      <Wrapper
-        {...props}
-        onMouseDown={() => openWorkHover()}
-        onMouseUp={() => closeWorkHover()}
-      >
-        {time.map((hour, index) => {
-          if (index <= hourRange.max && index >= hourRange.min - 1)
-            return (
-              <div key={index}>
-                <Hours timeFormat={chart.format} hour={hour} />
-                <div style={{ display: 'flex' }}>
-                  <CellButton
-                    hourType={chart.hours[index * 2]}
-                    onMouseDown={() =>
-                      updateWorkDate(
-                        calcTime(index * 2, chart.hours),
-                        chart.date,
-                      )}
-                    onMouseEnter={
-                      chart.workHover
-                        ? () =>
-                            updateWorkDate(
-                              calcTime(index * 2, chart.hours),
-                              chart.date,
-                            )
-                        : ''
-                    }
+const DayChart = class DayChart extends PureComponent {
+  render() {
+    return (
+      <div>
+        <Wrapper
+          {...this.props}
+          onMouseDown={() => this.props.openWorkHover()}
+          onMouseUp={() => this.props.closeWorkHover()}
+        >
+          {time.map((hour, index) => {
+            if (
+              index <= this.props.hourRange.max &&
+              index >= this.props.hourRange.min - 1
+            )
+              return (
+                <div key={index}>
+                  <Hours
+                    timeFormat={this.props.chart.format}
+                    hour={this.props.hour}
                   />
-                  &nbsp;
-                  <CellButton
-                    hourType={chart.hours[index * 2 + 1]}
-                    onMouseDown={() =>
-                      updateWorkDate(
-                        calcTime(index * 2 + 1, chart.hours),
-                        chart.date,
-                      )}
-                    onMouseEnter={
-                      chart.workHover
-                        ? () =>
-                            updateWorkDate(
-                              calcTime(index * 2 + 1, chart.hours),
-                              chart.date,
-                            )
-                        : ''
-                    }
-                  />
+                  <div style={{ display: 'flex' }}>
+                    <CellButton
+                      hourType={this.props.chart.hours[index * 2]}
+                      onMouseDown={() =>
+                        this.props.updateWorkDate(
+                          calcTime(index * 2, this.props.chart.hours),
+                          this.props.chart.date,
+                        )}
+                      onMouseEnter={
+                        this.props.chart.workHover
+                          ? () =>
+                              this.props.updateWorkDate(
+                                calcTime(index * 2, this.props.chart.hours),
+                                this.props.chart.date,
+                              )
+                          : ''
+                      }
+                    />
+                    &nbsp;
+                    <CellButton
+                      hourType={this.props.chart.hours[index * 2 + 1]}
+                      onMouseDown={() =>
+                        this.props.updateWorkDate(
+                          calcTime(index * 2 + 1, this.props.chart.hours),
+                          this.props.chart.date,
+                        )}
+                      onMouseEnter={
+                        this.props.chart.workHover
+                          ? () =>
+                              updateWorkDate(
+                                calcTime(index * 2 + 1, this.props.chart.hours),
+                                this.props.chart.date,
+                              )
+                          : ''
+                      }
+                    />
+                  </div>
                 </div>
-              </div>
-            );
-        })}
-      </Wrapper>
-    </div>
-  );
+              );
+          })}
+        </Wrapper>
+      </div>
+    );
+  }
 };
 
 DayChart.propTypes = {

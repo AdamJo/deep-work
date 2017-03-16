@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 import { Button, ToggleButton, HourFormat } from 'components';
@@ -8,32 +8,20 @@ const Wrapper = styled.div`
   margin: 0 20px;
 `;
 
-const TimeFormat = (
-  {
-    updateTimeFormat,
-    format,
-  },
-) => (
-  <Wrapper>
-    <HourFormat format={format}>12</HourFormat>
-    <ToggleButton updateTimeFormat={updateTimeFormat} format={format} />
-    {/*<RcToggle updateTimeFormat={updateTimeFormat} format={format}/>*/}
-    <HourFormat format={!format}>24</HourFormat>
-  </Wrapper>
-);
-/*<RcToggle updateTimeFormat={updateTimeFormat} format={format}/>*/
-/*<Button
-  active={format === '12' ? true : false}
-  onClick={() => updateTimeFormat('12')}
->
-  12h
-</Button>
-<Button
-  active={format === '24' ? true : false}
-  onClick={() => updateTimeFormat('24')}
->
-  24h
-</Button>*/
+const TimeFormat = class TimeFormat extends PureComponent {
+  render() {
+    return (
+      <Wrapper>
+        <HourFormat format={this.props.format}>12</HourFormat>
+        <ToggleButton
+          updateTimeFormat={this.props.updateTimeFormat}
+          format={this.props.format}
+        />
+        <HourFormat format={!this.props.format}>24</HourFormat>
+      </Wrapper>
+    );
+  }
+};
 
 TimeFormat.propTypes = {
   timeFormat: PropTypes.func,

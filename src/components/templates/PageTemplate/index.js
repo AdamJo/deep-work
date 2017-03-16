@@ -1,4 +1,4 @@
-import React, { cloneElement, PropTypes } from 'react';
+import React, { cloneElement, PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -24,13 +24,15 @@ const Content = styled.section`
   max-width: 1000px;
 `;
 
-const PageTemplate = ({ header, children, ...props }) => {
-  return (
-    <Wrapper {...props}>
-      <Header>{cloneElement(header, props)}</Header>
-      <Content>{children}</Content>
-    </Wrapper>
-  );
+const PageTemplate = class PageTemplate extends PureComponent {
+  render() {
+    return (
+      <Wrapper {...this.props}>
+        <Header>{cloneElement(this.props.header, this.props)}</Header>
+        <Content>{this.props.children}</Content>
+      </Wrapper>
+    );
+  }
 };
 
 PageTemplate.propTypes = {
