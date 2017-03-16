@@ -3,11 +3,14 @@ import styled from 'styled-components';
 import Range from 'rc-slider/lib/Range';
 import './rc-slider';
 
-const Wrapper = styled.div`
-  width: 400px;
-  margin: 50px;
+const OuterWrapper = styled.div`
   display: flex;
   justifyContent: center;
+`
+
+const Wrapper = styled.div`
+  width: 400px;
+  height: 40px;
 `;
 
 const military = {
@@ -46,16 +49,18 @@ const civilian = {
 const Slider = class Slider extends PureComponent {
   render() {
     return (
-      <Wrapper>
-        <Range
-          allowCross={false}
-          marks={this.props.timeFormat === '24' ? military : civilian}
-          value={[this.props.hourRange.min, this.props.hourRange.max]}
-          min={1}
-          max={24}
-          onChange={this.props.workHourRange}
-        />
-      </Wrapper>
+      <OuterWrapper>
+        <Wrapper>
+          <Range
+            allowCross={false}
+            marks={this.props.timeFormat === '24' ? military : civilian}
+            value={[this.props.hourRange.min, this.props.hourRange.max]}
+            min={1}
+            max={24}
+            onChange={this.props.workHourRange}
+          />
+        </Wrapper>
+      </OuterWrapper>
     );
   }
 };

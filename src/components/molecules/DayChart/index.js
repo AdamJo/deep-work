@@ -10,7 +10,7 @@ const time = [...Array(24).keys()].map(data => `${data + 1} `);
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justifyContent: space-between;
+  justifyContent: center;
   flex-wrap: wrap;
   text-align: center;
   user-select: none;
@@ -18,7 +18,8 @@ const Wrapper = styled.div`
 
 const DayWrapper = styled.div`
   display: flex;
-`
+  margin: 0 5px;
+`;
 
 function renderTimeLine(format, hour) {
   if (format === '12') {
@@ -68,10 +69,7 @@ const DayChart = class DayChart extends PureComponent {
             )
               return (
                 <div key={index}>
-                  <Hours
-                    timeFormat={this.props.chart.format}
-                    hour={hour}
-                  />
+                  <Hours timeFormat={this.props.chart.format} hour={hour} />
                   <DayWrapper>
                     <CellButton
                       hourType={this.props.chart.hours[index * 2]}

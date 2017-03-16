@@ -6,6 +6,7 @@ import { ChartMenu, DayChart, Slider, Analyze } from 'components';
 
 const Wrapper = styled.div`
   // background: ${palette('greyscale', 4)}
+  width: 800px;
 `;
 
 const Charts = (

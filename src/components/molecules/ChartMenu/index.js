@@ -12,9 +12,8 @@ const Ul = styled.ul`
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-
-  min-width: 200px;
+  justify-content: center;
+  min-width: 400px;
 `;
 
 const Li = styled.li`
