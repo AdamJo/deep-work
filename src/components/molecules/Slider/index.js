@@ -5,11 +5,18 @@ import './rc-slider';
 
 const OuterWrapper = styled.div`
   display: flex;
-  justifyContent: center;
-`
+  justify-content: center;
+`;
+
+// todo: figuire out why I need this
+// this outer wrapper seems to only work with a style component attatched
+const OuterWrapperStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+};
 
 const Wrapper = styled.div`
-  width: 400px;
+  width: 360px;
   height: 40px;
 `;
 
@@ -20,7 +27,7 @@ const military = {
   12: '12:00',
   16: '16:00',
   20: '20:00',
-  24: '00:00',
+  23: '00:00',
 };
 
 const civilian = {
@@ -30,7 +37,7 @@ const civilian = {
   12: '12pm',
   16: '4pm',
   20: '8pm',
-  24: '12am',
+  23: '12am',
 };
 
 /*const Slider = ({ timeFormat, workHourRange, hourRange }) => (
@@ -49,14 +56,14 @@ const civilian = {
 const Slider = class Slider extends PureComponent {
   render() {
     return (
-      <OuterWrapper>
+      <OuterWrapper style={OuterWrapperStyle}>
         <Wrapper>
           <Range
             allowCross={false}
             marks={this.props.timeFormat === '24' ? military : civilian}
             value={[this.props.hourRange.min, this.props.hourRange.max]}
             min={1}
-            max={24}
+            max={23}
             onChange={this.props.workHourRange}
           />
         </Wrapper>
