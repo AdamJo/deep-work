@@ -19,7 +19,6 @@ const OuterWrapperStyle = {
   justifyContent: 'center',
 };
 
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -47,14 +46,13 @@ const DayChart = class DayChart extends PureComponent {
               index >= this.props.hourRange.min - 1
             )
               return (
-                <div className='mine' key={index}>
                   <Hours timeFormat={this.props.chart.format} hour={hour} />
-                  <CellChart 
-                      index={index}
-                      hours={this.props.chart.hours}
-                      updateWorkDate={this.props.updateWorkDate}
-                      workHover={this.props.chart.workHover}
-                      date={this.props.chart.date}
+                  <CellChart
+                    index={index}
+                    hours={this.props.chart.hours}
+                    updateWorkDate={this.props.updateWorkDate}
+                    workHover={this.props.chart.workHover}
+                    date={this.props.chart.date}
                   />
                 </div>
               );
