@@ -46,6 +46,7 @@ const DayChart = class DayChart extends PureComponent {
               index >= this.props.hourRange.min - 1
             )
               return (
+                <div key={index}>
                   <Hours timeFormat={this.props.chart.format} hour={hour} />
                   <CellChart
                     index={index}
