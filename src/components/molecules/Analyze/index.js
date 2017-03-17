@@ -31,6 +31,7 @@ function calcHours(hours, hourRange, deep) {
 
 const Wrapper = styled.div`
   display: flex;
+  flexDirection: column;
 `;
 
 const Analyze = (
@@ -43,7 +44,6 @@ const Analyze = (
   return (
     <Wrapper {...props}>
       <TotalHours>deep: {calcHours(hours, hourRange, true)}</TotalHours>
-      ---
       <TotalHours>shallow: {calcHours(hours, hourRange, false)}</TotalHours>
     </Wrapper>
   );
