@@ -30,6 +30,9 @@ Hours.propTypes = {
   hour: PropTypes.string,
 };
 
-Hours.defaultProps = {};
+Hours.defaultProps = {
+  timeFormat: '12',
+  hour: '1',
+};
 
 export default Hours;

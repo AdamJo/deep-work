@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
 const TotalHours = styled.div`
-  // background: ${palette(0)};
+  // color: ${palette(0)};
 `;
 
 TotalHours.propTypes = {};
 
 TotalHours.defaultProps = {
-  palette: 'primary',
+  palette: 'greyscale',
 };
 
 export default TotalHours;

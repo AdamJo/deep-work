@@ -35,6 +35,8 @@ CellButton.propTypes = {
 
 CellButton.defaultProps = {
   palette: 'greyscale',
+  hidden: false,
+  deep: 'left',
 };
 
 export default CellButton;
