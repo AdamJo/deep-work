@@ -33,6 +33,9 @@ const Button = styled.div`
   color: ${palette('black', 0)};
 
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+  min-width: 100px;
+  text-align: center;
   
   margin: 0 5px;
   white-space: nowrap;

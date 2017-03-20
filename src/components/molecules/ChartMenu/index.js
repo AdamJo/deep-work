@@ -14,6 +14,16 @@ const Ul = styled.ul`
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  @media (max-width: 30em){
+    
+    justify-content: center;
+    li {
+      text-align: center;
+      flex-basis: 40%;
+      margin: 10px 0;
+
+    }
+  }
   // min-width: 400px;
 `;
 

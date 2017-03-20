@@ -14,6 +14,7 @@ const Header = styled.header`
 
 const Content = styled.section`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   align-content: center;
