@@ -7,6 +7,7 @@ import {
   WORK_HOUR_RANGE,
   GET_USER_INFO_SUCCESS,
   GET_USER_INFO_FAILURE,
+  TOGGLE_MENU,
 } from '../actions/types';
 
 function Chart(state = {}, action) {
@@ -51,6 +52,11 @@ function Chart(state = {}, action) {
       };
     case GET_USER_INFO_FAILURE:
       return state;
+    case TOGGLE_MENU:
+      return {
+        ...state,
+        menu: !state.menu,
+      };
     default:
       return state;
   }

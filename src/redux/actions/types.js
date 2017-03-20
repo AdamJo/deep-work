@@ -22,3 +22,4 @@ export const CHART_VIEW = 'CHART_VIEW';
 export const OPEN_WORK_HOVER = 'OPEN_WORK_HOVER';
 export const CLOSE_WORK_HOVER = 'CLOSE_WORK_HOVER';
 export const WORK_HOUR_RANGE = 'WORK_HOUR_RANGE';
+export const TOGGLE_MENU = 'TOGGLE_MENU';

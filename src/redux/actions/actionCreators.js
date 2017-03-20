@@ -19,6 +19,7 @@ import {
   LOGOUT_FIREBASE_USER,
   SET_USER_INFO,
   GET_USER_INFO,
+  TOGGLE_MENU,
 } from './types';
 
 /**
@@ -72,6 +73,12 @@ export function workHourRange(range) {
     type: WORK_HOUR_RANGE,
     hourRange: { min: range[0], max: range[1] },
   };
+}
+
+export function toggleMenu() {
+  return {
+    type: TOGGLE_MENU
+  }
 }
 
 // FIREBASE ACTIONS

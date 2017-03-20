@@ -6,6 +6,7 @@ import configureStore from './configureStore';
 //todo testing
 let date = new Date();
 date = date.toString().split(' ').slice(0, 4).join(' ');
+
 const defaultState = {
   currentUser: { email: null },
   chart: {
@@ -67,7 +68,8 @@ const defaultState = {
       0,
       0,
     ],
-  },
+    menu: false
+  }
 };
 
 const store = configureStore(defaultState);

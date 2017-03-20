@@ -12,4 +12,5 @@ const rootReducer = combineReducers({
   chart: Chart,
   routing: routerReducer,
 });
+
 export default rootReducer;
