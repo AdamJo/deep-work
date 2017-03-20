@@ -15,6 +15,7 @@ const ToggleButton = class ToggleButton extends PureComponent {
       <Switch>
         <input
           type="checkbox"
+          onfocus="this.blur()"
           onChange={event =>
             handleInputChange(event, this.props.updateTimeFormat)}
         />
@@ -29,6 +30,10 @@ const Switch = styled.label`
   display: inline-block;
   width: 60px;
   height: 34px;
+  outline: 0;
+  border:none;
+  color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 
   > input:checked + div {
     box-shadow: inset -10px 0 10px -10px ${palette('primary', 2)};

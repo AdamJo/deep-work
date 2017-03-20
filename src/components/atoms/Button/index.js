@@ -31,6 +31,8 @@ const Button = styled.div`
   cursor: pointer;
   outline: 0;
   color: ${palette('black', 0)};
+
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
   
   margin: 0 5px;
   white-space: nowrap;

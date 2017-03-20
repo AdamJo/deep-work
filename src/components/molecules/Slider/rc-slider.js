@@ -10,11 +10,11 @@ injectGlobal`
     width: 100%;
     border-radius: 6px;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: #000000;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
   .rc-slider * {
     box-sizing: border-box;
-    -webkit-tap-highlight-color: #000000;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
   .rc-slider-rail {
     position: absolute;
