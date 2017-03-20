@@ -53,6 +53,10 @@ class Header extends PureComponent {
                 <Button onClick={this.setInfo}>setInfo</Button>*/}
               </div>
             : <Button onClick={this.logIn}>LogIn</Button>}
+          <TimeFormat
+            updateTimeFormat={this.props.updateTimeFormat}
+            format={this.props.chart.format === '12' ? true : false}
+          />
         </ButtonWrapper>
       );
     } else {
@@ -64,10 +68,6 @@ class Header extends PureComponent {
     return (
       <Wrapper {...this.props}>
         {this.renderUserMenu(this.props.currentUser)}
-        <TimeFormat
-          updateTimeFormat={this.props.updateTimeFormat}
-          format={this.props.chart.format === '12' ? true : false}
-        />
       </Wrapper>
     );
   }
