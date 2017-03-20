@@ -19,6 +19,14 @@ const renderApp = () => (
 
 render(renderApp(), root);
 
+if (process.env.NODE_ENV === 'production') {
+  // cache all assets if browser supports serviceworker
+  if ('serviceWorker' in navigator) {
+    require('./service-worker');
+  }
+}
+
+
 if (module.hot) {
   /**
     * Warning from React Router, caused by react-hot-loader.

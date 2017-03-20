@@ -64,6 +64,7 @@
     "jest-cli": "^19.0.0",
     "json-loader": "^0.5.4",
     "lodash-webpack-plugin": "^0.11.2",
+    "offline-plugin": "^4.6.2",
     "opn-cli": "^3.1.0",
     "progress-bar-webpack-plugin": "^1.9.3",
     "raw-loader": "^0.5.1",

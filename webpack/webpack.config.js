@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const StringReplacePlugin = require("string-replace-webpack-plugin");
+const OfflinePlugin = require('offline-plugin');
 
 const ip = process.env.IP || '0.0.0.0'
 const port = process.env.PORT || 3000
@@ -96,6 +97,7 @@ if (DEBUG) {
     new WebpackMd5Hash(),
     // new LodashModuleReplacementPlugin,
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
+    new OfflinePlugin()
     // new BundleAnalyzerPlugin(),
   ])
 }
