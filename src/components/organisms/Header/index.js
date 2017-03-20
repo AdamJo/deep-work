@@ -1,8 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 
-import { Button, TimeFormat, MenuOptions } from 'components';
-
+import { Button, TimeFormat, Modal } from 'components';
+import ReactModal from 'react-modal';
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -61,11 +61,11 @@ class Header extends PureComponent {
               </div>
             : <div><Button onClick={this.logIn}>LogIn</Button></div>
           }
-          <TimeFormat
-            updateTimeFormat={this.props.updateTimeFormat}
-            format={this.props.chart.format === '12' ? true : false}
-          />
-
+        <Button onClick={this.openMenu}>Settings</Button>
+        <Modal 
+          isOpen={this.props.chart.menu}
+          {...this.props}
+        />
         </ButtonWrapper>
       );
     } else {
