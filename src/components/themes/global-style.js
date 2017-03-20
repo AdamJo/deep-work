@@ -8,6 +8,8 @@ injectGlobal`
     width: 100%;
     margin: 0;
     font-family: ${theme.fonts.primary};
+
+    overflow-x: hidden;
   }
   #app {
     background-color: ${theme.palette.white[1]};
