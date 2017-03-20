@@ -18,18 +18,17 @@ const OuterWrapperStyle = {
 const Wrapper = styled.div`
   max-width: 360px;
   min-width: 260px;
-  
   height: 40px;
 `;
 
 const military = {
-  1: '01:00',
-  4: '04:00',
-  8: '08:00',
-  12: '12:00',
-  16: '16:00',
-  20: '20:00',
-  23: '00:00',
+  1: '1',
+  4: '4',
+  8: '8',
+  12: '12',
+  16: '16',
+  20: '20',
+  23: '0',
 };
 
 const civilian = {
