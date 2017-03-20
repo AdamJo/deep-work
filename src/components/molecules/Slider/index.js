@@ -16,7 +16,9 @@ const OuterWrapperStyle = {
 };
 
 const Wrapper = styled.div`
-  width: 360px;
+  max-width: 360px;
+  min-width: 260px;
+  
   height: 40px;
 `;
 

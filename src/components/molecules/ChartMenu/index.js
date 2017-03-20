@@ -13,7 +13,8 @@ const Ul = styled.ul`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  min-width: 400px;
+  flex-wrap: wrap;
+  // min-width: 400px;
 `;
 
 const Li = styled.li`
@@ -40,12 +41,6 @@ const ChartMenu = (
           </Button>
         </Li>
       ))}
-      <li>
-        <TimeFormat
-          updateTimeFormat={updateTimeFormat}
-          format={chart.format === '12' ? true : false}
-        />
-      </li>
     </Ul>
   );
 };

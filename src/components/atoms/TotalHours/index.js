@@ -4,6 +4,7 @@ import { font, palette } from 'styled-theme';
 
 const TotalHours = styled.div`
   // color: ${palette(0)};
+  width: 100px;
 `;
 
 TotalHours.propTypes = {};
