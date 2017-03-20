@@ -1,14 +1,20 @@
 import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 
-import { Button } from 'components';
+import { Button, TimeFormat } from 'components';
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 1rem;
 `;
+
+const ButtonWrapper = styled.div`
+  width: 600px;
+  display: flex;
+  justify-content: center;
+`
 
 class Header extends PureComponent {
   constructor(props) {
@@ -39,15 +45,15 @@ class Header extends PureComponent {
   renderUserMenu(currentUser) {
     if (currentUser.finished) {
       return (
-        <div>
+        <ButtonWrapper>
           {currentUser && currentUser.uid
             ? <div>
                 <Button onClick={this.logOut}>Logout</Button>
-                <Button onClick={this.getInfo}>getInfo</Button>
-                <Button onClick={this.setInfo}>setInfo</Button>
+                {/*<Button onClick={this.getInfo}>getInfo</Button>
+                <Button onClick={this.setInfo}>setInfo</Button>*/}
               </div>
             : <Button onClick={this.logIn}>LogIn</Button>}
-        </div>
+        </ButtonWrapper>
       );
     } else {
       return <Button>Loading</Button>;
@@ -58,6 +64,10 @@ class Header extends PureComponent {
     return (
       <Wrapper {...this.props}>
         {this.renderUserMenu(this.props.currentUser)}
+        <TimeFormat
+          updateTimeFormat={this.props.updateTimeFormat}
+          format={this.props.chart.format === '12' ? true : false}
+        />
       </Wrapper>
     );
   }
