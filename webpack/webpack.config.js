@@ -85,7 +85,7 @@ if (DEBUG) {
   config.output.filename = '[name].[chunkHash].js'
 
   config.plugins = config.plugins.concat([
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist'], { root: path.join(__dirname, '..') }),
     new CopyWebpackPlugin([{ from: 'public' }]),
     new webpack.DefinePlugin({
       'process.env': {NODE_ENV: '"production"'}
