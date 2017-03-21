@@ -18,8 +18,8 @@ const hourType = ({ hourType }) => {
 
 const CellButton = styled.div`
   background: ${hourType};
-  width: 40px;
-  height: 20px;
+  width: 60px;
+  height: 30px;
   user-select: none;
 `;
 

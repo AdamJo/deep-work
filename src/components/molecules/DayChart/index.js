@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   text-align: center;
   user-select: none;
-  max-width: 600px;
+  max-width: 800px;
   }
 `;
 
