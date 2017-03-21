@@ -4,9 +4,13 @@ import styled from 'styled-components';
 function renderTimeLine(format, hour) {
   if (format === '12') {
     if (hour > 12) {
-      return hour - 12;
+      return parseInt(hour) - 12;
     } else {
-      return hour;
+      if (parseInt(hour) === 0) { 
+        return 12;
+      } else {
+        return parseInt(hour);
+      }
     }
   } else {
     return hour;

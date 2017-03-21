@@ -22,23 +22,23 @@ const Wrapper = styled.div`
 `;
 
 const military = {
-  1: '1',
-  4: '4',
-  8: '8',
-  12: '12',
-  16: '16',
-  20: '20',
-  23: '0',
+  1: '0',
+  5: '4',
+  9: '8',
+  13: '12',
+  17: '16',
+  21: '20',
+  24: '12',
 };
 
 const civilian = {
-  1: '1am',
-  4: '4am',
-  8: '8am',
-  12: '12pm',
-  16: '4pm',
-  20: '8pm',
-  23: '12am',
+  1: '12am',
+  5: '4am',
+  9: '8am',
+  13: '12pm',
+  17: '4pm',
+  21: '8pm',
+  24: '12am',
 };
 
 /*const Slider = ({ timeFormat, workHourRange, hourRange }) => (
@@ -64,7 +64,7 @@ const Slider = class Slider extends PureComponent {
             marks={this.props.timeFormat === '24' ? military : civilian}
             value={[this.props.hourRange.min, this.props.hourRange.max]}
             min={1}
-            max={23}
+            max={24}
             onChange={this.props.workHourRange}
           />
         </Wrapper>

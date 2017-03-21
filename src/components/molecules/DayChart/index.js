@@ -5,7 +5,7 @@ import { CellButton, Hours, CellChart } from 'components';
 
 // no package and verbose = [...Array(24).keys()];
 // adding lodash Range adds an extra 70kb
-const time = [...Array(24).keys()].map(data => `${data + 1} `);
+const time = [...Array(24).keys()].map(data => `${data} `);
 
 const OuterWrapper = styled.div`
   display: flex;
