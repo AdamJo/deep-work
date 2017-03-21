@@ -4,6 +4,10 @@ import { palette } from 'styled-theme';
 
 import { ChartMenu, DayChart, Slider, Analyze, WeekChart, MonthChart, YearChart } from 'components';
 
+// todo: remove when finished with cells, used for debuggings
+let date = new Date();
+date = date.toString().split(' ').slice(0, 4).join(' ');
+
 const Wrapper = styled.div`
   // background: ${palette('greyscale', 4)}
   // width: 800px;
@@ -19,7 +23,7 @@ const chartType = (props) => {
           workHourRange={props.workHourRange}
           timeFormat={props.chart.format}
         />
-        <Analyze hours={props.chart.hours} hourRange={props.chart.hourRange} />
+        <Analyze hours={props.chart.hours} temp={props.chart.date[date]} hourRange={props.chart.hourRange} />
         <DayChart
           chart={props.chart}
           hourRange={props.chart.hourRange}
@@ -53,7 +57,7 @@ const Charts = (
     <Wrapper {...props}>
       <ChartMenu
         updateTimeFormat={props.updateTimeFormat}
-        chart={props.chart}
+        viewType={props.chart.viewType}
         chartView={props.chartView}
       />
       {chartType(props)}
