@@ -12,7 +12,12 @@ const defaultState = {
   chart: {
     format: '12',
     viewType: 'day',
-    date,
+    date: {
+        [date]: {
+            deep: {8.5: 1, 9:1},
+            shallow: {9.5: 1, 10:1},
+          }
+    },
     workHover: false,
     hourRange: {
       min: 8,
@@ -68,7 +73,7 @@ const defaultState = {
       0,
       0,
     ],
-    menu: false
+    menu: false,
   }
 };
 
