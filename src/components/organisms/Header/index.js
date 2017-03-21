@@ -61,7 +61,7 @@ class Header extends PureComponent {
               </div>
             : <div><Button onClick={this.logIn}>LogIn</Button></div>
           }
-        <Button onClick={this.openMenu}>Settings</Button>
+        {this.props.chart.viewType === 'day' ? <Button onClick={this.openMenu}>Settings</Button> : ''}
         <Modal 
           isOpen={this.props.chart.menu}
           format={this.props.chart.format}

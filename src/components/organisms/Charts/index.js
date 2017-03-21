@@ -12,13 +12,23 @@ const Wrapper = styled.div`
 const chartType = (props) => {
   switch(props.chart.viewType) {
     case 'day':
-      return (<DayChart
-        chart={props.chart}
-        hourRange={props.chart.hourRange}
-        updateWorkDate={props.updateWorkDate}
-        closeWorkHover={props.closeWorkHover}
-        openWorkHover={props.openWorkHover}
-      />)
+      return (
+          <div>
+        <Slider
+          hourRange={props.chart.hourRange}
+          workHourRange={props.workHourRange}
+          timeFormat={props.chart.format}
+        />
+        <Analyze hours={props.chart.hours} hourRange={props.chart.hourRange} />
+        <DayChart
+          chart={props.chart}
+          hourRange={props.chart.hourRange}
+          updateWorkDate={props.updateWorkDate}
+          closeWorkHover={props.closeWorkHover}
+          openWorkHover={props.openWorkHover}
+        />
+        </div>
+    )
     case 'week':
       return (
         <WeekChart/>
@@ -46,12 +56,6 @@ const Charts = (
         chart={props.chart}
         chartView={props.chartView}
       />
-      <Slider
-        hourRange={props.chart.hourRange}
-        workHourRange={props.workHourRange}
-        timeFormat={props.chart.format}
-      />
-      <Analyze hours={props.chart.hours} hourRange={props.chart.hourRange} />
       {chartType(props)}
     </Wrapper>
   );
