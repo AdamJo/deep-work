@@ -64,6 +64,7 @@ class Header extends PureComponent {
         <Button onClick={this.openMenu}>Settings</Button>
         <Modal 
           isOpen={this.props.chart.menu}
+          format={this.props.chart.format}
           {...this.props}
         />
         </ButtonWrapper>

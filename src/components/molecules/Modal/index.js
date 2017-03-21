@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
-import { TimeFormat } from 'components';
+import { TimeFormat, Button } from 'components';
 import ReactModal from 'react-modal';
 
 const Wrapper = styled.div`
@@ -15,12 +15,13 @@ const ModalBox = styled(ReactModal)`
   position: absolute;
   display: flex;
   flex-direction: column;
+  align-items: center;
   font-family: ${font('primary')};
   font-size: 1rem;
-  background-color: ${palette('grayscale', 0, true)};
+  background-color: ${palette('greyscale', 0)};
   border-radius: 0.125em;
-  color: ${palette('grayscale', 0)};
-  top: calc(20% - 1rem);
+  color: ${palette('primary', 0)};
+  top: calc(15% - 1rem);
   left: calc(50% - 1rem);
   right: auto;
   bottom: auto;
@@ -30,10 +31,21 @@ const ModalBox = styled(ReactModal)`
   outline: none;
   box-sizing: border-box;
   min-width: 320px;
+  min-width: 320px;
   max-width: calc(640px - 1rem);
   max-height: calc(100% - 1rem);
-  padding-top: ${({ hasHeader }) => hasHeader ? 0 : '1rem'};
+  padding: 1rem;
+
+  > div:first-child {
+    margin: 15px 0;
+  }
+
+  > div{
+    margin: 5px 0;
+  }
+
   @media screen and (max-width: 640px) {
+    top: calc(25% - 1rem);
     width: calc(100% - 1rem);
     min-width: 0;
   }
@@ -53,7 +65,8 @@ const Modal = ({isOpen, format, ...props}) => {
         onRequestClose={props.toggleMenu}
         contentLabel="Settings"
       >
-        <button onClick={props.toggleMenu}>Close Modal</button>
+        <Button onClick={props.toggleMenu}>Close Modal</Button>
+        <div>Time Format</div>
         <TimeFormat
           updateTimeFormat={props.updateTimeFormat}
           format={format === '12' ? true : false}
