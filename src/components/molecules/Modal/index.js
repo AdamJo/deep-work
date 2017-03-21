@@ -45,8 +45,7 @@ const ModalBox = styled(ReactModal)`
   }
 `
 
-const Modal = ({isOpen, ...props}) => {
-  console.log(props);
+const Modal = ({isOpen, format, ...props}) => {
   return (
     <Wrapper>
       <ModalBox 
@@ -57,7 +56,7 @@ const Modal = ({isOpen, ...props}) => {
         <button onClick={props.toggleMenu}>Close Modal</button>
         <TimeFormat
           updateTimeFormat={props.updateTimeFormat}
-          format={props.chart.format === '12' ? true : false}
+          format={format === '12' ? true : false}
         />
       </ModalBox>
     </Wrapper>
