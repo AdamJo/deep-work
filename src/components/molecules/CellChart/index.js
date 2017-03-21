@@ -8,10 +8,13 @@ function deepOrShallow(index) {
   switch (index) {
     case 0:
       return 1;
+      break;
     case 1:
       return 2;
+      break;
     case 2:
       return 0;
+      break;
   }
 }
 
