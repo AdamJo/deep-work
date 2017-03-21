@@ -1,0 +1,9 @@
+{
+  "name": "Deep Work",
+  "short_name": "DeepWork",
+  "start_url": "/?homescreen=1",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#C59121",
+  "theme_color": "#577590"
+}
