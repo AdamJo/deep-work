@@ -36,15 +36,11 @@ const chartType = (props) => {
 
 const Charts = (
   {
-    // chart = { hours: [0], format: '12', hourRange: { min: 8, max: 18 } },
     ...props
   },
 ) => {
   return (
     <Wrapper {...props}>
-      {/*
-        if else day/week/month/year chart based on chartMenu state
-      */}
       <ChartMenu
         updateTimeFormat={props.updateTimeFormat}
         chart={props.chart}
