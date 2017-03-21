@@ -25,27 +25,31 @@ const Wrapper = styled.div`
   margin: 0 5px;
 `;
 
-const CellChart = ({ date, hours, index, updateWorkDate, workHover }) => (
-  <Wrapper>
-    <CellButton
-      hourType={hours[index * 2]}
-      onMouseDown={() => updateWorkDate(calcTime(index * 2, hours), date)}
-      onMouseEnter={
-        workHover ? () => updateWorkDate(calcTime(index * 2, hours), date) : ''
-      }
-    />
-    &nbsp;
-    <CellButton
-      hourType={hours[index * 2 + 1]}
-      onMouseDown={() => updateWorkDate(calcTime(index * 2 + 1, hours), date)}
-      onMouseEnter={
-        workHover
-          ? () => updateWorkDate(calcTime(index * 2 + 1, hours), date)
-          : ''
-      }
-    />
-  </Wrapper>
-);
+const CellChart = ({ date, hours, index, updateWorkDate, workHover }) => {
+  const evenIndex = index * 2;
+  const oddIndex = index * 2 + 1;
+  return (
+    <Wrapper>
+      <CellButton
+        hourType={hours[evenIndex]}
+        onMouseDown={() => updateWorkDate(calcTime(evenIndex, hours), date)}
+        onMouseEnter={
+          workHover ? () => updateWorkDate(calcTime(evenIndex, hours), date) : ''
+        }
+      />
+      &nbsp;
+      <CellButton
+        hourType={hours[oddIndex]}
+        onMouseDown={() => updateWorkDate(calcTime(oddIndex, hours), date)}
+        onMouseEnter={
+          workHover
+            ? () => updateWorkDate(calcTime(oddIndex, hours), date)
+            : ''
+        }
+      />
+    </Wrapper>
+  )
+};
 
 CellChart.propTypes = {
   date: PropTypes.string,
