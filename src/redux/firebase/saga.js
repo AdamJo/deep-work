@@ -32,6 +32,7 @@ function* logUser(action) {
 
 // worker Saga: will be fired on SET_USER_INFO actions
 function* setUserInfo(action) {
+  delete action.payload.workHover;
   try {
     const saveUser = yield call(
       FireBaseTools.writeToUserDatabase,
