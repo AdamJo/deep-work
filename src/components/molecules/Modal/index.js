@@ -10,7 +10,6 @@ const Wrapper = styled.div`
   // width: 100%;
   justify-content: center;
 `
-
 const ModalBox = styled(ReactModal)`
   position: absolute;
   display: flex;
@@ -53,7 +52,7 @@ const ModalBox = styled(ReactModal)`
     transform: translate(-50%, -50%);
   }
   &[class*="before-close"] {
-    transform: translate(-50%, 100%);
+    transform: translate(-50%, 1000%);
   }
 `
 
@@ -64,6 +63,7 @@ const Modal = ({isOpen, format, ...props}) => {
         isOpen={isOpen}
         onRequestClose={props.toggleMenu}
         contentLabel="Settings"
+        closeTimeoutMS={250}
       >
         <Button onClick={props.toggleMenu}>Close Modal</Button>
         <div>Time Format</div>
