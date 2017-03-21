@@ -2,22 +2,41 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
 
-import { ChartMenu, DayChart, Slider, Analyze } from 'components';
+import { ChartMenu, DayChart, Slider, Analyze, WeekChart, MonthChart, YearChart } from 'components';
 
 const Wrapper = styled.div`
   // background: ${palette('greyscale', 4)}
   // width: 800px;
 `;
 
+const chartType = (props) => {
+  switch(props.chart.viewType) {
+    case 'day':
+      return (<DayChart
+        chart={props.chart}
+        hourRange={props.chart.hourRange}
+        updateWorkDate={props.updateWorkDate}
+        closeWorkHover={props.closeWorkHover}
+        openWorkHover={props.openWorkHover}
+      />)
+    case 'week':
+      return (
+        <WeekChart/>
+      )
+    case 'month':
+      return (
+        <MonthChart/>
+      )
+    case 'year':
+      return (
+        <YearChart/>
+      )
+  }
+}
+
 const Charts = (
   {
-    chart = { hours: [0], format: '12', hourRange: { min: 8, max: 18 } },
-    chartView,
-    updateWorkDate,
-    updateTimeFormat,
-    closeWorkHover,
-    openWorkHover,
-    workHourRange,
+    // chart = { hours: [0], format: '12', hourRange: { min: 8, max: 18 } },
     ...props
   },
 ) => {
@@ -27,23 +46,17 @@ const Charts = (
         if else day/week/month/year chart based on chartMenu state
       */}
       <ChartMenu
-        updateTimeFormat={updateTimeFormat}
-        chart={chart}
-        chartView={chartView}
+        updateTimeFormat={props.updateTimeFormat}
+        chart={props.chart}
+        chartView={props.chartView}
       />
       <Slider
-        hourRange={chart.hourRange}
-        workHourRange={workHourRange}
-        timeFormat={chart.format}
+        hourRange={props.chart.hourRange}
+        workHourRange={props.workHourRange}
+        timeFormat={props.chart.format}
       />
-      <Analyze hours={chart.hours} hourRange={chart.hourRange} />
-      <DayChart
-        chart={chart}
-        hourRange={chart.hourRange}
-        updateWorkDate={updateWorkDate}
-        closeWorkHover={closeWorkHover}
-        openWorkHover={openWorkHover}
-      />
+      <Analyze hours={props.chart.hours} hourRange={props.chart.hourRange} />
+      {chartType(props)}
     </Wrapper>
   );
 };
