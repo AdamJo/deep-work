@@ -20,24 +20,22 @@ const getWeek = () => {
   return [firstDay, lastDay, day];
 }
 
-const calcDeepWork = (day) => {
-  return Object.values(day).reduce((acc, value) => {
-    if (value === 0) {
-      return acc + .5;
-    } else {
-      return acc + 0;
-    }
-  }, 0)
-}
-
-const calcShallowWork = (day) => {
-  return Object.values(day).reduce((acc, value) => {
-    if (value === 1) {
-      return acc + .5;
-    } else {
-      return acc + 0;
-    }
-  }, 0)
+const calcWork = (day, deep) => {
+  if (day !== undefined) {
+    return Object.values(day).reduce((acc, value) => {
+      if (deep && value === 0) {
+        
+        return acc + .5;
+      } else if (!deep && value === 1) {
+        console.log(value);
+        return acc + .5;
+      } else {
+        return acc + 0;
+      }
+    }, 0)
+  } else {
+    return 0;
+  }
 }
 
 const DateRangeWrapper = styled.div`
@@ -69,8 +67,8 @@ const WeekChart = ({workDates}) => {
       {daysInWeek.map((day, index) => (
         <InnerWrapper key={index}>
           <WeekDays>{day}</WeekDays>
-          <WeekDays type="deep">{calcDeepWork(workDates[workDays[index]])}</WeekDays>
-          <WeekDays type="shallow">{calcShallowWork(workDates[workDays[index]])}</WeekDays>
+          <WeekDays type="deep">{calcWork(workDates[workDays[index]], true)}</WeekDays>
+          <WeekDays type="shallow">{calcWork(workDates[workDays[index]], false)}</WeekDays>
         </InnerWrapper>
       ))}
     </Wrapper>
