@@ -20,13 +20,20 @@ const getWeek = () => {
   const firstDay = new Date(curr.setDate(first)).toString().split(' ').slice(1, 4).join(' ');
   const lastDay = new Date(curr.setDate(last)).toString().split(' ').slice(1, 4).join(' ');
 
-  const day = {}
+  const workDays = {}
   for (let x in [...Array(7).keys()]) {
-    day[x] = new Date(curr.setDate(parseInt(first) + parseInt(x))).toString().split(' ').slice(1, 4).join(' ');
+    workDays[x] = new Date(curr.setDate(parseInt(first) + parseInt(x))).toString().split(' ').slice(1, 4).join(' ');
   }
-  return [firstDay, lastDay, day];
+  return [firstDay, lastDay, workDays];
 }
 
+
+/**
+ * calculates the amount of deep or shallow work done on the given day
+ * @param {object} day - work days objects {0: 0, 1:1}
+ * @param {bool} deep - checks if the work is deep or shallow for calculation
+ * @return {number} the total number of work done that day
+ */
 const calcWork = (day, deep) => {
   if (day !== undefined) {
     return Object.values(day).reduce((acc, value) => {
@@ -34,7 +41,6 @@ const calcWork = (day, deep) => {
         
         return acc + .5;
       } else if (!deep && value === 1) {
-        console.log(value);
         return acc + .5;
       } else {
         return acc + 0;
@@ -82,8 +88,12 @@ const WeekChart = ({workDates}) => {
   );
 };
 
-WeekChart.propTypes = {};
+WeekChart.propTypes = {
+  workDates: PropTypes.object
+};
 
-WeekChart.defaultProps = {};
+WeekChart.defaultProps = {
+  workDates: {}
+};
 
 export default WeekChart;
