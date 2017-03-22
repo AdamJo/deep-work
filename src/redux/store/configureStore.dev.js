@@ -7,10 +7,7 @@ import rootReducer from '../reducers';
 export default function configureStore(initialState) {
   const sagaMiddleware = createSagaMiddleware();
   const enhancers = compose(
-    applyMiddleware(
-      sagaMiddleware,
-      createLogger()
-    ),
+    applyMiddleware(sagaMiddleware, createLogger()),
     window.devToolsExtension ? window.devToolsExtension() : f => f,
   );
 

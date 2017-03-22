@@ -3,13 +3,12 @@ import styled from 'styled-components';
 import theme from 'components/themes';
 import { font, palette } from 'styled-theme';
 
-
 /**
  * determines the color of either deep or shallow work
  * @param {number} type - either deep (0) or shallow (1) work
  * @return {number} color of work type given
  */
-const typeOfWork = ({type}) => {
+const typeOfWork = ({ type }) => {
   switch (type) {
     case 'deep':
       return palette(0);
@@ -21,15 +20,14 @@ const typeOfWork = ({type}) => {
       return palette('white', 0);
       break;
   }
-}
-
+};
 
 /**
  * determines the color of the text for given work type
  * @param {number} type - either deep (0) or shallow (1) work
  * @return {number} color of work type given
  */
-const colorOfWork = ({type}) => {
+const colorOfWork = ({ type }) => {
   switch (type) {
     case 'deep':
       return palette('tertiary', 2);
@@ -41,7 +39,7 @@ const colorOfWork = ({type}) => {
       return '#000000';
       break;
   }
-}
+};
 
 const WeekDays = styled.div`
   min-width: 80px;

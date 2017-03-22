@@ -26,7 +26,6 @@ if (process.env.NODE_ENV === 'production') {
   }
 }
 
-
 if (module.hot) {
   /**
     * Warning from React Router, caused by react-hot-loader.

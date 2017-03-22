@@ -2,7 +2,15 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
 
-import { ChartMenu, DayChart, Slider, Analyze, WeekChart, MonthChart, YearChart } from 'components';
+import {
+  ChartMenu,
+  DayChart,
+  Slider,
+  Analyze,
+  WeekChart,
+  MonthChart,
+  YearChart,
+} from 'components';
 
 // todo: remove when finished with cells, used for debuggings
 let date = new Date();
@@ -13,40 +21,37 @@ const Wrapper = styled.div`
   // width: 800px;
 `;
 
-const chartType = (props) => {
-  switch(props.chart.viewType) {
+const chartType = props => {
+  switch (props.chart.viewType) {
     case 'day':
       return (
-          <div>
-        <Slider
-          hourRange={props.chart.hourRange}
-          workHourRange={props.workHourRange}
-          timeFormat={props.chart.format}
-        />
-        <Analyze hours={props.chart.workDates[date]} hourRange={props.chart.hourRange} />
-        <DayChart
-          chart={props.chart}
-          hourRange={props.chart.hourRange}
-          updateWorkDate={props.updateWorkDate}
-          closeWorkHover={props.closeWorkHover}
-          openWorkHover={props.openWorkHover}
-        />
+        <div>
+          <Slider
+            hourRange={props.chart.hourRange}
+            workHourRange={props.workHourRange}
+            timeFormat={props.chart.format}
+          />
+          <Analyze
+            hours={props.chart.workDates[date]}
+            hourRange={props.chart.hourRange}
+          />
+          <DayChart
+            chart={props.chart}
+            hourRange={props.chart.hourRange}
+            updateWorkDate={props.updateWorkDate}
+            closeWorkHover={props.closeWorkHover}
+            openWorkHover={props.openWorkHover}
+          />
         </div>
-    )
+      );
     case 'week':
-      return (
-        <WeekChart workDates={props.chart.workDates}/>
-      )
+      return <WeekChart workDates={props.chart.workDates} />;
     case 'month':
-      return (
-        <MonthChart/>
-      )
+      return <MonthChart />;
     case 'year':
-      return (
-        <YearChart/>
-      )
+      return <YearChart />;
   }
-}
+};
 
 const Charts = (
   {
@@ -74,7 +79,12 @@ Charts.propTypes = {
 };
 
 Charts.defaultProps = {
-  chart: { hours: [0], format: '12', workDates: {}, hourRange: { min: 8, max: 18 } },
+  chart: {
+    hours: [0],
+    format: '12',
+    workDates: {},
+    hourRange: { min: 8, max: 18 },
+  },
 };
 
 export default Charts;

@@ -5,10 +5,8 @@ import { font, palette } from 'styled-theme';
 // todo: show monthly day nodes
 // cycle from this month to previous or current
 const MonthChart = () => {
-  return (
-    <div>MonthChart</div>
-  )
-}
+  return <div>MonthChart</div>;
+};
 
 MonthChart.propTypes = {};
 

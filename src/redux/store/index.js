@@ -21,7 +21,7 @@ const defaultState = {
       max: 14,
     },
     menu: false,
-  }
+  },
 };
 
 const store = configureStore(defaultState);

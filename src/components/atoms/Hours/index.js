@@ -12,7 +12,7 @@ function renderTimeLine(format, hour) {
     if (hour > 12) {
       return parseInt(hour) - 12;
     } else {
-      if (parseInt(hour) === 0) { 
+      if (parseInt(hour) === 0) {
         return 12;
       } else {
         return parseInt(hour);

@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   display: flex;
   // width: 100%;
   justify-content: center;
-`
+`;
 const ModalBox = styled(ReactModal)`
   position: absolute;
   display: flex;
@@ -54,12 +54,12 @@ const ModalBox = styled(ReactModal)`
   &[class*="before-close"] {
     transform: translate(-50%, 1000%);
   }
-`
+`;
 
-const Modal = ({isOpen, format, ...props}) => {
+const Modal = ({ isOpen, format, ...props }) => {
   return (
     <Wrapper>
-      <ModalBox 
+      <ModalBox
         isOpen={isOpen}
         onRequestClose={props.toggleMenu}
         contentLabel="Settings"
@@ -73,8 +73,8 @@ const Modal = ({isOpen, format, ...props}) => {
         />
       </ModalBox>
     </Wrapper>
-  )
-}
+  );
+};
 
 Modal.propTypes = {};
 

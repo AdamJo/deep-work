@@ -27,7 +27,7 @@ function calcHours(index, hours) {
       delete hours[index];
       break;
   }
-  return hours
+  return hours;
 }
 
 const CellChart = ({ date, hours, index, updateWorkDate, workHover }) => {
@@ -52,7 +52,7 @@ const CellChart = ({ date, hours, index, updateWorkDate, workHover }) => {
         }
       />
     </Wrapper>
-  )
+  );
 };
 
 CellChart.propTypes = {
@@ -60,11 +60,11 @@ CellChart.propTypes = {
   hours: PropTypes.object,
   index: PropTypes.number,
   updateWorkDate: PropTypes.func,
-  workHover: PropTypes.bool
+  workHover: PropTypes.bool,
 };
 
 CellChart.defaultProps = {
-  hours: {1:1},
+  hours: { 1: 1 },
 };
 
 export default CellChart;

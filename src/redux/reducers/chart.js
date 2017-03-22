@@ -14,7 +14,7 @@ function Chart(state = {}, action) {
   switch (action.type) {
     case UPDATE_WORK_DATE:
       const dates = Object.assign({}, state.workDates);
-      dates[action.date] = action.hours
+      dates[action.date] = action.hours;
       return {
         ...state,
         workDates: dates,

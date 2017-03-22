@@ -30,7 +30,7 @@ export function updateWorkDate(hours, date) {
   return {
     type: UPDATE_WORK_DATE,
     date,
-    hours
+    hours,
   };
 }
 
@@ -75,8 +75,8 @@ export function workHourRange(range) {
 
 export function toggleMenu() {
   return {
-    type: TOGGLE_MENU
-  }
+    type: TOGGLE_MENU,
+  };
 }
 
 // FIREBASE ACTIONS

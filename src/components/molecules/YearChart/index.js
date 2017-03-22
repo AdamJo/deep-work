@@ -5,10 +5,8 @@ import { font, palette } from 'styled-theme';
 // todo: show yearly day nodes
 // cycle from this year to previous or current
 const YearChart = () => {
-  return (
-    <div>YearChart</div>
-  )
-}
+  return <div>YearChart</div>;
+};
 
 YearChart.propTypes = {};
 
