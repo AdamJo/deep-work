@@ -13,9 +13,11 @@ import {
 function Chart(state = {}, action) {
   switch (action.type) {
     case UPDATE_WORK_DATE:
+      const dates = Object.assign({}, state.workDates);
+      dates[action.date] = action.hours
       return {
         ...state,
-        workDates: action.workDates,
+        workDates: dates,
       };
     case UPDATE_TIME_FORMAT:
       return {

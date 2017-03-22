@@ -29,7 +29,8 @@ import {
 export function updateWorkDate(hours, date) {
   return {
     type: UPDATE_WORK_DATE,
-    workDates: {[date]: hours},
+    date,
+    hours
   };
 }
 
