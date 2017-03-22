@@ -3,6 +3,13 @@ import styled from 'styled-components';
 
 import { TotalHours } from 'components';
 
+/**
+ * calculates the deep or shallow work hours
+ * @param {object} hours - object of all hours from workday
+ * @param {object} hourRange - range of hours that are shown to user
+ * @param {boolean} flag - look for deep or shallow work, true if deep, false if shallow
+ * @return {number} calculated number of hours worked that day
+ */
 function calcHours(hours, hourRange, flag) {
   let count = 0;
   for (let [key, value] of Object.entries(hours)) {

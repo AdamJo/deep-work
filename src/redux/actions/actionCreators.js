@@ -80,6 +80,9 @@ export function toggleMenu() {
 }
 
 // FIREBASE ACTIONS
+/**
+ * @param {string} provider which host the user should log into ( google, github, etc...)
+ */
 export function loginWithProvider(provider) {
   return {
     type: LOGIN_WITH_PROVIDER_FIREBASE,
@@ -101,14 +104,18 @@ export function updateUser(user) {
   };
 }
 
-export function logoutUser(user) {
-  const request = FireBaseTools.logoutUser(user);
+export function logoutUser() {
+  const request = FireBaseTools.logoutUser();
   return {
     type: LOGOUT_FIREBASE_USER,
     payload: request,
   };
 }
 
+/**
+ * @param {string} path where the information should go to the backend
+ * @param {object} payload chart type of user
+ */
 export function setUserInfo(path, payload) {
   return {
     type: SET_USER_INFO,
@@ -117,6 +124,9 @@ export function setUserInfo(path, payload) {
   };
 }
 
+/**
+ * @param {string} path where the information should go to the backend
+ */
 export function getUserInfo(path) {
   return {
     type: GET_USER_INFO,

@@ -2,6 +2,11 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
+/**
+ * determines the color of the button cell.
+ * @param {number} hourType - state of the time given : 12 (civilian) or 24 (military) 24
+ * @return {number} color of hour type given
+ */
 const hourType = ({ hourType }) => {
   switch (hourType) {
     case 1:

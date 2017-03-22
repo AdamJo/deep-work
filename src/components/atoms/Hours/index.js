@@ -1,6 +1,12 @@
 import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 
+/**
+ * determines the hour for the given time format state
+ * @param {string} format - state of the time given : 12 (civilian) or 24 (military) 24
+ * @param {string} hour - current hour on button
+ * @return {number} hour with formated time
+ */
 function renderTimeLine(format, hour) {
   if (format === '12') {
     if (hour > 12) {

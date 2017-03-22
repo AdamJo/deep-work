@@ -2,6 +2,11 @@ import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
+/**
+ * handles the input values when changed
+ * @param {object} event - the object from the event listener
+ * @param {function} updateTimeFormat - updates the store of the time format
+ */
 function handleInputChange(event, updateTimeFormat) {
   const target = event.target;
   const value = target.type === 'checkbox' ? target.checked : target.value;

@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import theme from 'components/themes';
 import { font, palette } from 'styled-theme';
 
+
+/**
+ * determines the color of either deep or shallow work
+ * @param {number} type - either deep (0) or shallow (1) work
+ * @return {number} color of work type given
+ */
 const typeOfWork = ({type}) => {
   switch (type) {
     case 'deep':
@@ -17,6 +23,12 @@ const typeOfWork = ({type}) => {
   }
 }
 
+
+/**
+ * determines the color of the text for given work type
+ * @param {number} type - either deep (0) or shallow (1) work
+ * @return {number} color of work type given
+ */
 const colorOfWork = ({type}) => {
   switch (type) {
     case 'deep':

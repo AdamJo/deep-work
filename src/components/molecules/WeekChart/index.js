@@ -4,6 +4,13 @@ import { font, palette } from 'styled-theme';
 
 import { WeekDays } from 'components';
 
+
+/**
+ * calculates the given week from Sunday to Monday
+ * @return {array} firstDay: first day of the week,
+ *                 lastDay: last day of the week,
+ *                 workDays: an object of days between first and last.
+ */
 const getWeek = () => {
   // http://stackoverflow.com/questions/5210376/how-to-get-first-and-last-day-of-the-week-in-javascript
   const curr = new Date; // get current date

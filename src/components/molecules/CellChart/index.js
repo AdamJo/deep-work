@@ -9,8 +9,13 @@ const Wrapper = styled.div`
   margin: 0 5px;
 `;
 
+/**
+ * calculates the deep or shallow work hours given by the object
+ * @param {number} index - index of current position being changed
+ * @param {object} hours - object of all hours from workday
+ * @return {object} updated object of all hours
+ */
 function calcHours(index, hours) {
-  console.log(index);
   switch (hours[index]) {
     case undefined:
       hours[index] = 0;

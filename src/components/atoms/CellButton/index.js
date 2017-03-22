@@ -3,6 +3,11 @@ import styled from 'styled-components';
 import theme from 'components/themes';
 import { font, palette } from 'styled-theme';
 
+/**
+ * determines which color the hours type should be
+ * @param {number} hourType - type of hours, 0 = deep, 1 = shallow, none = default
+ * @return {number} color of button
+ */
 const hourType = ({ hourType }) => {
   switch (hourType) {
     case 0:
