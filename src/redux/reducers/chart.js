@@ -15,8 +15,7 @@ function Chart(state = {}, action) {
     case UPDATE_WORK_DATE:
       return {
         ...state,
-        date: action.date,
-        hours: action.hours,
+        workDates: action.workDates,
       };
     case UPDATE_TIME_FORMAT:
       return {

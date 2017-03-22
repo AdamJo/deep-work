@@ -29,8 +29,7 @@ import {
 export function updateWorkDate(hours, date) {
   return {
     type: UPDATE_WORK_DATE,
-    hours,
-    date,
+    workDates: {[date]: hours},
   };
 }
 
@@ -60,11 +59,9 @@ export function openWorkHover() {
   };
 }
 
-export function closeWorkHover(hours, date) {
+export function closeWorkHover() {
   return {
     type: CLOSE_WORK_HOVER,
-    hours,
-    date,
   };
 }
 

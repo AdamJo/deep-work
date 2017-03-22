@@ -4,49 +4,45 @@ import { font, palette } from 'styled-theme';
 
 import { CellButton } from 'components';
 
-function deepOrShallow(index) {
-  switch (index) {
-    case 0:
-      return 1;
-      break;
-    case 1:
-      return 2;
-      break;
-    case 2:
-      return 0;
-      break;
-  }
-}
-
-function calcTime(index, hours) {
-  hours[index] = deepOrShallow(hours[index]);
-  return hours;
-}
-
 const Wrapper = styled.div`
   display: flex;
   margin: 0 5px;
 `;
 
+function calcHours(index, hours) {
+  console.log(index);
+  switch (hours[index]) {
+    case undefined:
+      hours[index] = 0;
+      break;
+    case 0:
+      hours[index] = 1;
+      break;
+    case 1:
+      delete hours[index];
+      break;
+  }
+  return hours
+}
+
 const CellChart = ({ date, hours, index, updateWorkDate, workHover }) => {
-  const evenIndex = index * 2;
-  const oddIndex = index * 2 + 1;
+  const halfHour = index + '-5'; // workaround since you can't have periods "." in keys in firebase.
   return (
     <Wrapper>
       <CellButton
-        hourType={hours[evenIndex]}
-        onMouseDown={() => updateWorkDate(calcTime(evenIndex, hours), date)}
+        hourType={hours[index]}
+        onMouseDown={() => updateWorkDate(calcHours(index, hours), date)}
         onMouseEnter={
-          workHover ? () => updateWorkDate(calcTime(evenIndex, hours), date) : ''
+          workHover ? () => updateWorkDate(calcHours(index, hours), date) : ''
         }
       />
       &nbsp;
       <CellButton
-        hourType={hours[oddIndex]}
-        onMouseDown={() => updateWorkDate(calcTime(oddIndex, hours), date)}
+        hourType={hours[halfHour]}
+        onMouseDown={() => updateWorkDate(calcHours(halfHour, hours), date)}
         onMouseEnter={
           workHover
-            ? () => updateWorkDate(calcTime(oddIndex, hours), date)
+            ? () => updateWorkDate(calcHours(halfHour, hours), date)
             : ''
         }
       />
@@ -56,14 +52,14 @@ const CellChart = ({ date, hours, index, updateWorkDate, workHover }) => {
 
 CellChart.propTypes = {
   date: PropTypes.string,
-  hours: PropTypes.array,
+  hours: PropTypes.object,
   index: PropTypes.number,
   updateWorkDate: PropTypes.func,
-  workHover: PropTypes.bool,
+  workHover: PropTypes.bool
 };
 
 CellChart.defaultProps = {
-  hours: [0],
+  hours: {1:1},
 };
 
 export default CellChart;

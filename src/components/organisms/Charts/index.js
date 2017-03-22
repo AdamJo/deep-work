@@ -23,7 +23,7 @@ const chartType = (props) => {
           workHourRange={props.workHourRange}
           timeFormat={props.chart.format}
         />
-        <Analyze hours={props.chart.hours} temp={props.chart.date[date]} hourRange={props.chart.hourRange} />
+        <Analyze hours={props.chart.workDates[date]} hourRange={props.chart.hourRange} />
         <DayChart
           chart={props.chart}
           hourRange={props.chart.hourRange}
@@ -74,7 +74,7 @@ Charts.propTypes = {
 };
 
 Charts.defaultProps = {
-  chart: { hours: [0], format: '12', hourRange: { min: 8, max: 18 } },
+  chart: { hours: [0], format: '12', workDates: {}, hourRange: { min: 8, max: 18 } },
 };
 
 export default Charts;

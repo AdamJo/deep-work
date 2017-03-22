@@ -5,10 +5,10 @@ import { font, palette } from 'styled-theme';
 
 const hourType = ({ hourType }) => {
   switch (hourType) {
-    case 1:
+    case 0:
       return palette(0);
       break;
-    case 2:
+    case 1:
       return `linear-gradient(bottom, ${theme.palette.greyscale[1]} 50%, ${theme.palette.white[0]} 0)`;
       break;
     default:

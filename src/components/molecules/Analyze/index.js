@@ -3,39 +3,16 @@ import styled from 'styled-components';
 
 import { TotalHours } from 'components';
 
-function calcHours(hours, hourRange, deep) {
-  return hours.reduce(
-    (acc, hour, index, arr) => {
-      const calcRangeHour = Math.round(index / 2);
-      const min = calcRangeHour >= hourRange.min;
-      const max = calcRangeHour <= hourRange.max;
-      if (deep && min && max) {
-        if (hour === 1) {
-          return acc + 0.5;
-        } else {
-          return acc + 0;
-        }
-      } else if (!deep && min && max) {
-        if (hour === 2) {
-          return acc + 0.5;
-        } else {
-          return acc + 0;
-        }
-      } else {
-        return acc + 0;
-      }
-    },
-    0
-  );
-}
-
-function calcTemp(hours, hourRange) {
+function calcHours(hours, hourRange, flag) {
   let count = 0;
   for (let [key, value] of Object.entries(hours)) {
-    // const calcRangeHour = Math.round(index / 2);
-    const min = key >= hourRange.min;
-    const max = key <= hourRange.max;
-    if (min && max) {
+    key = key.replace('-', '.'); // firebase work around for key values and "."'s
+    const min = parseInt(key)+1 >= hourRange.min;
+    const max = key <= hourRange.max+.5; // half is used for half hours
+    if (flag && min && max && value === 0) {
+      count += 0.5;
+    }
+    if (!flag && min && max && value === 1) {
       count += 0.5;
     }
   }
@@ -51,7 +28,6 @@ const Wrapper = styled.div`
 const Analyze = (
   {
     hours,
-    temp,
     hourRange,
     ...props
   }
@@ -62,36 +38,24 @@ const Analyze = (
         deep:
         {' '}
         {calcHours(hours, hourRange, true)}
-        {' '}
-        --
-        {' '}
-        {calcTemp(temp.deep, hourRange)}
       </TotalHours>
       <TotalHours>
         shallow:
         {' '}
         {calcHours(hours, hourRange, false)}
-        {' '}
-        --
-        {' '}
-        {calcTemp(temp.shallow, hourRange)}
       </TotalHours>
     </Wrapper>
   );
 };
 
 Analyze.propTypes = {
-  hours: PropTypes.array,
+  hours: PropTypes.object,
   hourRange: PropTypes.object
 };
 
 Analyze.defaultProps = {
-  temp: {
-    deep: {},
-    shallow: {},
-  },
-  hours: [0],
-  hourRange: { min: 1, max: 24 }
+  hours: {1:1},
+  hourRange: { min: 1, max: 23 }
 };
 
 export default Analyze;

@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 import { CellButton, Hours, CellChart } from 'components';
 
+//todo testing
+let date = new Date();
+date = date.toString().split(' ').slice(0, 4).join(' ');
+
 // no package and verbose = [...Array(24).keys()];
 // adding lodash Range adds an extra 70kb
 const time = [...Array(24).keys()].map(data => `${data} `);
@@ -32,6 +36,7 @@ const Wrapper = styled.div`
 
 const DayChart = class DayChart extends PureComponent {
   render() {
+    console.log(this.props)
     return (
       <OuterWrapper style={OuterWrapperStyle}>
         <Wrapper
@@ -49,10 +54,10 @@ const DayChart = class DayChart extends PureComponent {
                   <Hours timeFormat={this.props.chart.format} hour={hour} />
                   <CellChart
                     index={index}
-                    hours={this.props.chart.hours}
+                    hours={this.props.chart.workDates[date]}
                     updateWorkDate={this.props.updateWorkDate}
                     workHover={this.props.chart.workHover}
-                    date={this.props.chart.date}
+                    date={date}
                   />
                 </div>
               );
@@ -72,7 +77,7 @@ DayChart.propTypes = {
 };
 
 DayChart.defaultProps = {
-  chart: { format: '12', date: 'Thu Mar 09 2017', hours: [0] },
+  chart: { format: '12', workDates: {}, hours: [0] },
   hourRange: { min: 1, max: 24 },
 };
 

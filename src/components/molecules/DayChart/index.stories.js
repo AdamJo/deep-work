@@ -2,6 +2,10 @@ import React from 'react';
 import { storiesOf } from '@kadira/storybook';
 import { DayChart } from 'components';
 
+//todo testing
+let date = new Date();
+date = date.toString().split(' ').slice(0, 4).join(' ');
+
 storiesOf('DayChart', module).add('default', () => (
   <DayChart
     closeWorkHover={() => console.log('close')}
@@ -17,60 +21,10 @@ storiesOf('DayChart', module).add('default', () => (
 const chart = {
   format: '12',
   viewType: 'day',
-  date: 'Thu Mar 09 2017',
+  workDates: {},
   workHover: false,
   hourRange: {
     min: 8,
     max: 18,
   },
-  hours: [
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-  ],
 };

@@ -53,6 +53,9 @@ function* setUserInfo(action) {
 function* getUserInfo(action) {
   try {
     const getUser = yield call(FireBaseTools.getUserInfo, action.path);
+    if (getUser.workDates === undefined) {
+      getUser.workDates = {};
+    }
     yield put({ type: 'GET_USER_INFO_SUCCESS', userData: getUser });
   } catch (e) {
     yield put({
