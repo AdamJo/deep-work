@@ -3,6 +3,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import configureStore from './configureStore';
 
+import mockWorkDates from 'mockData/mockWorkDates';
 //todo testing
 let date = new Date();
 date = date.toString().split(' ').slice(0, 4).join(' ');
@@ -12,11 +13,12 @@ const defaultState = {
   chart: {
     format: '12',
     viewType: 'day',
-    workDates: {[date]: {}},
+    // workDates: {[date]: {}},
+    workDates: mockWorkDates,
     workHover: false,
     hourRange: {
-      min: 8,
-      max: 18,
+      min: 1,
+      max: 14,
     },
     menu: false,
   }
