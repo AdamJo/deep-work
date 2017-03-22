@@ -4,7 +4,7 @@ import { DayChart } from 'components';
 
 //todo testing
 let date = new Date();
-date = date.toString().split(' ').slice(0, 4).join(' ');
+date = date.toString().split(' ').slice(1, 4).join(' ');
 
 storiesOf('DayChart', module).add('default', () => (
   <DayChart

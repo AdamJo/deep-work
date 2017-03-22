@@ -6,7 +6,7 @@ import configureStore from './configureStore';
 import mockWorkDates from 'mockData/mockWorkDates';
 //todo testing
 let date = new Date();
-date = date.toString().split(' ').slice(0, 4).join(' ');
+date = date.toString().split(' ').slice(1, 4).join(' ');
 
 const defaultState = {
   currentUser: { email: null },

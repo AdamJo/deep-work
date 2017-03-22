@@ -6,7 +6,7 @@ import { ChartMenu, DayChart, Slider, Analyze, WeekChart, MonthChart, YearChart 
 
 // todo: remove when finished with cells, used for debuggings
 let date = new Date();
-date = date.toString().split(' ').slice(0, 4).join(' ');
+date = date.toString().split(' ').slice(1, 4).join(' ');
 
 const Wrapper = styled.div`
   // background: ${palette('greyscale', 4)}

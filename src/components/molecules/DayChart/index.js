@@ -5,7 +5,7 @@ import { CellButton, Hours, CellChart } from 'components';
 
 //todo testing
 let date = new Date();
-date = date.toString().split(' ').slice(0, 4).join(' ');
+date = date.toString().split(' ').slice(1, 4).join(' ');
 
 // no package and verbose = [...Array(24).keys()];
 // adding lodash Range adds an extra 70kb
@@ -36,7 +36,6 @@ const Wrapper = styled.div`
 
 const DayChart = class DayChart extends PureComponent {
   render() {
-    console.log(this.props)
     return (
       <OuterWrapper style={OuterWrapperStyle}>
         <Wrapper
