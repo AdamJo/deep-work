@@ -35,7 +35,7 @@ const chartType = (props) => {
     )
     case 'week':
       return (
-        <WeekChart/>
+        <WeekChart workDates={props.chart.workDates}/>
       )
     case 'month':
       return (
