@@ -33,21 +33,20 @@ const Li = styled.li`
 const ChartMenu = (
   {
     chartView,
-    chart,
-    updateTimeFormat,
+    viewType,
     ...props
   },
 ) => {
   return (
     <Ul {...props}>
-      {menuOptions.map((viewType, index) => (
+      {menuOptions.map((view, index) => (
         <Li key={index}>
           <Button
-            active={chart.viewType === viewType ? true : false}
-            onClick={() => chartView(viewType)}
+            active={viewType === view ? true : false}
+            onClick={() => chartView(view)}
             palette="secondary"
           >
-            {viewType}
+            {view}
           </Button>
         </Li>
       ))}
@@ -57,12 +56,9 @@ const ChartMenu = (
 
 ChartMenu.propTypes = {
   chartView: PropTypes.func,
-  timeFormat: PropTypes.func,
-  chart: PropTypes.object,
+  viewType: PropTypes.string,
 };
 
-ChartMenu.defaultProps = {
-  chart: { viewType: 'day', format: '12' },
-};
+ChartMenu.defaultProps = {};
 
 export default ChartMenu;
