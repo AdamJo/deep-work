@@ -15,6 +15,7 @@ const ToggleButton = class ToggleButton extends PureComponent {
       <Switch>
         <input
           type="checkbox"
+          checked={!this.props.format}
           onChange={event =>
             handleInputChange(event, this.props.updateTimeFormat)}
         />
