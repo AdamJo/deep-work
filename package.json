@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "npm start",
     "start": "node webpack/webpack-dev-server",
+    "start:prod": "npm run prod",
     "prod": "npm run build && serve dist -s",
     "prod:server": "serve dist -s",
     "test": "cross-env NODE_ENV=test jest",
