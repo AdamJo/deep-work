@@ -14,7 +14,7 @@ function calcHours(hours, hourRange, flag) {
   let count = 0;
   for (let [key, value] of Object.entries(hours)) {
     key = key.replace('-', '.'); // firebase work around for key values and "."'s
-    const min = parseInt(key) + 1 >= hourRange.min;
+    const min = parseInt(key) + 1 >= hourRange.min; // parseInt returns NaN for deep and shallow work keys thus resulting in false
     const max = key <= hourRange.max + 0.5; // half is used for half hours
     if (flag && min && max && value === 0) {
       count += 0.5;

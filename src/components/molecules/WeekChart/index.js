@@ -4,6 +4,8 @@ import { font, palette } from 'styled-theme';
 
 import { WeekDays, DateRangeWrapper } from 'components';
 import shortid from 'shortid';
+
+import { getHours } from 'helpers';
 /**
  * calculates the given week from Sunday to Monday
  * @return {array} firstDay: first day of the week,
@@ -38,31 +40,6 @@ const getWeek = () => {
   return [firstDay, lastDay, workDays];
 };
 
-/**
- * calculates the amount of deep or shallow work done on the given day
- * @param {object} day - work days objects {0: 0, 1:1}
- * @param {bool} deep - checks if the work is deep or shallow for calculation
- * @return {number} the total number of work done that day
- */
-const calcWork = (day, deep) => {
-  if (day !== undefined) {
-    return Object.values(day).reduce(
-      (acc, value) => {
-        if (deep && value === 0) {
-          return acc + 0.5;
-        } else if (!deep && value === 1) {
-          return acc + 0.5;
-        } else {
-          return acc + 0;
-        }
-      },
-      0,
-    );
-  } else {
-    return 0;
-  }
-};
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -88,10 +65,10 @@ const WeekChart = ({ workDates }) => {
         <InnerWrapper key={shortid.generate()}>
           <WeekDays>{day}</WeekDays>
           <WeekDays type="deep">
-            {calcWork(workDates[workDays[index]], true)}
+            {getHours(workDates[workDays[index]], true)}
           </WeekDays>
           <WeekDays type="shallow">
-            {calcWork(workDates[workDays[index]], false)}
+            {getHours(workDates[workDays[index]], false)}
           </WeekDays>
         </InnerWrapper>
       ))}

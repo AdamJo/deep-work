@@ -5,6 +5,8 @@ import { font, palette } from 'styled-theme';
 import { DateRangeWrapper, MonthDays } from 'components';
 import shortid from 'shortid';
 
+import { getHours } from 'helpers';
+
 const getMonth = () => {
   const curr = new Date();
   const first = new Date(curr.getFullYear(), curr.getMonth(), 1)
@@ -38,25 +40,6 @@ const getDaysInMonth = (month, year) => {
   return days;
 };
 
-const calcWorkHours = day => {
-  if (day !== undefined) {
-    return Object.values(day).reduce(
-      (acc, value) => {
-        if (value === 0) {
-          return acc + 1;
-        } else if (value === 1) {
-          return acc + 0.5;
-        } else {
-          return acc + 0;
-        }
-      },
-      0,
-    );
-  } else {
-    return 0;
-  }
-};
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -75,14 +58,15 @@ const MonthChart = ({ workDates }) => {
           {calcWorkHours(workDates[day])}
         </MonthDays>
     ));*/
-
   return (
     <Wrapper>
       <DateRangeWrapper>{first} -- {last}</DateRangeWrapper>
       {daysInMonth.map((day, index) => (
-        <MonthDays key={shortid.generate()}>
-          {calcWorkHours(workDates[day])}
-        </MonthDays>
+        <div key={shortid.generate()}>
+          <MonthDays>
+            {getHours(workDates[day], true)}--{getHours(workDates[day], false)}
+          </MonthDays>
+        </div>
       ))}
     </Wrapper>
   );
