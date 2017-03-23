@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
-import { WeekDays } from 'components';
+import { WeekDays, DateRangeWrapper } from 'components';
 
 /**
  * calculates the given week from Sunday to Monday
@@ -62,11 +62,6 @@ const calcWork = (day, deep) => {
     return 0;
   }
 };
-
-const DateRangeWrapper = styled.div`
-  width: 100%;
-  margin: 15px 0;
-`;
 
 const Wrapper = styled.div`
   display: flex;
