@@ -2,7 +2,7 @@ import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 
 import { CellButton, Hours, CellChart } from 'components';
-
+import shortid from 'shortid';
 //todo testing
 let date = new Date();
 date = date.toString().split(' ').slice(1, 4).join(' ');
@@ -49,7 +49,7 @@ const DayChart = class DayChart extends PureComponent {
               index >= this.props.hourRange.min - 1
             )
               return (
-                <div key={index}>
+                <div key={shortid.generate()}>
                   <Hours timeFormat={this.props.chart.format} hour={hour} />
                   <CellChart
                     index={index}

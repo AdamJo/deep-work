@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
 import { DateRangeWrapper, MonthDays } from 'components'
+import shortid from 'shortid';
 
 const getMonth = () => {
   const curr = new Date();
@@ -66,7 +67,7 @@ const MonthChart = ({workDates}) => {
     <Wrapper>
       <DateRangeWrapper>{first} -- {last}</DateRangeWrapper>
       {daysInMonth.map((day, index) => (
-        <MonthDays key={index}>
+        <MonthDays key={shortid.generate()}>
           {calcWorkHours(workDates[day])}
         </MonthDays>
       ))}

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { Button, TimeFormat } from 'components';
+import shortid from 'shortid';
 
 // determines state of chart;
 
@@ -40,7 +41,7 @@ const ChartMenu = (
   return (
     <Ul {...props}>
       {menuOptions.map((view, index) => (
-        <Li key={index}>
+        <Li key={shortid.generate()}>
           <Button
             active={viewType === view ? true : false}
             onClick={() => chartView(view)}

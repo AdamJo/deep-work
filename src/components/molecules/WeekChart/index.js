@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
 import { WeekDays, DateRangeWrapper } from 'components';
-
+import shortid from 'shortid';
 /**
  * calculates the given week from Sunday to Monday
  * @return {array} firstDay: first day of the week,
@@ -85,7 +85,7 @@ const WeekChart = ({ workDates }) => {
     <Wrapper>
       {/*<DateRangeWrapper style={{width: '100%'}}>{getWeek()}</DateRangeWrapper>*/}
       {daysInWeek.map((day, index) => (
-        <InnerWrapper key={index}>
+        <InnerWrapper key={shortid.generate()}>
           <WeekDays>{day}</WeekDays>
           <WeekDays type="deep">
             {calcWork(workDates[workDays[index]], true)}
