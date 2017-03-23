@@ -14,7 +14,21 @@ function Chart(state = {}, action) {
   switch (action.type) {
     case UPDATE_WORK_DATE:
       const dates = Object.assign({}, state.workDates);
-      dates[action.date] = action.hours;
+      let deep = 0;
+      let shallow = 0;
+      Object.entries(action.hours).forEach(
+        ([key, value]) => {
+          if (key !== 'deep' && key !== 'shallow') {
+            if (value === 0) {
+              deep += .5;
+            }
+            if (value === 1) {
+              shallow += .5;
+            }
+          }
+        }
+      );
+      dates[action.date] = {...action.hours, deep, shallow};
       return {
         ...state,
         workDates: dates,
