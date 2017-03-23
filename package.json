@@ -23,7 +23,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config",
     "create": "yo arc:component --ours",
-    "lightnouse": "lighthouse https://everwaking.com --output-path=./lighthouse/lighthouse.html --output html",
+    "lightnouse": "lighthouse !!https://deepwork.com --output-path=./lighthouse/lighthouse.html --output html",
     "prettier": "prettier --write --single-quote --trailing-comma=all \"src/**/*.js\""
   },
   "jest": {
