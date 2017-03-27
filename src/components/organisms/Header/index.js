@@ -3,18 +3,30 @@ import styled from 'styled-components';
 
 import { Button, TimeFormat, Modal } from 'components';
 import ReactModal from 'react-modal';
+
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 1rem;
   height: 60px;
 `;
 
 const ButtonWrapper = styled.div`
-  min-width: 600px;
+  min-width: 300px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+`;
+
+const MobileWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  > div {
+    margin: 10px;
+  }
 `
 
 class Header extends PureComponent {
@@ -53,20 +65,20 @@ class Header extends PureComponent {
       return (
         <ButtonWrapper>
           {currentUser && currentUser.uid
-            ?
-            <div>
+            ? <MobileWrapper>
                 <Button onClick={this.logOut}>Logout</Button>
-                {/*<Button onClick={this.getInfo}>getInfo</Button>
-                <Button onClick={this.setInfo}>setInfo</Button>*/}
-              </div>
-            : <div><Button onClick={this.logIn}>LogIn</Button></div>
-          }
-        {this.props.chart.viewType === 'day' ? <Button onClick={this.openMenu}>Settings</Button> : ''}
-        <Modal 
-          isOpen={this.props.chart.menu}
-          format={this.props.chart.format}
-          {...this.props}
-        />
+                {this.props.chart.viewType === 'day'
+                  ? <Button onClick={this.openMenu}>Settings</Button>
+                  : ''}
+                <Button onClick={this.getInfo}>getInfo</Button>
+                <Button onClick={this.setInfo}>setInfo</Button>
+              </MobileWrapper>
+            : <MobileWrapper><Button onClick={this.logIn}>LogIn</Button></MobileWrapper>}
+          <Modal
+            isOpen={this.props.chart.menu}
+            format={this.props.chart.format}
+            {...this.props}
+          />
         </ButtonWrapper>
       );
     } else {

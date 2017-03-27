@@ -7,9 +7,9 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.header`
-  margin: 0;
-  width: 100%;
-  z-index: 1;
+  display: flex;
+  justify-content:center;
+  flex-wrap: wrap;
 `;
 
 const Content = styled.section`

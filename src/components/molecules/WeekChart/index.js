@@ -60,7 +60,7 @@ const WeekChart = ({ workDates }) => {
   const [firstDay, lastDay, workDays] = getWeek();
   return (
     <Wrapper>
-      {/*<DateRangeWrapper style={{width: '100%'}}>{getWeek()}</DateRangeWrapper>*/}
+      <DateRangeWrapper>{firstDay} - {lastDay}</DateRangeWrapper>
       {daysInWeek.map((day, index) => (
         <InnerWrapper key={shortid.generate()}>
           <WeekDays>{day}</WeekDays>

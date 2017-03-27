@@ -60,11 +60,11 @@ const MonthChart = ({ workDates }) => {
     ));*/
   return (
     <Wrapper>
-      <DateRangeWrapper>{first} -- {last}</DateRangeWrapper>
+      <DateRangeWrapper>{first} - {last}</DateRangeWrapper>
       {daysInMonth.map((day, index) => (
         <div key={shortid.generate()}>
           <MonthDays>
-            {getHours(workDates[day], true)}--{getHours(workDates[day], false)}
+            {getHours(workDates[day], true)} - {getHours(workDates[day], false)}
           </MonthDays>
         </div>
       ))}

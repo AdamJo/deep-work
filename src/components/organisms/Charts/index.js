@@ -16,6 +16,10 @@ import {
 let date = new Date();
 date = date.toString().split(' ').slice(1, 4).join(' ');
 
+const Hr = styled.hr`
+  width: 90%;
+`
+
 const Wrapper = styled.div`
   // background: ${palette('greyscale', 4)}
   // width: 800px;
@@ -35,6 +39,7 @@ const chartType = props => {
             hours={props.chart.workDates[date]}
             hourRange={props.chart.hourRange}
           />
+          <Hr/>
           <DayChart
             chart={props.chart}
             hourRange={props.chart.hourRange}
