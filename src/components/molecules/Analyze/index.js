@@ -28,8 +28,10 @@ function calcHours(hours, hourRange, flag) {
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
+  margin: 10px 0;
 `;
 
 const Analyze = (
