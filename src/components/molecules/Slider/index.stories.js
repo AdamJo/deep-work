@@ -8,7 +8,7 @@ const hourRange = {
 };
 
 const workHourRange = () => {
-  console.log('here');
+  console.log('workHourRange');
 };
 
 storiesOf('Slider', module).add('default', () => (
