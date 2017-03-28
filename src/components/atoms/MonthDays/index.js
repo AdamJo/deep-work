@@ -2,6 +2,10 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
+const active = ({ deepPercentage, shallowPercentage }) => {
+  console.log(deepPercentage, shallowPercentage)
+}
+
 const MonthDays = styled.div`
   min-width: 80px;
   text-align: center;
@@ -16,6 +20,7 @@ const MonthDays = styled.div`
   font-weight: 600;
 
   margin: 5px;
+  color: ${active};
 `;
 
 MonthDays.propTypes = {};

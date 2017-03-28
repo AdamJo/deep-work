@@ -46,7 +46,7 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
-  max-width: 800px;
+  max-width: 700px;
 `;
 
 // todo: [x] show monthly day nodes
