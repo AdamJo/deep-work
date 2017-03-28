@@ -40,6 +40,23 @@ const getDaysInMonth = (month, year) => {
   return days;
 };
 
+const calcMaxMin = (works, daysInMonth, month) => {
+  let maxDeep = 0;
+  let maxShallow = 0;
+
+  daysInMonth.forEach(dates => {
+    if (works[dates]) {
+      if (works[dates]['deep'] > maxDeep) {
+        maxDeep = works[dates]['deep'];
+      }
+      if (works[dates]['shallow'] > maxShallow) {
+        maxShallow = works[dates]['shallow'];
+      }
+    }
+  })
+  return [maxDeep, maxShallow]
+}
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -58,16 +75,21 @@ const MonthChart = ({ workDates }) => {
           {calcWorkHours(workDates[day])}
         </MonthDays>
     ));*/
+  const [maxDeep, maxShallow] = calcMaxMin(workDates, daysInMonth, first.split(' ')[0]);
   return (
     <Wrapper>
       <DateRangeWrapper>{first} - {last}</DateRangeWrapper>
-      {daysInMonth.map((day, index) => (
+      {daysInMonth.map((day, index) => {
+        const deep = getHours(workDates[day], true);
+        const shallow = getHours(workDates[day], false);
+        return (
         <div key={shortid.generate()}>
-          <MonthDays>
-            {getHours(workDates[day], true)} - {getHours(workDates[day], false)}
+          <MonthDays deepPercentage={deep / maxDeep} shallowPercentage={shallow / maxShallow}>
+            {deep} - {shallow}
           </MonthDays>
         </div>
-      ))}
+        )
+      })}
     </Wrapper>
   );
 };
