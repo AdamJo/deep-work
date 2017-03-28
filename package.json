@@ -24,7 +24,8 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config",
     "create": "yo arc:component --ours",
     "lightnouse": "lighthouse !!https://deepwork.com --output-path=./lighthouse/lighthouse.html --output html",
-    "prettier": "prettier --write --single-quote --trailing-comma=all \"src/**/*.js\""
+    "prettier": "prettier --write --single-quote --trailing-comma=all \"src/**/*.js\"",
+    "deploy": "firebase deploy"
   },
   "jest": {
     "moduleDirectories": [
