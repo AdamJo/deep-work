@@ -5,7 +5,7 @@ import { font, palette } from 'styled-theme';
 import { DateRangeWrapper, MonthDays } from 'components';
 import shortid from 'shortid';
 
-import { getHours } from 'helpers';
+import { getHours, addComma } from 'helpers';
 
 /**
  * determines the color of either deep or shallow work
@@ -15,17 +15,9 @@ import { getHours } from 'helpers';
  */
 const getMonth = () => {
   const curr = new Date();
-  const first = new Date(curr.getFullYear(), curr.getMonth(), 1)
-    .toString()
-    .split(' ')
-    .slice(1, 4)
-    .join(' ');
-  const last = new Date(curr.getFullYear(), curr.getMonth() + 1, 0)
-    .toString()
-    .split(' ')
-    .slice(1, 4)
-    .join(' ');
-  const workDays = {};
+  const first = addComma(new Date(curr.getFullYear(), curr.getMonth(), 1))
+
+  const last = addComma(new Date(curr.getFullYear(), curr.getMonth() + 1, 0))
 
   return [first, last, getDaysInMonth(curr.getMonth(), curr.getFullYear())];
 };

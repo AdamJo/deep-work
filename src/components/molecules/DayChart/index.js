@@ -3,9 +3,7 @@ import styled from 'styled-components';
 
 import { CellButton, Hours, CellChart } from 'components';
 import shortid from 'shortid';
-//todo testing
-let date = new Date();
-date = date.toString().split(' ').slice(1, 4).join(' ');
+import { formatDate, addComma } from 'helpers';
 
 // no package and verbose = [...Array(24).keys()];
 // adding lodash Range adds an extra 70kb
@@ -36,8 +34,11 @@ const Wrapper = styled.div`
 
 const DayChart = class DayChart extends PureComponent {
   render() {
+    let date = formatDate(this.props.chart.daySelected);
+    let displayDate = addComma(this.props.chart.daySelected)
     return (
       <OuterWrapper style={OuterWrapperStyle}>
+        <CurrentDate>{displayDate}</CurrentDate>
         <Wrapper
           {...this.props}
           onMouseDown={() => this.props.openWorkHover()}

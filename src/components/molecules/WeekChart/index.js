@@ -5,7 +5,7 @@ import { font, palette } from 'styled-theme';
 import { WeekDays, DateRangeWrapper } from 'components';
 import shortid from 'shortid';
 
-import { getHours } from 'helpers';
+import { getHours, addComma } from 'helpers';
 /**
  * calculates the given week from Sunday to Monday
  * @return {array} firstDay: first day of the week,
@@ -19,16 +19,9 @@ const getWeek = () => {
 
   const last = first + 6; // last day is the first day + 6
 
-  const firstDay = new Date(curr.setDate(first))
-    .toString()
-    .split(' ')
-    .slice(1, 4)
-    .join(' ');
-  const lastDay = new Date(curr.setDate(last))
-    .toString()
-    .split(' ')
-    .slice(1, 4)
-    .join(' ');
+  const firstDay = addComma(new Date(curr.setDate(first)));
+
+  const lastDay = addComma(new Date(curr.setDate(last)));
 
   curr = new Date(); // get current date
   const workDays = {};
