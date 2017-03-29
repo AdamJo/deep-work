@@ -12,6 +12,8 @@ import {
   YearChart,
 } from 'components';
 
+import { formatDate } from 'helpers'
+
 // todo: remove when finished with cells, used for debuggings
 let date = new Date();
 date = date.toString().split(' ').slice(1, 4).join(' ');
@@ -36,7 +38,7 @@ const chartType = props => {
             timeFormat={props.chart.format}
           />
           <Analyze
-            hours={props.chart.workDates[date]}
+            hours={props.chart.workDates[formatDate(props.chart.daySelected)]}
             hourRange={props.chart.hourRange}
           />
           <Hr />
