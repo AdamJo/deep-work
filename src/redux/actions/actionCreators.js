@@ -9,6 +9,8 @@ import {
   CLOSE_WORK_HOVER,
   SUBTRACT_DAY,
   ADD_DAY,
+  SUBTRACT_WEEK,
+  ADD_WEEK,
   TOGGLE_MENU,
 } from './types';
 
@@ -93,6 +95,20 @@ export function subtractDay(day) {
   return {
     type: SUBTRACT_DAY,
     day,
+  };
+}
+
+export function addWeek(week) {
+  return {
+    type: ADD_WEEK,
+    week,
+  };
+}
+
+export function subtractWeek(week) {
+  return {
+    type: SUBTRACT_WEEK,
+    week,
   };
 }
 

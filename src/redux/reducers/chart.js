@@ -10,6 +10,8 @@ import {
   TOGGLE_MENU,
   ADD_DAY,
   SUBTRACT_DAY,
+  ADD_WEEK,
+  SUBTRACT_WEEK,
 } from '../actions/types';
 
 function Chart(state = {}, action) {
@@ -83,6 +85,20 @@ function Chart(state = {}, action) {
       return {
         ...state,
         daySelected: action.day,
+      }
+    case ADD_WEEK:
+      action.week.first.setDate(action.week.first.getDate() + 7)
+      action.week.last.setDate(action.week.last.getDate() + 7)
+      return {
+        ...state,
+        weekSelected: action.week,
+      }
+    case SUBTRACT_WEEK:
+      action.week.first.setDate(action.week.first.getDate() - 7)
+      action.week.last.setDate(action.week.last.getDate() - 7)
+      return {
+        ...state,
+        weekSelected: action.week,
       }
     default:
       return state;
