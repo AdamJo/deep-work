@@ -1,3 +1,4 @@
+// chart specific actions
 import {
   UPDATE_TIME_FORMAT,
   TIME_FORMAT,
@@ -6,10 +7,13 @@ import {
   UPDATE_WORK_DATE,
   OPEN_WORK_HOVER,
   CLOSE_WORK_HOVER,
+  SUBTRACT_DAY,
+  ADD_DAY,
+  TOGGLE_MENU,
 } from './types';
 
 import FireBaseTools from '../firebase/firebase';
-// / FIREBASE AUTH ACTIONS
+// firebase specific actions
 import {
   LOGIN_WITH_PROVIDER_FIREBASE,
   FETCH_FIREBASE_USER,
@@ -19,7 +23,6 @@ import {
   LOGOUT_FIREBASE_USER,
   SET_USER_INFO,
   GET_USER_INFO,
-  TOGGLE_MENU,
 } from './types';
 
 /**
@@ -76,6 +79,20 @@ export function workHourRange(range) {
 export function toggleMenu() {
   return {
     type: TOGGLE_MENU,
+  };
+}
+
+export function addDay(day) {
+  return {
+    type: ADD_DAY,
+    day,
+  };
+}
+
+export function subtractDay(day) {
+  return {
+    type: SUBTRACT_DAY,
+    day,
   };
 }
 

@@ -8,6 +8,8 @@ import {
   GET_USER_INFO_SUCCESS,
   GET_USER_INFO_FAILURE,
   TOGGLE_MENU,
+  ADD_DAY,
+  SUBTRACT_DAY,
 } from '../actions/types';
 
 function Chart(state = {}, action) {
@@ -70,6 +72,18 @@ function Chart(state = {}, action) {
         ...state,
         menu: !state.menu,
       };
+    case ADD_DAY:
+      action.day.setDate(action.day.getDate() + 1)
+      return {
+        ...state,
+        daySelected: action.day,
+      }
+    case SUBTRACT_DAY:
+      action.day.setDate(action.day.getDate() - 1)
+      return {
+        ...state,
+        daySelected: action.day,
+      }
     default:
       return state;
   }

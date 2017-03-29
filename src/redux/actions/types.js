@@ -23,3 +23,6 @@ export const OPEN_WORK_HOVER = 'OPEN_WORK_HOVER';
 export const CLOSE_WORK_HOVER = 'CLOSE_WORK_HOVER';
 export const WORK_HOUR_RANGE = 'WORK_HOUR_RANGE';
 export const TOGGLE_MENU = 'TOGGLE_MENU';
+export const ADD_DAY = 'ADD_DAY';
+export const SUBTRACT_DAY = 'SUBTRACT_DAY';
+
