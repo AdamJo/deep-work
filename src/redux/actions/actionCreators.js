@@ -127,9 +127,10 @@ export function setUserInfo(path, payload) {
 /**
  * @param {string} path where the information should go to the backend
  */
-export function getUserInfo(path) {
+export function getUserInfo(path, currentSettings) {
   return {
     type: GET_USER_INFO,
     path,
+    currentSettings,
   };
 }

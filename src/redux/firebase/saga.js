@@ -32,12 +32,20 @@ function* logUser(action) {
 
 // worker Saga: will be fired on SET_USER_INFO actions
 function* setUserInfo(action) {
-  delete action.payload.workHover;
+
+  let saveInfo = Object.assign({}, action.payload)
+
+  delete saveInfo['workHover'];
+  delete saveInfo['daySelected'];
+  delete saveInfo['monthSelected'];
+  delete saveInfo['weekSelected'];
+  delete saveInfo['viewType'];
+
   try {
     const saveUser = yield call(
       FireBaseTools.writeToUserDatabase,
       action.path,
-      action.payload,
+      saveInfo,
     );
     yield put({ type: 'SET_USER_INFO_SUCCESS', save: true });
   } catch (e) {
@@ -56,6 +64,12 @@ function* getUserInfo(action) {
     if (getUser.workDates === undefined) {
       getUser.workDates = {};
     }
+
+    getUser['daySelected'] = action.currentSettings.daySelected;
+    getUser['weekSelected'] = action.currentSettings.weekSelected;
+    getUser['monthSelected'] = action.currentSettings.monthSelected;
+    getUser['viewType'] = action.currentSettings.viewType;
+
     yield put({ type: 'GET_USER_INFO_SUCCESS', userData: getUser });
   } catch (e) {
     yield put({
