@@ -2,6 +2,12 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
+/**
+ * filles the button with a gradient showing amount of deep/shallow work done
+ * @param {number} deepPercentage - Percentage of deep work done relative to max
+ * @param {number} shallowPercentage - Percentage of shallow work done relative to max
+ * @return {number} color of fill
+ */
 const workFill = ({ deepPercentage, shallowPercentage }) =>
   deepPercentage === 0 && shallowPercentage === 0
     ? `rgba(239, 243, 247, .50)`
