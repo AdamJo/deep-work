@@ -55,7 +55,14 @@ const chartType = props => {
         </div>
       );
     case 'week':
-      return <WeekChart workDates={props.chart.workDates} />;
+      return (
+        <WeekChart
+          workDates={props.chart.workDates}
+          addWeek={props.addWeek}
+          subtractWeek={props.subtractWeek}
+          weekSelected={props.chart.weekSelected}
+        />
+      );
     case 'month':
       return <MonthChart workDates={props.chart.workDates} />;
     case 'year':
