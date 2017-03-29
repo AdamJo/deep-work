@@ -1,7 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 
-import { CellButton, Hours, CellChart } from 'components';
+import { CellButton, Hours, CellChart, Button } from 'components';
 import shortid from 'shortid';
 import { formatDate, addComma } from 'helpers';
 
@@ -33,10 +33,15 @@ const CurrentDate = styled.div`
 const DayChart = class DayChart extends PureComponent {
   render() {
     let date = formatDate(this.props.chart.daySelected);
-    let displayDate = addComma(this.props.chart.daySelected)
+    let displayDate = addComma(this.props.chart.daySelected);
     return (
       <OuterWrapper>
-        <CurrentDate>{displayDate}</CurrentDate>
+        <CurrentDate>
+          <Button onClick={() => this.props.subtractDay(this.props.chart.daySelected)}>-</Button>
+          {displayDate}
+          {' '}
+          <Button onClick={() => this.props.addDay(this.props.chart.daySelected)}>+</Button>
+        </CurrentDate>
         <Wrapper
           {...this.props}
           onMouseDown={() => this.props.openWorkHover()}
@@ -71,12 +76,12 @@ DayChart.propTypes = {
   updateWorkDate: PropTypes.func,
   closeWorkHover: PropTypes.func,
   openWorkHover: PropTypes.func,
-  hourRange: PropTypes.object,
+  hourRange: PropTypes.object
 };
 
 DayChart.defaultProps = {
-  chart: { format: '12', workDates: {}, hours: [0] },
-  hourRange: { min: 1, max: 24 },
+  chart: { workDates: {} },
+  hourRange: { min: 1, max: 24 }
 };
 
 export default DayChart;
