@@ -16,19 +16,17 @@ function Chart(state = {}, action) {
       const dates = Object.assign({}, state.workDates);
       let deep = 0;
       let shallow = 0;
-      Object.entries(action.hours).forEach(
-        ([key, value]) => {
-          if (key !== 'deep' && key !== 'shallow') {
-            if (value === 0) {
-              deep += .5;
-            }
-            if (value === 1) {
-              shallow += .5;
-            }
+      Object.entries(action.hours).forEach(([key, value]) => {
+        if (key !== 'deep' && key !== 'shallow') {
+          if (value === 0) {
+            deep += 0.5;
+          }
+          if (value === 1) {
+            shallow += 0.5;
           }
         }
-      );
-      dates[action.date] = {...action.hours, deep, shallow};
+      });
+      dates[action.date] = { ...action.hours, deep, shallow };
       return {
         ...state,
         workDates: dates,

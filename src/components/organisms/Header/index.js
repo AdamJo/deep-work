@@ -27,7 +27,7 @@ const MobileWrapper = styled.div`
   > div {
     margin: 10px;
   }
-`
+`;
 
 class Header extends PureComponent {
   constructor(props) {
@@ -73,7 +73,9 @@ class Header extends PureComponent {
                 <Button onClick={this.getInfo}>getInfo</Button>
                 <Button onClick={this.setInfo}>setInfo</Button>
               </MobileWrapper>
-            : <MobileWrapper><Button onClick={this.logIn}>LogIn</Button></MobileWrapper>}
+            : <MobileWrapper>
+                <Button onClick={this.logIn}>LogIn</Button>
+              </MobileWrapper>}
           <Modal
             isOpen={this.props.chart.menu}
             format={this.props.chart.format}

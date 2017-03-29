@@ -14,4 +14,4 @@ export function getHours(day, flag) {
   } else {
     return 0;
   }
-};
+}
