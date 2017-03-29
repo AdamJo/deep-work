@@ -49,7 +49,7 @@ class Header extends PureComponent {
 
   getInfo() {
     const path = `/users/${this.props.currentUser.uid}/`;
-    this.props.getUserInfo(path);
+    this.props.getUserInfo(path, this.props.chart);
   }
   setInfo() {
     const path = `/users/${this.props.currentUser.uid}/`;
