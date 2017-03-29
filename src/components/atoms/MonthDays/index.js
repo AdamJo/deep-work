@@ -5,7 +5,7 @@ import { font, palette } from 'styled-theme';
 const workFill = ({ deepPercentage, shallowPercentage }) =>
   deepPercentage === 0 && shallowPercentage === 0
     ? `rgba(239, 243, 247, .50)`
-    : `linear-gradient(to right, rgba(255,196,46,${deepPercentage}) 0%, rgba(87,117,144,${shallowPercentage}) 100%);`;
+    : `linear-gradient(to right, rgba(197,145, 33, ${deepPercentage}) 0%, rgba(87, 117, 144, ${shallowPercentage}) 100%);`;
 
 const MonthDays = styled.div`
   min-width: 80px;

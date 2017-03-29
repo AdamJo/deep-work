@@ -11,10 +11,10 @@ import { font, palette } from 'styled-theme';
 const hourType = ({ hourType }) => {
   switch (hourType) {
     case 0:
-      return palette(0);
+      return palette('primary', 0);
       break;
     case 1:
-      return `linear-gradient(bottom, ${theme.palette.greyscale[1]} 50%, ${theme.palette.white[0]} 0)`;
+      return `linear-gradient(bottom, ${theme.palette.secondary[2]} 50%, ${theme.palette.white[0]} 0)`;
       break;
     default:
       return palette('white', 0);
