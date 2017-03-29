@@ -46,6 +46,7 @@ const chartType = props => {
             updateWorkDate={props.updateWorkDate}
             closeWorkHover={props.closeWorkHover}
             openWorkHover={props.openWorkHover}
+            daySelected={props.daySelected}
           />
         </div>
       );

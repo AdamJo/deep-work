@@ -12,14 +12,9 @@ const time = [...Array(24).keys()].map(data => `${data} `);
 const OuterWrapper = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  text-align: center;
 `;
-
-// todo: figuire out why I need this
-// this outer wrapper seems to only work with a style component attatched
-const OuterWrapperStyle = {
-  display: 'flex',
-  justifyContent: 'center',
-};
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,8 +23,11 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   text-align: center;
   user-select: none;
-  max-width: 800px;
-  }
+  max-width: 900px;
+`;
+
+const CurrentDate = styled.div`
+  margin: 10px 0;
 `;
 
 const DayChart = class DayChart extends PureComponent {
@@ -37,7 +35,7 @@ const DayChart = class DayChart extends PureComponent {
     let date = formatDate(this.props.chart.daySelected);
     let displayDate = addComma(this.props.chart.daySelected)
     return (
-      <OuterWrapper style={OuterWrapperStyle}>
+      <OuterWrapper>
         <CurrentDate>{displayDate}</CurrentDate>
         <Wrapper
           {...this.props}
