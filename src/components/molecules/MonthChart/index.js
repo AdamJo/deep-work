@@ -85,7 +85,7 @@ const MonthChart = ({ workDates }) => {
         return (
         <div key={shortid.generate()}>
           <MonthDays deepPercentage={deep / maxDeep} shallowPercentage={shallow / maxShallow}>
-            {deep} - {shallow}
+            {day.split(' ')[1]}
           </MonthDays>
         </div>
         )

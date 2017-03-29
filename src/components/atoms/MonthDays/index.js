@@ -2,9 +2,10 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
-const active = ({ deepPercentage, shallowPercentage }) => {
-  console.log(deepPercentage, shallowPercentage)
-}
+const workFill = ({ deepPercentage, shallowPercentage }) =>
+  deepPercentage === 0 && shallowPercentage === 0
+    ? `rgba(239, 243, 247, .50)`
+    : `linear-gradient(to right, rgba(255,196,46,${deepPercentage}) 0%, rgba(87,117,144,${shallowPercentage}) 100%);`;
 
 const MonthDays = styled.div`
   min-width: 80px;
@@ -20,10 +21,13 @@ const MonthDays = styled.div`
   font-weight: 600;
 
   margin: 5px;
-  color: ${active};
+  background: ${workFill};
 `;
 
-MonthDays.propTypes = {};
+MonthDays.propTypes = {
+  deepPercentage: PropTypes.number,
+  shallowPercentage: PropTypes.number,
+};
 
 MonthDays.defaultProps = {};
 
