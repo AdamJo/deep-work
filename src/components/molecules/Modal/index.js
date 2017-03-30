@@ -20,7 +20,7 @@ const ModalBox = styled(ReactModal)`
   background-color: ${palette('greyscale', 0)};
   border-radius: 0.125em;
   color: ${palette('primary', 0)};
-  top: calc(15% - 1rem);
+  top: calc(35% - 1rem);
   left: calc(50% - 1rem);
   right: auto;
   bottom: auto;
