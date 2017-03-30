@@ -29,6 +29,13 @@ export function addComma(day) {
   }
 }
 
+export function splitTime(day) {
+  if (day) {
+    day = day.toString().replace(/ 0/, ' ').split(' ');
+    return day.slice(1, 3).join(' ');
+  }
+}
+
 /**
  * format date to MM DD YY for database
  * @param {Date} day - day to be currently selected

@@ -20,7 +20,7 @@ const Content = styled.section`
   align-content: center;
   width: 100%;
   box-sizing: border-box;
-  margin: 2rem auto;
+  margin: auto;
   max-width: 1000px;
 `;
 

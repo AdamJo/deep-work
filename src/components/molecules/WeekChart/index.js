@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
-import { WeekDays, DateRangeWrapper, Button } from 'components';
+import { WeekDays, DateRangeWrapper, Button, DateWrapper } from 'components';
 import shortid from 'shortid';
 
-import { getHours, addComma } from 'helpers';
+import { getHours, splitTime } from 'helpers';
 /**
  * calculates the given week from Sunday to Monday
  * @return {array} firstDay: first day of the week,
@@ -47,17 +47,22 @@ const WeekChart = ({ workDates, subtractWeek, addWeek, weekSelected }) => {
   return (
     <Wrapper>
       <DateRangeWrapper>
-        <Button
+        <Button cycle
           onClick={() => subtractWeek(weekSelected)}
         >
           -
         </Button>
-        {addComma(weekSelected.first)}
-        {' '}
-        -
-        {' '}
-        {addComma(weekSelected.last)}
-        <Button onClick={() => addWeek(weekSelected)}>
+        <DateWrapper>
+          <div>{weekSelected.first.getFullYear()}</div>
+          <div>
+            {splitTime(weekSelected.first)}
+            {' '}
+            -
+            {' '}
+            {splitTime(weekSelected.last)}
+          </div>
+        </DateWrapper>
+        <Button cycle onClick={() => addWeek(weekSelected)}>
           +
         </Button>
       </DateRangeWrapper>

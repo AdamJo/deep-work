@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
-import { DateRangeWrapper, MonthDays, Button } from 'components';
+import { DateRangeWrapper, MonthDays, Button, DateWrapper } from 'components';
 import shortid from 'shortid';
 
-import { getHours, addComma } from 'helpers';
+import { getHours, splitTime } from 'helpers';
 
 /**
  * determines the color of either deep or shallow work
@@ -86,17 +86,21 @@ const MonthChart = ({ workDates, monthSelected, subtractMonth, addMonth }) => {
   return (
     <Wrapper>
       <DateRangeWrapper>
-        <Button
+        <Button cycle
           onClick={() => subtractMonth(monthSelected.first, monthSelected.first.getFullYear())}
         >
           -
         </Button>
-        {addComma(monthSelected.first)}
-        {' '}
-        -
-        {' '}
-        {addComma(monthSelected.last)}
-        <Button onClick={() => addMonth(monthSelected.first, monthSelected.first.getFullYear())}>
+        <DateWrapper>
+          <div>{monthSelected.first.getFullYear()}</div>
+          <div>{splitTime(monthSelected.first)}
+          {' '}
+          -
+          {' '}
+          {splitTime(monthSelected.last)}
+          </div>
+        </DateWrapper>
+        <Button cycle onClick={() => addMonth(monthSelected.first, monthSelected.first.getFullYear())}>
           +
         </Button>
       </DateRangeWrapper>

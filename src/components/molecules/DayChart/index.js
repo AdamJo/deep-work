@@ -37,10 +37,10 @@ const DayChart = class DayChart extends PureComponent {
     return (
       <OuterWrapper>
         <CurrentDate>
-          <Button onClick={() => this.props.subtractDay(this.props.chart.daySelected)}>-</Button>
+          <Button cycle onClick={() => this.props.subtractDay(this.props.chart.daySelected)}>-</Button>
           {displayDate}
           {' '}
-          <Button onClick={() => this.props.addDay(this.props.chart.daySelected)}>+</Button>
+          <Button cycle onClick={() => this.props.addDay(this.props.chart.daySelected)}>+</Button>
         </CurrentDate>
         <Wrapper
           {...this.props}
