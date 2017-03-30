@@ -9,7 +9,6 @@ import {
   Analyze,
   WeekChart,
   MonthChart,
-  YearChart
 } from 'components';
 
 import { formatDate } from 'helpers';
@@ -64,21 +63,21 @@ const chartType = props => {
         />
       );
     case 'month':
-      return <MonthChart 
-        workDates={props.chart.workDates} 
-        addMonth={props.addMonth}
-        subtractMonth={props.subtractMonth}
-        monthSelected={props.chart.monthSelected}
-        />;
-    case 'year':
-      return <YearChart />;
-  },
+      return (
+        <MonthChart
+          workDates={props.chart.workDates}
+          addMonth={props.addMonth}
+          subtractMonth={props.subtractMonth}
+          monthSelected={props.chart.monthSelected}
+        />
+      );
+  }
 };
 
 const Charts = (
   {
     ...props
-  }
+  },
 ) => {
   return (
     <Wrapper {...props}>
