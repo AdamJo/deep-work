@@ -43,13 +43,13 @@ const Analyze = (
 ) => {
   return (
     <Wrapper {...props}>
-      <TotalHours>
-        deep:
+      <TotalHours deep>
+        Deep:
         {' '}
         {calcHours(hours, hourRange, true)}
       </TotalHours>
       <TotalHours>
-        shallow:
+        Shallow:
         {' '}
         {calcHours(hours, hourRange, false)}
       </TotalHours>
