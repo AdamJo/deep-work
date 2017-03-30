@@ -41,10 +41,11 @@ class Header extends PureComponent {
 
   logOut() {
     this.props.logoutUser();
+    this.props.chart.workDates = {};
   }
 
   logIn() {
-    this.props.loginWithProvider('google');
+    this.props.loginWithProvider('google', this.props.chart);
   }
 
   getInfo() {
@@ -70,8 +71,8 @@ class Header extends PureComponent {
                 {this.props.chart.viewType === 'day'
                   ? <Button onClick={this.openMenu}>Settings</Button>
                   : ''}
-                <Button onClick={this.getInfo}>getInfo</Button>
-                <Button onClick={this.setInfo}>setInfo</Button>
+                {/*<Button onClick={this.getInfo}>getInfo</Button>*/}
+                {/*<Button onClick={this.setInfo}>setInfo</Button>*/}
               </MobileWrapper>
             : <MobileWrapper>
                 <Button onClick={this.logIn}>LogIn</Button>

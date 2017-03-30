@@ -56,8 +56,8 @@ const defaultState = {
       last: lastDayMonth,
       currentMonth: date.getMonth(),
     },
-    // workDates: {[formatDate(date)]: {}},
-    workDates: mockWorkDates,
+    workDates: { [formatDate(date)]: {} },
+    // workDates: mockWorkDates,
     workHover: false,
     hourRange: {
       min: 1,

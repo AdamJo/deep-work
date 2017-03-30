@@ -14,11 +14,17 @@ import FireBaseTools from './firebase';
 function* fetchUser(action) {
   try {
     const user = yield call(FireBaseTools.fetchUser);
-    const path = `/users/${user.providerData[0].uid}/`;
-    
-    yield call(getUserInfo, {path, currentSettings: action['currentSettings']})
-    yield put({ type: 'FETCH_FIREBASE_USER_SUCCESS', user: user });
+    if (user) {
+      if (user.providerData[0]) {
+        const path = `/users/${user.providerData[0].uid}/`;
+        yield call(getUserInfo, {
+          path,
+          currentSettings: action['currentSettings'],
+        });
+      }
+    }
 
+    yield put({ type: 'FETCH_FIREBASE_USER_SUCCESS', user: user });
   } catch (e) {
     yield put({ type: 'FETCH_FIREBASE_USER_FAILURE', message: e.message });
   }
@@ -28,6 +34,15 @@ function* fetchUser(action) {
 function* logUser(action) {
   try {
     const user = yield call(FireBaseTools.loginWithProvider, action.payload);
+    if (user.user) {
+      if (user.user.providerData[0]) {
+        const path = `/users/${user.user.providerData[0].uid}/`;
+        yield call(getUserInfo, {
+          path,
+          currentSettings: action['currentSettings'],
+        });
+      }
+    }
     yield put({ type: 'FETCH_FIREBASE_USER_SUCCESS', user: user.user });
   } catch (e) {
     yield put({ type: 'FETCH_FIREBASE_USER_FAILURE', message: e.message });
@@ -100,11 +115,16 @@ function* watchGetUserInfo() {
   yield takeLatest('GET_USER_INFO', getUserInfo);
 }
 
+function* watchCloseHover() {
+  yield takeLatest('CLOSE_WORK_HOVER', setUserInfo);
+}
+
 export default function* Saga() {
   yield [
     fork(watchLogIn),
     fork(watchFetchUser),
     fork(watchGetUserInfo),
     fork(watchSetUserInfo),
+    fork(watchCloseHover),
   ];
 }

@@ -67,9 +67,11 @@ export function openWorkHover() {
   };
 }
 
-export function closeWorkHover() {
+export function closeWorkHover(path, payload) {
   return {
     type: CLOSE_WORK_HOVER,
+    path,
+    payload,
   };
 }
 
@@ -132,10 +134,11 @@ export function subtractMonth(day) {
 /**
  * @param {string} provider which host the user should log into ( google, github, etc...)
  */
-export function loginWithProvider(provider) {
+export function loginWithProvider(provider, currentSettings) {
   return {
     type: LOGIN_WITH_PROVIDER_FIREBASE,
     payload: provider,
+    currentSettings,
   };
 }
 

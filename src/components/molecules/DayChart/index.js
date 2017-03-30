@@ -70,7 +70,11 @@ const DayChart = class DayChart extends PureComponent {
         <Wrapper
           {...this.props}
           onMouseDown={() => this.props.openWorkHover()}
-          onMouseUp={() => this.props.closeWorkHover()}
+          onMouseUp={() =>
+            this.props.closeWorkHover(
+              `/users/${this.props.user.uid}/`,
+              this.props.chart,
+            )}
         >
           {time.map((hour, index) => {
             if (

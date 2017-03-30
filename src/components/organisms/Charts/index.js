@@ -40,6 +40,7 @@ const chartType = props => {
             daySelected={props.daySelected}
             addDay={props.addDay}
             subtractDay={props.subtractDay}
+            user={props.currentUser}
           />
         </div>
       );
