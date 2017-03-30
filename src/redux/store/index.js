@@ -24,23 +24,40 @@ const getWeek = () => {
   return [firstDay, lastDay];
 };
 
-let day = new Date();
-console.log(day.setDate(day.getDate() + 1));
+/**
+ * determines the color of either deep or shallow work
+ * @return {string} first day of the month
+ * @return {string} last day of the month
+ * @return {Array<string>} list of all months between first and last
+ */
+const getMonth = () => {
+  const curr = new Date();
+  const first = new Date(curr.getFullYear(), curr.getMonth(), 1)
 
-const [first, last] = getWeek();
+  const last = new Date(curr.getFullYear(), curr.getMonth() + 1, 0)
+
+  return [first, last];
+};
+
+const [firstDayWeek, lastDayWeek] = getWeek();
+const [firstDayMonth, lastDayMonth] = getMonth();
 const defaultState = {
   currentUser: { email: null },
   chart: {
     format: '12',
-    viewType: 'day',
+    viewType: 'month',
     daySelected: date,
     weekSelected: {  
-      first,
-      last
+      first: firstDayWeek,
+      last: lastDayWeek,
     },
-    monthSelected: 'Mar',
-    workDates: {[formatDate(date)]: {}},
-    // workDates: mockWorkDates,
+    monthSelected: {
+      first: firstDayMonth,
+      last: lastDayMonth,
+      currentMonth: date.getMonth()
+    },
+    // workDates: {[formatDate(date)]: {}},
+    workDates: mockWorkDates,
     workHover: false,
     hourRange: {
       min: 1,

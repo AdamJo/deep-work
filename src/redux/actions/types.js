@@ -27,3 +27,6 @@ export const ADD_DAY = 'ADD_DAY';
 export const SUBTRACT_DAY = 'SUBTRACT_DAY';
 export const ADD_WEEK = 'ADD_WEEK';
 export const SUBTRACT_WEEK = 'SUBTRACT_WEEK';
+export const SUBTRACT_MONTH = 'SUBTRACT_MONTH';
+export const ADD_MONTH = 'ADD_MONTH';
+

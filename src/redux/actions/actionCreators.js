@@ -11,6 +11,8 @@ import {
   ADD_DAY,
   SUBTRACT_WEEK,
   ADD_WEEK,
+  ADD_MONTH,
+  SUBTRACT_MONTH,
   TOGGLE_MENU,
 } from './types';
 
@@ -109,6 +111,20 @@ export function subtractWeek(week) {
   return {
     type: SUBTRACT_WEEK,
     week,
+  };
+}
+
+export function addMonth(day) {
+  return {
+    type: ADD_MONTH,
+    day,
+  };
+}
+
+export function subtractMonth(day) {
+  return {
+    type: SUBTRACT_MONTH,
+    day,
   };
 }
 

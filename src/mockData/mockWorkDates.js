@@ -255,8 +255,11 @@ const mockWorkDates = {
   // deleted 23 and 24 for testing
   'Apr 19 2017': {
     6: 0,
+    7: 0,
+    8: 0,
+    9: 0,
     '8-5': 1,
-    deep: 0.5,
+    deep: 2,
     shallow: 0.5,
   },
   'Apr 18 2017': {

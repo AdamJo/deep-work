@@ -12,6 +12,8 @@ import {
   SUBTRACT_DAY,
   ADD_WEEK,
   SUBTRACT_WEEK,
+  ADD_MONTH,
+  SUBTRACT_MONTH,
 } from '../actions/types';
 
 function Chart(state = {}, action) {
@@ -99,6 +101,22 @@ function Chart(state = {}, action) {
       return {
         ...state,
         weekSelected: action.week,
+      }
+    case ADD_MONTH:
+      return {
+        ...state,
+        monthSelected: {
+          first: new Date(action.day.getFullYear(), action.day.getMonth()+1),
+          last: new Date(action.day.getFullYear(), action.day.getMonth()+2, 0),
+        },
+      }
+    case SUBTRACT_MONTH:
+      return {
+        ...state,
+        monthSelected: {
+          first: new Date(action.day.getFullYear(), action.day.getMonth()-1),
+          last: new Date(action.day.getFullYear(), action.day.getMonth(), 0),
+        },
       }
     default:
       return state;
