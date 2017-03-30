@@ -35,6 +35,9 @@ MonthDays.propTypes = {
   shallowPercentage: PropTypes.number,
 };
 
-MonthDays.defaultProps = {};
+MonthDays.defaultProps = {
+  deepPercentage: 0,
+  shallowPercentage: 0,
+};
 
 export default MonthDays;

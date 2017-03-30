@@ -116,12 +116,14 @@ const MonthChart = ({ workDates, monthSelected, subtractMonth, addMonth }) => {
       {daysInMonth.map((day, index) => {
         const deep = getHours(workDates[day], true);
         const shallow = getHours(workDates[day], false);
+        const deepPercentage = deep / maxDeep || 0;
+        const shallowPercentage = shallow / maxShallow || 0;
         return (
           <div key={shortid.generate()}>
             {/* Calculate % of day to fill on button */}
             <MonthDays
-              deepPercentage={deep / maxDeep}
-              shallowPercentage={shallow / maxShallow}
+              deepPercentage={deepPercentage}
+              shallowPercentage={shallowPercentage}
             >
               {day.split(' ')[1]}
             </MonthDays>
