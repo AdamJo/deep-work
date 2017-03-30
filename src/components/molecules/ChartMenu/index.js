@@ -5,7 +5,8 @@ import shortid from 'shortid';
 
 // determines state of chart;
 
-const menuOptions = ['day', 'week', 'month', 'year'];
+// const menuOptions = ['day', 'week', 'month', 'year'];
+const menuOptions = ['day', 'week', 'month'];
 
 const Ul = styled.ul`
   list-style-type: none;

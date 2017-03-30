@@ -17,9 +17,9 @@ const getWeek = () => {
 
   const last = first + 6; // last day is the first day + 6
 
-  const firstDay = new Date(curr.setDate(first))
+  const firstDay = new Date(curr.setDate(first));
 
-  const lastDay = new Date(curr.setDate(last))
+  const lastDay = new Date(curr.setDate(last));
 
   return [firstDay, lastDay];
 };
@@ -32,9 +32,9 @@ const getWeek = () => {
  */
 const getMonth = () => {
   const curr = new Date();
-  const first = new Date(curr.getFullYear(), curr.getMonth(), 1)
+  const first = new Date(curr.getFullYear(), curr.getMonth(), 1);
 
-  const last = new Date(curr.getFullYear(), curr.getMonth() + 1, 0)
+  const last = new Date(curr.getFullYear(), curr.getMonth() + 1, 0);
 
   return [first, last];
 };
@@ -47,14 +47,14 @@ const defaultState = {
     format: '12',
     viewType: 'month',
     daySelected: date,
-    weekSelected: {  
+    weekSelected: {
       first: firstDayWeek,
       last: lastDayWeek,
     },
     monthSelected: {
       first: firstDayMonth,
       last: lastDayMonth,
-      currentMonth: date.getMonth()
+      currentMonth: date.getMonth(),
     },
     // workDates: {[formatDate(date)]: {}},
     workDates: mockWorkDates,

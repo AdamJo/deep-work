@@ -77,47 +77,51 @@ function Chart(state = {}, action) {
         menu: !state.menu,
       };
     case ADD_DAY:
-      action.day.setDate(action.day.getDate() + 1)
+      action.day.setDate(action.day.getDate() + 1);
       return {
         ...state,
         daySelected: action.day,
-      }
+      };
     case SUBTRACT_DAY:
-      action.day.setDate(action.day.getDate() - 1)
+      action.day.setDate(action.day.getDate() - 1);
       return {
         ...state,
         daySelected: action.day,
-      }
+      };
     case ADD_WEEK:
-      action.week.first.setDate(action.week.first.getDate() + 7)
-      action.week.last.setDate(action.week.last.getDate() + 7)
+      action.week.first.setDate(action.week.first.getDate() + 7);
+      action.week.last.setDate(action.week.last.getDate() + 7);
       return {
         ...state,
         weekSelected: action.week,
-      }
+      };
     case SUBTRACT_WEEK:
-      action.week.first.setDate(action.week.first.getDate() - 7)
-      action.week.last.setDate(action.week.last.getDate() - 7)
+      action.week.first.setDate(action.week.first.getDate() - 7);
+      action.week.last.setDate(action.week.last.getDate() - 7);
       return {
         ...state,
         weekSelected: action.week,
-      }
+      };
     case ADD_MONTH:
       return {
         ...state,
         monthSelected: {
-          first: new Date(action.day.getFullYear(), action.day.getMonth()+1),
-          last: new Date(action.day.getFullYear(), action.day.getMonth()+2, 0),
+          first: new Date(action.day.getFullYear(), action.day.getMonth() + 1),
+          last: new Date(
+            action.day.getFullYear(),
+            action.day.getMonth() + 2,
+            0,
+          ),
         },
-      }
+      };
     case SUBTRACT_MONTH:
       return {
         ...state,
         monthSelected: {
-          first: new Date(action.day.getFullYear(), action.day.getMonth()-1),
+          first: new Date(action.day.getFullYear(), action.day.getMonth() - 1),
           last: new Date(action.day.getFullYear(), action.day.getMonth(), 0),
         },
-      }
+      };
     default:
       return state;
   }

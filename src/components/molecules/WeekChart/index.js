@@ -12,13 +12,19 @@ import { getHours, splitTime } from 'helpers';
  *                 lastDay: last day of the week,
  *                 workDays: an object of days between first and last.
  */
-const getWeek = (firstDay) => {
+const getWeek = firstDay => {
   // http://stackoverflow.com/questions/5210376/how-to-get-first-and-last-day-of-the-week-in-javascript
 
-  const curr = new Date(firstDay.getFullYear(), firstDay.getMonth() + 1, firstDay.getDay()); // get current date
+  const curr = new Date(
+    firstDay.getFullYear(),
+    firstDay.getMonth() + 1,
+    firstDay.getDay(),
+  ); // get current date
   const workDays = {};
   for (let x in [...Array(7).keys()]) {
-    workDays[x] = new Date(curr.setDate(parseInt(firstDay.getDate()) + parseInt(x)))
+    workDays[x] = new Date(
+      curr.setDate(parseInt(firstDay.getDate()) + parseInt(x)),
+    )
       .toString()
       .split(' ')
       .slice(1, 4)
@@ -47,9 +53,7 @@ const WeekChart = ({ workDates, subtractWeek, addWeek, weekSelected }) => {
   return (
     <Wrapper>
       <DateRangeWrapper>
-        <Button cycle
-          onClick={() => subtractWeek(weekSelected)}
-        >
+        <Button cycle onClick={() => subtractWeek(weekSelected)}>
           -
         </Button>
         <DateWrapper>
@@ -90,7 +94,7 @@ WeekChart.propTypes = {
 
 WeekChart.defaultProps = {
   workDates: {},
-  weekSelected: {first: new Date()},
+  weekSelected: { first: new Date() },
 };
 
 export default WeekChart;

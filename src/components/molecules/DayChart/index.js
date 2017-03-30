@@ -37,10 +37,20 @@ const DayChart = class DayChart extends PureComponent {
     return (
       <OuterWrapper>
         <CurrentDate>
-          <Button cycle onClick={() => this.props.subtractDay(this.props.chart.daySelected)}>-</Button>
+          <Button
+            cycle
+            onClick={() => this.props.subtractDay(this.props.chart.daySelected)}
+          >
+            -
+          </Button>
           {displayDate}
           {' '}
-          <Button cycle onClick={() => this.props.addDay(this.props.chart.daySelected)}>+</Button>
+          <Button
+            cycle
+            onClick={() => this.props.addDay(this.props.chart.daySelected)}
+          >
+            +
+          </Button>
         </CurrentDate>
         <Wrapper
           {...this.props}
@@ -76,12 +86,12 @@ DayChart.propTypes = {
   updateWorkDate: PropTypes.func,
   closeWorkHover: PropTypes.func,
   openWorkHover: PropTypes.func,
-  hourRange: PropTypes.object
+  hourRange: PropTypes.object,
 };
 
 DayChart.defaultProps = {
   chart: { workDates: {} },
-  hourRange: { min: 1, max: 24 }
+  hourRange: { min: 1, max: 24 },
 };
 
 export default DayChart;

@@ -18,7 +18,7 @@ const activeBackground = ({ active }) =>
     ? palette('primary', 3)
     : palette('secondary', 3);
 
-const cycle = ({cycle}) => cycle ? '60px' : '100px'
+const cycle = ({ cycle }) => cycle ? '60px' : '100px';
 
 const Button = styled.div`
   /* Adjust the Button styling based on the theme */

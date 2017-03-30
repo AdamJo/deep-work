@@ -56,9 +56,9 @@ const FireBaseTools = {
    * @returns {!firebase.Promise.<*>|firebase.Thenable<any>|firebase.Promise<any>|!firebase.Thenable.<*>}
    */
   logoutUser: () => firebaseAuth.signOut().then(() => ({
-    success: 1,
-    message: 'logout',
-  })),
+      success: 1,
+      message: 'logout',
+    })),
 
   /**
    * Update a user's profile data
@@ -67,28 +67,29 @@ const FireBaseTools = {
    * @returns {!firebase.Promise.<*>|firebase.Thenable<any>|firebase.Promise<any>|!firebase.Thenable.<*>}
    */
   updateUserProfile: u => firebaseAuth.currentUser.updateProfile(u).then(
-    () => firebaseAuth.currentUser,
-    error => ({
-      errorCode: error.code,
-      errorMessage: error.message,
-    }),
-  ),
+      () => firebaseAuth.currentUser,
+      error => ({
+        errorCode: error.code,
+        errorMessage: error.message,
+      }),
+    ),
 
   /**
    * Retrieve the current user (Promise)
    * @returns {Promise}
    */
-  fetchUser: () => new Promise((resolve, reject) => {
-    const unsub = firebaseAuth.onAuthStateChanged(
-      user => {
-        unsub();
-        resolve(user);
-      },
-      error => {
-        reject(error);
-      },
-    );
-  }),
+  fetchUser: () =>
+    new Promise((resolve, reject) => {
+      const unsub = firebaseAuth.onAuthStateChanged(
+        user => {
+          unsub();
+          resolve(user);
+        },
+        error => {
+          reject(error);
+        },
+      );
+    }),
   /**
    * Get the firebase database reference.
    *
@@ -101,8 +102,8 @@ const FireBaseTools = {
     return firebaseDb.ref(path).set(payload);
   },
   getUserInfo: path => firebaseDb.ref(path).once('value').then(snapshot => {
-    return snapshot.val();
-  }),
+      return snapshot.val();
+    }),
 };
 
 export default FireBaseTools;

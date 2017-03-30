@@ -64,7 +64,7 @@ CellChart.propTypes = {
 };
 
 CellChart.defaultProps = {
-  hours: { 1: 1 },
+  hours: {},
 };
 
 export default CellChart;

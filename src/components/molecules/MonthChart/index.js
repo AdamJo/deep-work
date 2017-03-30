@@ -15,9 +15,9 @@ import { getHours, splitTime } from 'helpers';
  */
 const getMonth = () => {
   const curr = new Date();
-  const first = addComma(new Date(curr.getFullYear(), curr.getMonth(), 1))
+  const first = addComma(new Date(curr.getFullYear(), curr.getMonth(), 1));
 
-  const last = addComma(new Date(curr.getFullYear(), curr.getMonth() + 1, 0))
+  const last = addComma(new Date(curr.getFullYear(), curr.getMonth() + 1, 0));
 
   return getDaysInMonth(curr.getMonth(), curr.getFullYear());
 };
@@ -77,30 +77,39 @@ const Wrapper = styled.div`
 `;
 
 const MonthChart = ({ workDates, monthSelected, subtractMonth, addMonth }) => {
-  
-  let daysInMonth = getDaysInMonth(monthSelected.first.getMonth(), monthSelected.first.getFullYear())
-  const [maxDeep, maxShallow] = calcMaxMin(
-    workDates,
-    daysInMonth
+  let daysInMonth = getDaysInMonth(
+    monthSelected.first.getMonth(),
+    monthSelected.first.getFullYear(),
   );
+  const [maxDeep, maxShallow] = calcMaxMin(workDates, daysInMonth);
   return (
     <Wrapper>
       <DateRangeWrapper>
-        <Button cycle
-          onClick={() => subtractMonth(monthSelected.first, monthSelected.first.getFullYear())}
+        <Button
+          cycle
+          onClick={() =>
+            subtractMonth(
+              monthSelected.first,
+              monthSelected.first.getFullYear(),
+            )}
         >
           -
         </Button>
         <DateWrapper>
           <div>{monthSelected.first.getFullYear()}</div>
-          <div>{splitTime(monthSelected.first)}
-          {' '}
-          -
-          {' '}
-          {splitTime(monthSelected.last)}
+          <div>
+            {splitTime(monthSelected.first)}
+            {' '}
+            -
+            {' '}
+            {splitTime(monthSelected.last)}
           </div>
         </DateWrapper>
-        <Button cycle onClick={() => addMonth(monthSelected.first, monthSelected.first.getFullYear())}>
+        <Button
+          cycle
+          onClick={() =>
+            addMonth(monthSelected.first, monthSelected.first.getFullYear())}
+        >
           +
         </Button>
       </DateRangeWrapper>
@@ -111,7 +120,7 @@ const MonthChart = ({ workDates, monthSelected, subtractMonth, addMonth }) => {
           <div key={shortid.generate()}>
             {/* Calculate % of day to fill on button */}
             <MonthDays
-              deepPercentage={deep / maxDeep} 
+              deepPercentage={deep / maxDeep}
               shallowPercentage={shallow / maxShallow}
             >
               {day.split(' ')[1]}
@@ -132,7 +141,7 @@ MonthChart.propTypes = {
 
 MonthChart.defaultProps = {
   workDates: {},
-  monthSelected: {first: new Date()},
+  monthSelected: { first: new Date() },
 };
 
 export default MonthChart;

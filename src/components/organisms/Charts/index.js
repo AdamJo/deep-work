@@ -72,7 +72,7 @@ const chartType = props => {
         />;
     case 'year':
       return <YearChart />;
-  }
+  },
 };
 
 const Charts = (
@@ -97,7 +97,7 @@ Charts.propTypes = {
   chartView: PropTypes.func,
   updateWorkDate: PropTypes.func,
   timeFormat: PropTypes.func,
-  hourRange: PropTypes.object
+  hourRange: PropTypes.object,
 };
 
 Charts.defaultProps = {
@@ -105,8 +105,8 @@ Charts.defaultProps = {
     hours: [0],
     format: '12',
     workDates: {},
-    hourRange: { min: 8, max: 18 }
-  }
+    hourRange: { min: 8, max: 18 },
+  },
 };
 
 export default Charts;

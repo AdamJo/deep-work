@@ -32,8 +32,7 @@ function* logUser(action) {
 
 // worker Saga: will be fired on SET_USER_INFO actions
 function* setUserInfo(action) {
-
-  let saveInfo = Object.assign({}, action.payload)
+  let saveInfo = Object.assign({}, action.payload);
 
   delete saveInfo['workHover'];
   delete saveInfo['daySelected'];

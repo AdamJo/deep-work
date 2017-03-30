@@ -7,7 +7,7 @@ const DateWrapper = styled.div`
   flex-direction: column;
   margin: 0 15px;
   width: 120px;
-`
+`;
 
 DateWrapper.propTypes = {};
 
