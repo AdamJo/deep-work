@@ -57,7 +57,7 @@ const civilian = {
 const Slider = class Slider extends PureComponent {
   render() {
     return (
-      <OuterWrapper style={OuterWrapperStyle}>
+      <OuterWrapper>
         <Wrapper>
           <Range
             allowCross={false}

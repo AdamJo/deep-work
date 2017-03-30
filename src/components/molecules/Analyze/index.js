@@ -31,7 +31,8 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
+  text-align: center;
+  margin-bottom: 15px;
 `;
 
 const Analyze = (

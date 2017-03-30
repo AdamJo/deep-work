@@ -31,16 +31,6 @@ const chartType = props => {
     case 'day':
       return (
         <div>
-          <Slider
-            hourRange={props.chart.hourRange}
-            workHourRange={props.workHourRange}
-            timeFormat={props.chart.format}
-          />
-          <Analyze
-            hours={props.chart.workDates[formatDate(props.chart.daySelected)]}
-            hourRange={props.chart.hourRange}
-          />
-          <Hr />
           <DayChart
             chart={props.chart}
             hourRange={props.chart.hourRange}
@@ -86,6 +76,7 @@ const Charts = (
         viewType={props.chart.viewType}
         chartView={props.chartView}
       />
+      <Hr />
       {chartType(props)}
     </Wrapper>
   );

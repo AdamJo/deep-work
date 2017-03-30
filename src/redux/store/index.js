@@ -45,7 +45,7 @@ const defaultState = {
   currentUser: { email: null },
   chart: {
     format: '12',
-    viewType: 'month',
+    viewType: 'day',
     daySelected: date,
     weekSelected: {
       first: firstDayWeek,

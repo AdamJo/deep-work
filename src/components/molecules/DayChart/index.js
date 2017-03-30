@@ -1,7 +1,15 @@
 import React, { PropTypes, PureComponent } from 'react';
 import styled from 'styled-components';
 
-import { CellButton, Hours, CellChart, Button } from 'components';
+import {
+  CellButton,
+  Hours,
+  CellChart,
+  Button,
+  DateWrapper,
+  DateRangeWrapper,
+  Analyze,
+} from 'components';
 import shortid from 'shortid';
 import { formatDate, addComma } from 'helpers';
 
@@ -36,22 +44,29 @@ const DayChart = class DayChart extends PureComponent {
     let displayDate = addComma(this.props.chart.daySelected);
     return (
       <OuterWrapper>
-        <CurrentDate>
+        <DateRangeWrapper>
           <Button
             cycle
             onClick={() => this.props.subtractDay(this.props.chart.daySelected)}
           >
             -
           </Button>
-          {displayDate}
-          {' '}
+          <DateWrapper>
+            <div>{displayDate}</div>
+          </DateWrapper>
           <Button
             cycle
             onClick={() => this.props.addDay(this.props.chart.daySelected)}
           >
             +
           </Button>
-        </CurrentDate>
+        </DateRangeWrapper>
+        <Analyze
+          hours={
+            this.props.chart.workDates[formatDate(this.props.chart.daySelected)]
+          }
+          hourRange={this.props.chart.hourRange}
+        />
         <Wrapper
           {...this.props}
           onMouseDown={() => this.props.openWorkHover()}

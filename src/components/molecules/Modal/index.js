@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
-import { TimeFormat, Button } from 'components';
+import { TimeFormat, Button, Slider } from 'components';
 import ReactModal from 'react-modal';
 
 const Wrapper = styled.div`
@@ -39,8 +39,8 @@ const ModalBox = styled(ReactModal)`
     margin: 15px 0;
   }
 
-  > div{
-    margin: 5px 0;
+  > div {
+    // margin: 5px 0;
   }
 
   @media screen and (max-width: 640px) {
@@ -56,6 +56,10 @@ const ModalBox = styled(ReactModal)`
   }
 `;
 
+const ItemWrapper = styled.div`
+  padding: 15px 0;
+`;
+
 const Modal = ({ isOpen, format, ...props }) => {
   return (
     <Wrapper>
@@ -66,11 +70,20 @@ const Modal = ({ isOpen, format, ...props }) => {
         closeTimeoutMS={250}
       >
         <Button onClick={props.toggleMenu}>Close Modal</Button>
-        <div>Time Format</div>
+
+        <ItemWrapper>Time Format</ItemWrapper>
         <TimeFormat
           updateTimeFormat={props.updateTimeFormat}
           format={format === '12' ? true : false}
         />
+
+        <div style={{ paddingTop: '25px' }}>
+          <Slider
+            hourRange={props.chart.hourRange}
+            workHourRange={props.workHourRange}
+            timeFormat={props.chart.format}
+          />
+        </div>
       </ModalBox>
     </Wrapper>
   );
@@ -78,6 +91,8 @@ const Modal = ({ isOpen, format, ...props }) => {
 
 Modal.propTypes = {};
 
-Modal.defaultProps = {};
+Modal.defaultProps = {
+  chart: {},
+};
 
 export default Modal;
