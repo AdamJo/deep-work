@@ -139,9 +139,10 @@ export function loginWithProvider(provider) {
   };
 }
 
-export function fetchUser() {
+export function fetchUser(currentSettings) {
   return {
     type: FETCH_FIREBASE_USER,
+    currentSettings,
   };
 }
 

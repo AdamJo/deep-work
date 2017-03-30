@@ -21,7 +21,7 @@ export function mapDispatchToProps(dispatch) {
 const Main = class Main extends PureComponent {
   constructor(props) {
     super(props);
-    this.props.fetchUser();
+    this.props.fetchUser(this.props.chart);
   }
 
   render() {

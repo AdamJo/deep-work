@@ -14,7 +14,11 @@ import FireBaseTools from './firebase';
 function* fetchUser(action) {
   try {
     const user = yield call(FireBaseTools.fetchUser);
+    const path = `/users/${user.providerData[0].uid}/`;
+    
+    yield call(getUserInfo, {path, currentSettings: action['currentSettings']})
     yield put({ type: 'FETCH_FIREBASE_USER_SUCCESS', user: user });
+
   } catch (e) {
     yield put({ type: 'FETCH_FIREBASE_USER_FAILURE', message: e.message });
   }
