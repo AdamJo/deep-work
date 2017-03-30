@@ -9,10 +9,10 @@ import {
   Analyze,
   WeekChart,
   MonthChart,
-  YearChart,
+  YearChart
 } from 'components';
 
-import { formatDate } from 'helpers'
+import { formatDate } from 'helpers';
 
 // todo: remove when finished with cells, used for debuggings
 let date = new Date();
@@ -64,7 +64,12 @@ const chartType = props => {
         />
       );
     case 'month':
-      return <MonthChart workDates={props.chart.workDates} />;
+      return <MonthChart 
+        workDates={props.chart.workDates} 
+        addMonth={props.addMonth}
+        subtractMonth={props.subtractMonth}
+        monthSelected={props.chart.monthSelected}
+        />;
     case 'year':
       return <YearChart />;
   }
@@ -73,7 +78,7 @@ const chartType = props => {
 const Charts = (
   {
     ...props
-  },
+  }
 ) => {
   return (
     <Wrapper {...props}>
@@ -92,7 +97,7 @@ Charts.propTypes = {
   chartView: PropTypes.func,
   updateWorkDate: PropTypes.func,
   timeFormat: PropTypes.func,
-  hourRange: PropTypes.object,
+  hourRange: PropTypes.object
 };
 
 Charts.defaultProps = {
@@ -100,8 +105,8 @@ Charts.defaultProps = {
     hours: [0],
     format: '12',
     workDates: {},
-    hourRange: { min: 8, max: 18 },
-  },
+    hourRange: { min: 8, max: 18 }
+  }
 };
 
 export default Charts;

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
 
-import { DateRangeWrapper, MonthDays } from 'components';
+import { DateRangeWrapper, MonthDays, Button } from 'components';
 import shortid from 'shortid';
 
 import { getHours, addComma } from 'helpers';
@@ -19,7 +19,7 @@ const getMonth = () => {
 
   const last = addComma(new Date(curr.getFullYear(), curr.getMonth() + 1, 0))
 
-  return [first, last, getDaysInMonth(curr.getMonth(), curr.getFullYear())];
+  return getDaysInMonth(curr.getMonth(), curr.getFullYear());
 };
 
 /**
@@ -76,22 +76,30 @@ const Wrapper = styled.div`
   max-width: 700px;
 `;
 
-// todo: [x] show monthly day nodes
-// cycle from this month to previous or current
-const MonthChart = ({ workDates }) => {
-  let [first, last, daysInMonth] = getMonth();
-  /*let rangeThis = daysInMonth.map((day, index) => (
-        <MonthDays key={index}>
-          {calcWorkHours(workDates[day])}
-        </MonthDays>
-    ));*/
+const MonthChart = ({ workDates, monthSelected, subtractMonth, addMonth }) => {
+  
+  let daysInMonth = getDaysInMonth(monthSelected.first.getMonth(), monthSelected.first.getFullYear())
   const [maxDeep, maxShallow] = calcMaxMin(
     workDates,
     daysInMonth
   );
   return (
     <Wrapper>
-      <DateRangeWrapper>{first} - {last}</DateRangeWrapper>
+      <DateRangeWrapper>
+        <Button
+          onClick={() => subtractMonth(monthSelected.first, monthSelected.first.getFullYear())}
+        >
+          -
+        </Button>
+        {addComma(monthSelected.first)}
+        {' '}
+        -
+        {' '}
+        {addComma(monthSelected.last)}
+        <Button onClick={() => addMonth(monthSelected.first, monthSelected.first.getFullYear())}>
+          +
+        </Button>
+      </DateRangeWrapper>
       {daysInMonth.map((day, index) => {
         const deep = getHours(workDates[day], true);
         const shallow = getHours(workDates[day], false);
@@ -110,13 +118,17 @@ const MonthChart = ({ workDates }) => {
     </Wrapper>
   );
 };
-// {index % 7 === 0 ? <div style={{width: '100%'}}>hello</div> : ''}
+
 MonthChart.propTypes = {
-  chart: PropTypes.object,
+  workDates: PropTypes.object,
+  subtractMonth: PropTypes.func,
+  addMonth: PropTypes.func,
+  monthkSelected: PropTypes.object,
 };
 
 MonthChart.defaultProps = {
   workDates: {},
+  monthSelected: {first: new Date()},
 };
 
 export default MonthChart;
