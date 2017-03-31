@@ -14,6 +14,7 @@ import {
   SUBTRACT_WEEK,
   ADD_MONTH,
   SUBTRACT_MONTH,
+  SWITCH_TO_DATE,
 } from '../actions/types';
 
 function Chart(state = {}, action) {
@@ -121,6 +122,12 @@ function Chart(state = {}, action) {
           first: new Date(action.day.getFullYear(), action.day.getMonth() - 1),
           last: new Date(action.day.getFullYear(), action.day.getMonth(), 0),
         },
+      };
+    case SWITCH_TO_DATE:
+      return {
+        ...state,
+        viewType: 'day',
+        daySelected: action.date,
       };
     default:
       return state;

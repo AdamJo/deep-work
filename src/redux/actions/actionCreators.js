@@ -14,6 +14,7 @@ import {
   ADD_MONTH,
   SUBTRACT_MONTH,
   TOGGLE_MENU,
+  SWITCH_TO_DATE,
 } from './types';
 
 import FireBaseTools from '../firebase/firebase';
@@ -127,6 +128,13 @@ export function subtractMonth(day) {
   return {
     type: SUBTRACT_MONTH,
     day,
+  };
+}
+
+export function swapToDate(date) {
+  return {
+    type: SWITCH_TO_DATE,
+    date,
   };
 }
 
