@@ -46,3 +46,23 @@ export function formatDate(day) {
     return day.toString().replace(/ 0/, ' ').split(' ').slice(1, 4).join(' ');
   }
 }
+
+export const months = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
+
+export function grabDate(date) {
+  const [month, day, year] = date.split(' ');
+  return new Date(year, months.indexOf(month), day);
+}
