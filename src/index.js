@@ -1,20 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import { createHistory } from 'history';
-import { Router, useRouterHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import store, { history } from './redux/store';
-import routes from 'routes';
+import store from './redux/store';
+
+import App from 'components/App';
+import { HomePage } from 'components';
 
 const root = document.getElementById('app');
 
 const renderApp = () => (
-  <AppContainer>
-    <Provider store={store}>
-      <Router key={Math.random()} history={history} routes={routes} />
-    </Provider>
-  </AppContainer>
+  <Provider store={store}>
+    <App><HomePage /></App>
+  </Provider>
 );
 
 render(renderApp(), root);
@@ -47,8 +44,7 @@ if (module.hot) {
       orgError.apply(console, args);
     }
   };
-  module.hot.accept('routes', () => {
-    require('routes');
+  module.hot.accept('components/App', () => {
     render(renderApp(), root);
   });
 }
