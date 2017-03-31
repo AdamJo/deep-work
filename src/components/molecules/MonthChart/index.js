@@ -5,7 +5,7 @@ import { font, palette } from 'styled-theme';
 import { DateRangeWrapper, MonthDays, Button, DateWrapper } from 'components';
 import shortid from 'shortid';
 
-import { getHours, splitTime } from 'helpers';
+import { getHours, splitTime, grabDate } from 'helpers';
 
 /**
  * determines the color of either deep or shallow work
@@ -76,7 +76,9 @@ const Wrapper = styled.div`
   max-width: 700px;
 `;
 
-const MonthChart = ({ workDates, monthSelected, subtractMonth, addMonth }) => {
+const MonthChart = (
+  { workDates, monthSelected, subtractMonth, addMonth, swapToDate },
+) => {
   let daysInMonth = getDaysInMonth(
     monthSelected.first.getMonth(),
     monthSelected.first.getFullYear(),
@@ -119,7 +121,10 @@ const MonthChart = ({ workDates, monthSelected, subtractMonth, addMonth }) => {
         const deepPercentage = deep / maxDeep || 0;
         const shallowPercentage = shallow / maxShallow || 0;
         return (
-          <div key={shortid.generate()}>
+          <div
+            key={shortid.generate()}
+            onClick={() => swapToDate(grabDate(day))}
+          >
             {/* Calculate % of day to fill on button */}
             <MonthDays
               deepPercentage={deepPercentage}

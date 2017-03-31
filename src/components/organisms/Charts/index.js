@@ -51,6 +51,7 @@ const chartType = props => {
           addWeek={props.addWeek}
           subtractWeek={props.subtractWeek}
           weekSelected={props.chart.weekSelected}
+          swapToDate={props.swapToDate}
         />
       );
     case 'month':
@@ -60,6 +61,7 @@ const chartType = props => {
           addMonth={props.addMonth}
           subtractMonth={props.subtractMonth}
           monthSelected={props.chart.monthSelected}
+          swapToDate={props.swapToDate}
         />
       );
   }

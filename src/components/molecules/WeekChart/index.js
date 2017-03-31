@@ -5,7 +5,7 @@ import { font, palette } from 'styled-theme';
 import { WeekDays, DateRangeWrapper, Button, DateWrapper } from 'components';
 import shortid from 'shortid';
 
-import { getHours, splitTime } from 'helpers';
+import { getHours, splitTime, grabDate } from 'helpers';
 /**
  * calculates the given week from Sunday to Monday
  * @return {array} firstDay: first day of the week,
@@ -48,7 +48,9 @@ const InnerWrapper = styled.div`
 `;
 
 const daysInWeek = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-const WeekChart = ({ workDates, subtractWeek, addWeek, weekSelected }) => {
+const WeekChart = (
+  { workDates, subtractWeek, addWeek, weekSelected, swapToDate },
+) => {
   const workDays = getWeek(weekSelected.first);
   return (
     <Wrapper>
@@ -71,7 +73,10 @@ const WeekChart = ({ workDates, subtractWeek, addWeek, weekSelected }) => {
         </Button>
       </DateRangeWrapper>
       {daysInWeek.map((day, index) => (
-        <InnerWrapper key={shortid.generate()}>
+        <InnerWrapper
+          key={shortid.generate()}
+          onClick={() => swapToDate(grabDate(workDays[index]))}
+        >
           <WeekDays>{day}</WeekDays>
           <WeekDays type="deep">
             {getHours(workDates[workDays[index]], true)}
@@ -90,6 +95,7 @@ WeekChart.propTypes = {
   subtractWeek: PropTypes.func,
   addWeek: PropTypes.func,
   weekSelected: PropTypes.object,
+  swapToDate: PropTypes.func,
 };
 
 WeekChart.defaultProps = {
