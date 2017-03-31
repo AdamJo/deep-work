@@ -18,15 +18,12 @@ const {
 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-// const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const StringReplacePlugin = require('string-replace-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 
 const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 3000;
-// const DEBUG = process.env.NODE_ENV !== 'production'
 const publicPath = `/${process.env.PUBLIC_PATH || ''}/`.replace('//', '/');
 
 const sourcePath = path.join(__dirname, 'src');
@@ -116,11 +113,10 @@ const config = createConfig([
         name: 'vendor',
         minChunks: isVendor
       }),
-      // new LodashModuleReplacementPlugin,
       new WebpackMd5Hash(),
       new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
       new OfflinePlugin(),
-      new BundleAnalyzerPlugin(),
+      // new BundleAnalyzerPlugin(),
     ])
   ])
 ]);
