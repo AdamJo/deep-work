@@ -9,10 +9,12 @@ const active = ({ active }) =>
   active === undefined || active
     ? palette('primary', 0)
     : palette('secondary', 0);
+
 const hoverBackground = ({ active }) =>
   active === undefined || active
     ? palette('primary', 2)
     : palette('secondary', 2);
+
 const activeBackground = ({ active }) =>
   active === undefined || active
     ? palette('primary', 3)
