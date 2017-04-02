@@ -10,7 +10,6 @@ const rootReducer = combineReducers({
   // add other reducers here.
   currentUser: FireBaseUserReducer,
   chart: Chart,
-  // routing: routerReducer,
 });
 
 export default rootReducer;

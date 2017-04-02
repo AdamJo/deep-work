@@ -76,6 +76,14 @@ export function closeWorkHover(path, payload) {
   };
 }
 
+export function toggleMenu(path, payload) {
+  return {
+    type: TOGGLE_MENU,
+    path,
+    payload,
+  };
+}
+
 export function workHourRange(range) {
   return {
     type: WORK_HOUR_RANGE,
@@ -83,11 +91,6 @@ export function workHourRange(range) {
   };
 }
 
-export function toggleMenu() {
-  return {
-    type: TOGGLE_MENU,
-  };
-}
 
 export function addDay(day) {
   return {

@@ -51,6 +51,10 @@ function* logUser(action) {
 
 // worker Saga: will be fired on SET_USER_INFO actions
 function* setUserInfo(action) {
+  if (action.path === undefined) {
+    return;
+  }
+
   let saveInfo = Object.assign({}, action.payload);
 
   delete saveInfo['workHover'];
@@ -58,6 +62,7 @@ function* setUserInfo(action) {
   delete saveInfo['monthSelected'];
   delete saveInfo['weekSelected'];
   delete saveInfo['viewType'];
+  delete saveInfo['menu'];
 
   try {
     const saveUser = yield call(
@@ -119,6 +124,10 @@ function* watchCloseHover() {
   yield takeLatest('CLOSE_WORK_HOVER', setUserInfo);
 }
 
+function* watchCloseModal() {
+  yield takeLatest('TOGGLE_MENU', setUserInfo);
+}
+
 export default function* Saga() {
   yield [
     fork(watchLogIn),
@@ -126,5 +135,6 @@ export default function* Saga() {
     fork(watchGetUserInfo),
     fork(watchSetUserInfo),
     fork(watchCloseHover),
+    fork(watchCloseModal),
   ];
 }

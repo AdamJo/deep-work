@@ -60,7 +60,7 @@ const ItemWrapper = styled.div`
   padding: 15px 0;
 `;
 
-const Modal = ({ isOpen, format, ...props }) => {
+const Modal = ({ isOpen, format, user, ...props }) => {
   return (
     <Wrapper>
       <ModalBox
@@ -69,7 +69,10 @@ const Modal = ({ isOpen, format, ...props }) => {
         contentLabel="Settings"
         closeTimeoutMS={250}
       >
-        <Button onClick={props.toggleMenu}>Close Modal</Button>
+        <Button onClick={() => props.toggleMenu(
+              `/users/${user}/`,
+              props.chart,
+          )}>Close Modal</Button>
 
         <ItemWrapper>Time Format</ItemWrapper>
         <TimeFormat

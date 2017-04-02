@@ -80,6 +80,7 @@ class Header extends PureComponent {
           <Modal
             isOpen={this.props.chart.menu}
             format={this.props.chart.format}
+            user={this.props.currentUser.uid}
             {...this.props}
           />
         </ButtonWrapper>
