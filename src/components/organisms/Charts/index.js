@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import styled from 'styled-components';
 import { palette } from 'styled-theme';
+const json2csv = require('json2csv');
+import { hoursInDay } from 'helpers';
 
 import {
   ChartMenu,
@@ -26,7 +28,64 @@ const Wrapper = styled.div`
   // width: 800px;
 `;
 
+function fieldsStuff(row = {}, field) {
+  const mergedHours = Object.assign(hoursInDay, row[field['label']]);
+  const finalKey = Object.assign(hoursInDay, row[field['label']]);
+  let arr = [];
+  let limited = `${row[field['label']]['deep']} ${row[field['label']]['shallow']}`;
+
+  if (
+    (typeof row[field['label']]['deep'] !== 'undefined', typeof row[
+      field['label']
+    ]['shallow'] !== 'undefined')
+  ) {
+    limited = `${row[field['label']]['deep']} ${row[field['label']]['shallow']}`;
+  } else {
+    limited = `0 0`;
+  }
+
+  // grabs all hours numbers
+  // const newArr = arr.map((data, index) => finalKey[data]);
+  // if (field['label'] === 'Apr 1 2017') {
+  //   for (let key of Object.keys(mergedHours)) {
+  //     if (key.includes('-')) {
+  //       arr.push(parseFloat(key.replace('-', '.')));
+  //     } else if (!isNaN(parseInt(key))) {
+  //       arr.push(parseInt(key));
+  //     }
+  //   }
+  //   arr.sort((a, b) => a-b);
+  //   arr.push('deep')
+  //   arr.push('shallow');
+
+  //   arr.forEach((data, index) => {
+  //     arr[index] = mergedHours[data.toString().replace('.', '-')];
+  //   })
+  // }
+  return limited;
+  // return JSON.stringify(mergedHours).replace(/,/g, ' ').replace(/({|})/g, '').replace(/-/g, '.');
+}
+
+function convert(obj) {
+  let fields = [];
+  for (let [key, value] of Object.entries(obj)) {
+    fields.push({
+      label: key,
+      value: function(row, field) {
+        return fieldsStuff(row, field);
+      },
+    });
+  }
+  const result = json2csv({
+    data: obj,
+    fields,
+    quotes: '',
+  });
+  return result;
+}
+
 const chartType = props => {
+  convert(props.chart.workDates);
   switch (props.chart.viewType) {
     case 'day':
       return (

@@ -6,9 +6,8 @@ import configureStore from './configureStore';
 import { formatDate } from 'helpers';
 
 import mockWorkDates from 'mockData/mockWorkDates';
-//todo testing
+
 let date = new Date();
-// date = date.toString().split(' ').slice(1, 4).join(' ');
 
 const getWeek = () => {
   // http://stackoverflow.com/questions/5210376/how-to-get-first-and-last-day-of-the-week-in-javascript
