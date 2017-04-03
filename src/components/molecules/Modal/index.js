@@ -60,7 +60,7 @@ const ItemWrapper = styled.div`
   padding: 15px 0;
 `;
 
-const Modal = ({ isOpen, format, user, ...props }) => {
+const Modal = ({ isOpen, format, user, workDates, ...props }) => {
   return (
     <Wrapper>
       <ModalBox
@@ -87,6 +87,9 @@ const Modal = ({ isOpen, format, user, ...props }) => {
             timeFormat={props.chart.format}
           />
         </div>
+        <ItemWrapper>
+          <a href={`data:text/json;charset=utf-8,${JSON.stringify(workDates)}`} target="_blank" download={`${props.currentUser.displayName.replace(/ /, '_')}_deep_work.json`}><Button>Export</Button></a>
+        </ItemWrapper>
       </ModalBox>
     </Wrapper>
   );
@@ -95,7 +98,7 @@ const Modal = ({ isOpen, format, user, ...props }) => {
 Modal.propTypes = {};
 
 Modal.defaultProps = {
-  chart: {},
+  workDates: {},
 };
 
 export default Modal;
