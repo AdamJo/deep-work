@@ -69,10 +69,11 @@ const Modal = ({ isOpen, format, user, workDates, ...props }) => {
         contentLabel="Settings"
         closeTimeoutMS={250}
       >
-        <Button onClick={() => props.toggleMenu(
-              `/users/${user}/`,
-              props.chart,
-          )}>Close Modal</Button>
+        <Button
+          onClick={() => props.toggleMenu(`/users/${user}/`, props.chart)}
+        >
+          Close Modal
+        </Button>
 
         <ItemWrapper>Time Format</ItemWrapper>
         <TimeFormat
@@ -88,17 +89,32 @@ const Modal = ({ isOpen, format, user, workDates, ...props }) => {
           />
         </div>
         <ItemWrapper>
-          <a href={`data:text/json;charset=utf-8,${JSON.stringify(workDates)}`} target="_blank" download={`${props.currentUser.displayName.replace(/ /, '_')}_deep_work.json`}><Button>Export</Button></a>
+          <a
+            href={`data:text/json;charset=utf-8,${JSON.stringify(workDates)}`}
+            target="_blank"
+            download={
+              `${props.currentUser.displayName.replace(/ /, '_')}_deep_work.json`
+            }
+          >
+            <Button>Export</Button>
+          </a>
         </ItemWrapper>
       </ModalBox>
     </Wrapper>
   );
 };
 
-Modal.propTypes = {};
+Modal.propTypes = {
+  isOpen: PropTypes.bool,
+  format: PropTypes.string,
+  user: PropTypes.string,
+  workDates: PropTypes.object,
+};
 
 Modal.defaultProps = {
   workDates: {},
+  chart: {},
+  currentUser: { displayName: '' },
 };
 
 export default Modal;

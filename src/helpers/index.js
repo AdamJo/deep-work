@@ -175,8 +175,8 @@ const json2csv = require('json2csv');
 export function convertToCSV(workDates) {
   if (workDates) {
     let fields = [];
-    let fieldNames = []
-    
+    let fieldNames = [];
+
     for (let [key, value] of Object.entries(workDates)) {
       fields.push({
         label: key,

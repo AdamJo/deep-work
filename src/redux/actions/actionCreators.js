@@ -91,7 +91,6 @@ export function workHourRange(range) {
   };
 }
 
-
 export function addDay(day) {
   return {
     type: ADD_DAY,
