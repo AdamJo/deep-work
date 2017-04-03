@@ -62,6 +62,11 @@ export const months = [
   'Dec',
 ];
 
+/**
+ * gets the current date the user selects
+ * @param {Date} date - day to be currently selected
+ * @return {Date} newly formated date
+ */
 export function grabDate(date) {
   const [month, day, year] = date.split(' ');
   return new Date(year, months.indexOf(month), day);
@@ -117,3 +122,76 @@ export const hoursInDay = {
   23: 0,
   '23-5': 0,
 };
+/**
+ * Grabs total hours worked per day
+ * @param {object} row - individual hours worked per day.
+ * @param {object} field - list of hours worked from user
+ * @return {string} total hours of deep and shallow worked.
+ */
+export function fieldHelper(row = {}, field) {
+  const mergedHours = Object.assign(hoursInDay, row[field['label']]);
+  const finalKey = Object.assign(hoursInDay, row[field['label']]);
+  let arr = [];
+  let limited = `${row[field['label']]['deep']} ${row[field['label']]['shallow']}`;
+
+  if (
+    (typeof row[field['label']]['deep'] !== 'undefined', typeof row[
+      field['label']
+    ]['shallow'] !== 'undefined')
+  ) {
+    limited = `${row[field['label']]['deep']}%20${row[field['label']]['shallow']}`;
+  } else {
+    limited = `0%200`;
+  }
+
+  // grabs all hours numbers
+  // const newArr = arr.map((data, index) => finalKey[data]);
+  // if (field['label'] === 'Apr 1 2017') {
+  //   for (let key of Object.keys(mergedHours)) {
+  //     if (key.includes('-')) {
+  //       arr.push(parseFloat(key.replace('-', '.')));
+  //     } else if (!isNaN(parseInt(key))) {
+  //       arr.push(parseInt(key));
+  //     }
+  //   }
+  //   arr.sort((a, b) => a-b);
+  //   arr.push('deep')
+  //   arr.push('shallow');
+
+  //   arr.forEach((data, index) => {
+  //     arr[index] = mergedHours[data.toString().replace('.', '-')];
+  //   })
+  // }
+  return limited;
+  // return JSON.stringify(mergedHours).replace(/,/g, ' ').replace(/({|})/g, '').replace(/-/g, '.');
+}
+
+const json2csv = require('json2csv');
+/**
+ * converts an object into csv format
+ * @param {Date} workDates - day to be currently selected
+ * @return {string} CSV formated string
+ */
+export function convertToCSV(workDates) {
+  if (workDates) {
+    let fields = [];
+    let fieldNames = []
+    
+    for (let [key, value] of Object.entries(workDates)) {
+      fields.push({
+        label: key,
+        value: function(row, field) {
+          return fieldHelper(row, field);
+        },
+      });
+      fieldNames.push(key.replace(/ /g, '%20'));
+    }
+    const result = json2csv({
+      data: workDates,
+      fields,
+      fieldNames,
+      // quotes: '',
+    });
+    return result;
+  }
+}
