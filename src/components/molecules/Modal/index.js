@@ -93,7 +93,7 @@ const Modal = ({ isOpen, format, user, workDates, ...props }) => {
             href={`data:text/json;charset=utf-8,${JSON.stringify(workDates)}`}
             target="_blank"
             download={
-              `${props.currentUser.displayName.replace(/ /, '_')}_deep_work.json`
+              `${props.currentUser.displayName ? props.currentUser.displayName.replace(/ /, '_') : ''}_deep_work.json`
             }
           >
             <Button>Export</Button>
