@@ -87,7 +87,7 @@ class Header extends PureComponent {
         </ButtonWrapper>
       );
     } else {
-      return <Button>Loading</Button>;
+      return <Button disabled>Loading</Button>;
     }
   }
 
