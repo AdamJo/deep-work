@@ -65,7 +65,7 @@ Analyze.propTypes = {
 };
 
 Analyze.defaultProps = {
-  hours: { 1: 1 },
+  hours: { },
   hourRange: { min: 1, max: 23 },
 };
 
