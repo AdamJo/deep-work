@@ -1,4 +1,5 @@
-import React, { PropTypes, PureComponent, cloneElement } from 'react';
+import React, { PureComponent, cloneElement } from 'react';
+import PropTypes from 'prop-types';
 import { injectGlobal, ThemeProvider } from 'styled-components';
 import theme from './themes/';
 import './themes/global-style';

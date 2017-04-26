@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
-
+import PropTypes from 'prop-types';
 import { TimeFormat, Button, Slider } from 'components';
 import ReactModal from 'react-modal';
 
