@@ -70,7 +70,6 @@
     "jest-cli": "^19.0.0",
     "offline-plugin": "^4.7.0",
     "opn-cli": "^3.1.0",
-    "prop-types": "^15.5.8",
     "raw-loader": "^0.5.1",
     "rc-slider": "^7.0.2",
     "react-addons-test-utils": "^15.5.1",
@@ -91,13 +90,14 @@
     "babel-regenerator-runtime": "^6.5.0",
     "firebase": "^3.9.0",
     "json2csv": "^3.7.3",
+    "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-modal": "^1.7.7",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
     "redux-saga": "^0.14.8",
-    "styled-components": "^1.4.5",
+    "styled-components": "^2.0.0-17",
     "styled-theme": "^0.3.0",
     "styled-tools": "^0.1.2"
   }
