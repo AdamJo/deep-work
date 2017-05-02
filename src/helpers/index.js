@@ -5,15 +5,16 @@
  * @return {number} the total number of work done that day
  */
 export function getHours(day, flag) {
-  if (day !== undefined) {
+  if (day !== undefined && typeof day === 'object' && typeof flag === 'boolean') {
     if (!!Object.keys(day).length) {
-      return flag ? day.deep : day.shallow;
-    } else {
-      return 0;
+      if (flag && day.hasOwnProperty("deep")) {
+          return day.deep;
+      } else if (!flag && day.hasOwnProperty("shallow")) {
+          return day.shallow;
+      }
     }
-  } else {
-    return 0;
   }
+  return 0;
 }
 
 /**
@@ -122,6 +123,7 @@ export const hoursInDay = {
   23: 0,
   '23-5': 0,
 };
+
 /**
  * Grabs total hours worked per day
  * @param {object} row - individual hours worked per day.
