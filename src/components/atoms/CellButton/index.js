@@ -15,7 +15,7 @@ const hourType = ({ hourType }) => {
       return palette('primary', 0);
       break;
     case 1:
-      return `linear-gradient(bottom, ${theme.palette.secondary[2]} 50%, ${theme.palette.white[0]} 0)`;
+      return `linear-gradient(to top, ${theme.palette.secondary[2]} 50%, ${theme.palette.white[0]} 0)`;
       break;
     default:
       return palette('white', 0);
