@@ -23,10 +23,12 @@ export function getHours(day, flag) {
  * @return {number} formated string
  */
 export function addComma(day) {
-  if (day) {
+  if (day && typeof day === 'object' && day instanceof Date) {
     day = day.toString().replace(/ 0/, ' ').split(' ');
     day[2] += ',';
     return day.slice(1, 4).join(' ');
+  } else {
+    return 'Unknown Date!'
   }
 }
 
