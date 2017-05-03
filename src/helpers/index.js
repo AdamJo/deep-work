@@ -5,15 +5,16 @@
  * @return {number} the total number of work done that day
  */
 export function getHours(day, flag) {
-  if (day !== undefined) {
+  if (day !== undefined && typeof day === 'object' && typeof flag === 'boolean') {
     if (!!Object.keys(day).length) {
-      return flag ? day.deep : day.shallow;
-    } else {
-      return 0;
+      if (flag && day.hasOwnProperty("deep")) {
+          return day.deep;
+      } else if (!flag && day.hasOwnProperty("shallow")) {
+          return day.shallow;
+      }
     }
-  } else {
-    return 0;
   }
+  return 0;
 }
 
 /**
@@ -22,17 +23,21 @@ export function getHours(day, flag) {
  * @return {number} formated string
  */
 export function addComma(day) {
-  if (day) {
+  if (day && typeof day === 'object' && day instanceof Date) {
     day = day.toString().replace(/ 0/, ' ').split(' ');
     day[2] += ',';
     return day.slice(1, 4).join(' ');
+  } else {
+    return 'Unknown Date!'
   }
 }
 
 export function splitTime(day) {
-  if (day) {
+  if (day && typeof day === 'object' && day instanceof Date) {
     day = day.toString().replace(/ 0/, ' ').split(' ');
     return day.slice(1, 3).join(' ');
+  } else {
+    return 'Unknown Date!'
   }
 }
 
@@ -42,8 +47,10 @@ export function splitTime(day) {
  * @return {number} formated string
  */
 export function formatDate(day) {
-  if (day) {
+  if (day && typeof day === 'object' && day instanceof Date) {
     return day.toString().replace(/ 0/, ' ').split(' ').slice(1, 4).join(' ');
+  } else {
+    return 'Unknown Date!';
   }
 }
 
@@ -64,12 +71,16 @@ export const months = [
 
 /**
  * gets the current date the user selects
- * @param {Date} date - day to be currently selected
+ * @param {String} date - day to be currently selected
  * @return {Date} newly formated date
  */
 export function grabDate(date) {
-  const [month, day, year] = date.split(' ');
-  return new Date(year, months.indexOf(month), day);
+  if (date && typeof date === 'string') {
+    const [month, day, year] = date.split(' ');
+    return new Date(year, months.indexOf(month), day);
+  } else {
+    return new Date();
+  }
 }
 
 export const hoursInDay = {
@@ -121,7 +132,10 @@ export const hoursInDay = {
   '22-5': 0,
   23: 0,
   '23-5': 0,
+  'shallow': 0,
+  'deep': 0,
 };
+
 /**
  * Grabs total hours worked per day
  * @param {object} row - individual hours worked per day.
