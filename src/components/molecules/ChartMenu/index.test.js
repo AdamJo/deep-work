@@ -1,5 +1,3 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import ChartMenu from '.';
 
 const wrap = (props = { chart: { viewType: 'day' } }) =>

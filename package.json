@@ -30,6 +30,7 @@
     "deploy": "firebase deploy"
   },
   "jest": {
+    "setupFiles": ["./test/jestsetup.js"],
     "moduleDirectories": [
       "src",
       "node_modules"
