@@ -71,12 +71,16 @@ export const months = [
 
 /**
  * gets the current date the user selects
- * @param {Date} date - day to be currently selected
+ * @param {String} date - day to be currently selected
  * @return {Date} newly formated date
  */
 export function grabDate(date) {
-  const [month, day, year] = date.split(' ');
-  return new Date(year, months.indexOf(month), day);
+  if (date && typeof date === 'string') {
+    const [month, day, year] = date.split(' ');
+    return new Date(year, months.indexOf(month), day);
+  } else {
+    return new Date();
+  }
 }
 
 export const hoursInDay = {

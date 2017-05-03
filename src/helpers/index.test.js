@@ -53,6 +53,7 @@ const testHoursInDay = {
   'shallow': 0,
   'deep': 0,
 };
+const testShortDate = 'Jan 1 2000';
 
 describe('getHours()', () => {
   it('returns nothing if undefined', () => {
@@ -96,6 +97,16 @@ describe('formatDate()', () => {
   });
   it('returns formatDate the date into correct format', () => {
     expect(formatDate(testDate)).toBe('Jan 1 2000');
+  });
+})
+
+describe('grabDate()', () => {
+  it('returns grabDate the date into correct format', () => {
+    const [month, day, year] = testShortDate.split(' ');
+    expect(grabDate(testShortDate).toString()).toBe('Sat Jan 01 2000 00:00:00 GMT-0800 (Pacific Standard Time)');
+  });
+  it('returns New Date wrong date is received', () => {
+    expect(grabDate(new Date())).toBeTruthy();
   });
 })
 
