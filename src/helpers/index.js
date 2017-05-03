@@ -128,6 +128,8 @@ export const hoursInDay = {
   '22-5': 0,
   23: 0,
   '23-5': 0,
+  'shallow': 0,
+  'deep': 0,
 };
 
 /**

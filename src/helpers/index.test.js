@@ -99,3 +99,31 @@ describe('formatDate()', () => {
   });
 })
 
+describe('constants', () => {
+  describe('shortened dates', () => {
+    it('should have all months shortned to 3 strings', () => {
+      const shortenedMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      expect(shortenedMonths)
+        .toEqual(expect.arrayContaining(months));
+    });
+    it('should have length of 12', () => {
+      expect(months.length)
+        .toEqual(12);
+    });
+  })
+  describe('hoursInDay', () => {
+    it('should have shallow key', () => {
+      expect(testHoursInDay)
+        .toEqual(hoursInDay);
+    });
+    it('should have shallow key', () => {
+      expect(hoursInDay['shallow'])
+        .toBe(0);
+    });
+    it('should have deep key', () => {
+      expect(hoursInDay['deep'])
+        .toBe(0);
+    });
+  });
+})
+
