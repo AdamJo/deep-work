@@ -28,3 +28,13 @@ describe('tests addComma()', () => {
     expect(addComma(tempDate)).toBe('Jan 1, 2000')
   });
 })
+
+describe('splitTime()', () => {
+  it('returns "Unknown Date!" if incorrect parameter is passed', () => {
+    expect(splitTime('not a date object')).toBe('Unknown Date!')
+  });
+  it('returns splices the date into correct format', () => {
+    expect(splitTime(testDate)).toBe('Jan 1');
+  });
+})
+

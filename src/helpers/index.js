@@ -33,9 +33,11 @@ export function addComma(day) {
 }
 
 export function splitTime(day) {
-  if (day) {
+  if (day && typeof day === 'object' && day instanceof Date) {
     day = day.toString().replace(/ 0/, ' ').split(' ');
     return day.slice(1, 3).join(' ');
+  } else {
+    return 'Unknown Date!'
   }
 }
 
