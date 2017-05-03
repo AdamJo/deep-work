@@ -6,3 +6,7 @@ const wrap = (props = {}) => shallow(<Slider {...props} />);
 it('renders', () => {
   wrap();
 });
+
+it('renders with different combination of props', () => {
+  wrap({ hourRange: {} });
+});

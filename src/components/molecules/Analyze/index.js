@@ -11,7 +11,7 @@ import { TotalHours } from 'components';
  * @param {boolean} flag - look for deep or shallow work, true if deep, false if shallow
  * @return {number} calculated number of hours worked that day
  */
-function calcHours(hours, hourRange, flag) {
+export function calcHours(hours, hourRange, flag) {
   let count = 0;
   for (let [key, value] of Object.entries(hours)) {
     key = key.replace('-', '.'); // firebase work around for key values and "."'s
