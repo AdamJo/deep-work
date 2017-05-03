@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Button, TimeFormat } from 'components';
 import shortid from 'shortid';
 
-const menuOptions = ['day', 'week', 'month'];
+const menuOptions = ['Day', 'Week', 'Month'];
 
 const Ul = styled.ul`
   list-style-type: none;

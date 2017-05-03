@@ -126,7 +126,7 @@ function Chart(state = {}, action) {
     case SWITCH_TO_DATE:
       return {
         ...state,
-        viewType: 'day',
+        viewType: 'Day',
         daySelected: action.date,
       };
     default:

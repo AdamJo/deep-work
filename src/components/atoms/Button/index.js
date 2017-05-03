@@ -41,7 +41,6 @@ const Button = styled.div`
   pointer-events: ${ifProp('disabled', 'none', 'auto')};
   cursor: ${ifProp('disabled', 'default', 'pointer')};
   
-
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 
   min-width: ${cycle};

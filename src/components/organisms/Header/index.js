@@ -69,7 +69,7 @@ class Header extends PureComponent {
           {currentUser && currentUser.uid
             ? <MobileWrapper>
                 <Button onClick={this.logOut}>Logout</Button>
-                {this.props.chart.viewType === 'day'
+                {this.props.chart.viewType === 'Day'
                   ? <Button onClick={this.openMenu}>Settings</Button>
                   : ''}
                 {/*<Button onClick={this.getInfo}>getInfo</Button>*/}

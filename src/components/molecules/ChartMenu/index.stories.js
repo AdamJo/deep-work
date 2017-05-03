@@ -8,7 +8,7 @@ const updateTimeFormat = format => {
 
 storiesOf('ChartMenu', module).add('default', () => (
   <ChartMenu
-    chart={{ viewType: 'day' }}
+    chart={{ viewType: 'Day' }}
     chartView={() => console.log('done')}
     updateTimeFormat={updateTimeFormat}
   >

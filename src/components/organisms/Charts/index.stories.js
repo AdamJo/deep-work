@@ -21,7 +21,7 @@ storiesOf('Charts', module).add('default', () => (
 
 const chart = {
   format: '12',
-  viewType: 'day',
+  viewType: 'Day',
   workDates: {},
   workHover: false,
   hourRange: {
