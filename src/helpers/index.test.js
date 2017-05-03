@@ -90,3 +90,12 @@ describe('splitTime()', () => {
   });
 })
 
+describe('formatDate()', () => {
+  it('returns "Unknown Date!" if incorrect parameter is passed', () => {
+    expect(formatDate('not a date object')).toBe('Unknown Date!')
+  });
+  it('returns formatDate the date into correct format', () => {
+    expect(formatDate(testDate)).toBe('Jan 1 2000');
+  });
+})
+
