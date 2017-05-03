@@ -9,3 +9,8 @@ it('renders', () => {
 it('renders with different combination of props', () => {
   wrap({ deep: true });
 });
+
+it('should contain text when passed children', () => {
+  const wrapper = shallow(<TotalHours>Hello</TotalHours>);
+  expect(wrapper.text('Hello')).toBe('Hello');
+});
