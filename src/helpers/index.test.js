@@ -103,7 +103,7 @@ describe('formatDate()', () => {
 describe('grabDate()', () => {
   it('returns grabDate the date into correct format', () => {
     const [month, day, year] = testShortDate.split(' ');
-    expect(grabDate(testShortDate).toString()).toBe('Sat Jan 01 2000 00:00:00 GMT-0800 (Pacific Standard Time)');
+    expect(grabDate(testShortDate).toString().split(' (').slice(0, -1).join(' ')).toBe('Sat Jan 01 2000 00:00:00 GMT-0800');
   });
   it('returns New Date wrong date is received', () => {
     expect(grabDate(new Date())).toBeTruthy();
