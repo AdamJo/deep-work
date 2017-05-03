@@ -1,7 +1,7 @@
 import ChartMenu from '.';
 import { Button } from 'components';
 
-const wrap = (props = { chart: { viewType: 'day' } }) =>
+const wrap = (props = { chart: { viewType: 'Day' } }) =>
   shallow(<ChartMenu {...props} />);
 
 it('renders props when passed in', () => {
@@ -11,7 +11,7 @@ it('renders props when passed in', () => {
 
 it('should contain buttons for day, week, month', () => {
   const wrapper = wrap();
-  expect(wrapper.contains('day')).toBe(true);
-  expect(wrapper.contains('week')).toBe(true);
-  expect(wrapper.contains('month')).toBe(true);
+  expect(wrapper.contains('Day')).toBe(true);
+  expect(wrapper.contains('Week')).toBe(true);
+  expect(wrapper.contains('Month')).toBe(true);
 });

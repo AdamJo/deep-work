@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 
 const chartType = props => {
   switch (props.chart.viewType) {
-    case 'day':
+    case 'Day':
       return (
         <div>
           <DayChart
@@ -47,7 +47,7 @@ const chartType = props => {
           />
         </div>
       );
-    case 'week':
+    case 'Week':
       return (
         <WeekChart
           workDates={props.chart.workDates}
@@ -57,7 +57,7 @@ const chartType = props => {
           swapToDate={props.swapToDate}
         />
       );
-    case 'month':
+    case 'Month':
       return (
         <MonthChart
           workDates={props.chart.workDates}
