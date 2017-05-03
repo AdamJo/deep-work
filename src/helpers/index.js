@@ -47,8 +47,10 @@ export function splitTime(day) {
  * @return {number} formated string
  */
 export function formatDate(day) {
-  if (day) {
+  if (day && typeof day === 'object' && day instanceof Date) {
     return day.toString().replace(/ 0/, ' ').split(' ').slice(1, 4).join(' ');
+  } else {
+    return 'Unknown Date!';
   }
 }
 
