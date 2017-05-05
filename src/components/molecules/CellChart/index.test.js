@@ -6,7 +6,6 @@ it('renders', () => {
   wrap();
 });
 
-
 it('renders with different combination of props', () => {
   wrap({ hours: {} });
 });

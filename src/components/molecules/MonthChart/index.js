@@ -77,9 +77,13 @@ const Wrapper = styled.div`
   max-width: 700px;
 `;
 
-const MonthChart = (
-  { workDates, monthSelected, subtractMonth, addMonth, swapToDate },
-) => {
+const MonthChart = ({
+  workDates,
+  monthSelected,
+  subtractMonth,
+  addMonth,
+  swapToDate,
+}) => {
   let daysInMonth = getDaysInMonth(
     monthSelected.first.getMonth(),
     monthSelected.first.getFullYear(),

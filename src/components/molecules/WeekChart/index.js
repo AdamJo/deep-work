@@ -49,9 +49,13 @@ const InnerWrapper = styled.div`
 `;
 
 const daysInWeek = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-const WeekChart = (
-  { workDates, subtractWeek, addWeek, weekSelected, swapToDate },
-) => {
+const WeekChart = ({
+  workDates,
+  subtractWeek,
+  addWeek,
+  weekSelected,
+  swapToDate,
+}) => {
   const workDays = getWeek(weekSelected.first);
   return (
     <Wrapper>

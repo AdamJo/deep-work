@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { font, palette } from 'styled-theme';
-import { ifProp } from 'styled-tools'
+import { ifProp } from 'styled-tools';
 
 // const backgroundColor = () =>
 //   transparent ? 'transparent' : palette(disabled ? 2 : 1)
@@ -22,7 +22,7 @@ const activeBackground = ({ active }) =>
     ? palette('primary', 3)
     : palette('secondary', 3);
 
-const cycle = ({ cycle }) => cycle ? '60px' : '100px';
+const cycle = ({ cycle }) => (cycle ? '60px' : '100px');
 
 const Button = styled.div`
   /* Adjust the Button styling based on the theme */
@@ -37,7 +37,7 @@ const Button = styled.div`
   cursor: pointer;
   outline: 0;
   color: ${palette('black', 0)};
-  opacity: ${ifProp('disabled', .7, 1)};
+  opacity: ${ifProp('disabled', 0.7, 1)};
   pointer-events: ${ifProp('disabled', 'none', 'auto')};
   cursor: ${ifProp('disabled', 'default', 'pointer')};
   

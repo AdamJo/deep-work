@@ -5,12 +5,16 @@
  * @return {number} the total number of work done that day
  */
 export function getHours(day, flag) {
-  if (day !== undefined && typeof day === 'object' && typeof flag === 'boolean') {
+  if (
+    day !== undefined &&
+    typeof day === 'object' &&
+    typeof flag === 'boolean'
+  ) {
     if (!!Object.keys(day).length) {
-      if (flag && day.hasOwnProperty("deep")) {
-          return day.deep;
-      } else if (!flag && day.hasOwnProperty("shallow")) {
-          return day.shallow;
+      if (flag && day.hasOwnProperty('deep')) {
+        return day.deep;
+      } else if (!flag && day.hasOwnProperty('shallow')) {
+        return day.shallow;
       }
     }
   }
@@ -28,7 +32,7 @@ export function addComma(day) {
     day[2] += ',';
     return day.slice(1, 4).join(' ');
   } else {
-    return 'Unknown Date!'
+    return 'Unknown Date!';
   }
 }
 
@@ -37,7 +41,7 @@ export function splitTime(day) {
     day = day.toString().replace(/ 0/, ' ').split(' ');
     return day.slice(1, 3).join(' ');
   } else {
-    return 'Unknown Date!'
+    return 'Unknown Date!';
   }
 }
 
@@ -132,8 +136,8 @@ export const hoursInDay = {
   '22-5': 0,
   23: 0,
   '23-5': 0,
-  'shallow': 0,
-  'deep': 0,
+  shallow: 0,
+  deep: 0,
 };
 
 /**

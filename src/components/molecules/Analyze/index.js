@@ -36,13 +36,7 @@ const Wrapper = styled.div`
   margin-bottom: 15px;
 `;
 
-const Analyze = (
-  {
-    hours,
-    hourRange,
-    ...props
-  },
-) => {
+const Analyze = ({ hours, hourRange, ...props }) => {
   return (
     <Wrapper {...props}>
       <TotalHours deep>
@@ -65,7 +59,7 @@ Analyze.propTypes = {
 };
 
 Analyze.defaultProps = {
-  hours: { },
+  hours: {},
   hourRange: { min: 1, max: 23 },
 };
 

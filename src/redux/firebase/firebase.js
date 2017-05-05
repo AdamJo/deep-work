@@ -55,7 +55,8 @@ const FireBaseTools = {
    *
    * @returns {!firebase.Promise.<*>|firebase.Thenable<any>|firebase.Promise<any>|!firebase.Thenable.<*>}
    */
-  logoutUser: () => firebaseAuth.signOut().then(() => ({
+  logoutUser: () =>
+    firebaseAuth.signOut().then(() => ({
       success: 1,
       message: 'logout',
     })),
@@ -66,7 +67,8 @@ const FireBaseTools = {
    * @param u
    * @returns {!firebase.Promise.<*>|firebase.Thenable<any>|firebase.Promise<any>|!firebase.Thenable.<*>}
    */
-  updateUserProfile: u => firebaseAuth.currentUser.updateProfile(u).then(
+  updateUserProfile: u =>
+    firebaseAuth.currentUser.updateProfile(u).then(
       () => firebaseAuth.currentUser,
       error => ({
         errorCode: error.code,
@@ -101,7 +103,8 @@ const FireBaseTools = {
   writeToUserDatabase: (path, payload) => {
     return firebaseDb.ref(path).set(payload);
   },
-  getUserInfo: path => firebaseDb.ref(path).once('value').then(snapshot => {
+  getUserInfo: path =>
+    firebaseDb.ref(path).once('value').then(snapshot => {
       return snapshot.val();
     }),
 };

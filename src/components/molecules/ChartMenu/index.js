@@ -30,13 +30,7 @@ const Ul = styled.ul`
 const Li = styled.li`
 `;
 
-const ChartMenu = (
-  {
-    chartView,
-    viewType,
-    ...props
-  },
-) => {
+const ChartMenu = ({ chartView, viewType, ...props }) => {
   return (
     <Ul {...props}>
       {menuOptions.map((view, index) => (

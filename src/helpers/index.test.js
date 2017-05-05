@@ -1,6 +1,15 @@
-import {getHours, addComma, splitTime, formatDate, months, grabDate, hoursInDay, fieldHelper } from './index';
+import {
+  getHours,
+  addComma,
+  splitTime,
+  formatDate,
+  months,
+  grabDate,
+  hoursInDay,
+  fieldHelper,
+} from './index';
 
-const testDate = new Date("Janurary 1, 2000 12:00:00");
+const testDate = new Date('Janurary 1, 2000 12:00:00');
 const testHoursInDay = {
   0: 0,
   '0-5': 0,
@@ -50,20 +59,24 @@ const testHoursInDay = {
   '22-5': 0,
   23: 0,
   '23-5': 0,
-  'shallow': 0,
-  'deep': 0,
+  shallow: 0,
+  deep: 0,
 };
 const testShortDate = 'Jan 1 2000';
 
 describe('getHours()', () => {
   it('returns nothing if undefined', () => {
-    expect(getHours(undefined, true)).toBe(0)
+    expect(getHours(undefined, true)).toBe(0);
   });
   it('returns deep hours', () => {
-    expect(getHours({0:0, 1:1, 2:1, deep: .5, shallow: 1}, true)).toBe(.5);
+    expect(getHours({ 0: 0, 1: 1, 2: 1, deep: 0.5, shallow: 1 }, true)).toBe(
+      0.5,
+    );
   });
   it('returns shallow hours', () => {
-    expect(getHours({0:0, 1:1, 2:1, deep: .5, shallow: 1}, false)).toBe(1);
+    expect(getHours({ 0: 0, 1: 1, 2: 1, deep: 0.5, shallow: 1 }, false)).toBe(
+      1,
+    );
   });
   it('returns 0 hours if empty (false flag)', () => {
     expect(getHours({}, false)).toBe(0);
@@ -71,34 +84,34 @@ describe('getHours()', () => {
   it('returns 0 hours if empty (true flag)', () => {
     expect(getHours({}, true)).toBe(0);
   });
-})
+});
 
 describe('addComma()', () => {
   it('returns "Unknown Date!" if incorrect parameter is passed', () => {
-    expect(addComma('not a date object')).toBe('Unknown Date!')
+    expect(addComma('not a date object')).toBe('Unknown Date!');
   });
   it('returns splices the date into correct format', () => {
-    expect(addComma(testDate)).toBe('Jan 1, 2000')
+    expect(addComma(testDate)).toBe('Jan 1, 2000');
   });
-})
+});
 
 describe('splitTime()', () => {
   it('returns "Unknown Date!" if incorrect parameter is passed', () => {
-    expect(splitTime('not a date object')).toBe('Unknown Date!')
+    expect(splitTime('not a date object')).toBe('Unknown Date!');
   });
   it('returns splices the date into correct format', () => {
     expect(splitTime(testDate)).toBe('Jan 1');
   });
-})
+});
 
 describe('formatDate()', () => {
   it('returns "Unknown Date!" if incorrect parameter is passed', () => {
-    expect(formatDate('not a date object')).toBe('Unknown Date!')
+    expect(formatDate('not a date object')).toBe('Unknown Date!');
   });
   it('returns formatDate the date into correct format', () => {
     expect(formatDate(testDate)).toBe('Jan 1 2000');
   });
-})
+});
 
 describe('grabDate()', () => {
   it('returns grabDate the date into correct format', () => {
@@ -108,33 +121,40 @@ describe('grabDate()', () => {
   it('returns New Date wrong date is received', () => {
     expect(grabDate(new Date())).toBeTruthy();
   });
-})
+});
 
 describe('constants', () => {
   describe('shortened dates', () => {
     it('should have all months shortned to 3 strings', () => {
-      const shortenedMonths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      expect(shortenedMonths)
-        .toEqual(expect.arrayContaining(months));
+      const shortenedMonths = [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec',
+      ];
+      expect(shortenedMonths).toEqual(expect.arrayContaining(months));
     });
     it('should have length of 12', () => {
-      expect(months.length)
-        .toEqual(12);
-    });
-  })
-  describe('hoursInDay', () => {
-    it('should have shallow key', () => {
-      expect(testHoursInDay)
-        .toEqual(hoursInDay);
-    });
-    it('should have shallow key', () => {
-      expect(hoursInDay['shallow'])
-        .toBe(0);
-    });
-    it('should have deep key', () => {
-      expect(hoursInDay['deep'])
-        .toBe(0);
+      expect(months.length).toEqual(12);
     });
   });
-})
-
+  describe('hoursInDay', () => {
+    it('should have shallow key', () => {
+      expect(testHoursInDay).toEqual(hoursInDay);
+    });
+    it('should have shallow key', () => {
+      expect(hoursInDay['shallow']).toBe(0);
+    });
+    it('should have deep key', () => {
+      expect(hoursInDay['deep']).toBe(0);
+    });
+  });
+});

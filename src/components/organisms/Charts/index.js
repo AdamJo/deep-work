@@ -70,11 +70,7 @@ const chartType = props => {
   }
 };
 
-const Charts = (
-  {
-    ...props
-  },
-) => {
+const Charts = ({ ...props }) => {
   return (
     <Wrapper {...props}>
       <ChartMenu
