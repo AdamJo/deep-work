@@ -1,0 +1,516 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0084)file:///F:/Applications/Google%20Drive/Mind%20Maps/Deep%20Work%20-%20Website.mm.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Deep Work - Website</title>
+<style type="text/css">
+    li { list-style: none;  margin: 0; }
+    p { margin: 0; }
+    span.foldopened { color: white; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: visible;
+    cursor:pointer; }
+
+
+    span.foldclosed { color: #666666; font-size: xx-small;
+    border-width: 1; font-family: monospace; padding: 0em 0.25em 0em 0.25em; background: #e0e0e0;
+    VISIBILITY: hidden;
+    cursor:pointer; }
+
+    span.foldspecial { color: #666666; font-size: xx-small; border-style: none solid solid none;
+    border-color: #CCCCCC; border-width: 1; font-family: sans-serif; padding: 0em 0.1em 0em 0.1em; background: #e0e0e0;
+    cursor:pointer; }
+
+    span.l { color: red; font-weight: bold; }
+
+    a.mapnode:link {text-decoration: none; color: black; }
+    a.mapnode:visited {text-decoration: none; color: black; }
+    a.mapnode:active {text-decoration: none; color: black; }
+    a.mapnode:hover {text-decoration: none; color: black; background: #eeeee0; }
+
+</style>
+<!-- ^ Position is not set to relative / absolute here because of Mozilla -->
+</head>
+<body>
+
+<script type="text/javascript">
+   // Here we implement folding. It works fine with MSIE5.5, MSIE6.0 and
+   // Mozilla 0.9.6.
+
+   if (document.layers) {
+      //Netscape 4 specific code
+      pre = 'document.';
+      post = ''; }
+   if (document.getElementById) {
+      //Netscape 6 specific code
+      pre = 'document.getElementById("';
+      post = '").style'; }
+   if (document.all) {
+      //IE4+ specific code
+      pre = 'document.all.';
+      post = '.style'; }
+
+function layer_exists(layer) {
+   try {
+      eval(pre + layer + post);
+      return true; }
+   catch (error) {
+      return false; }}
+
+function show_layer(layer) {
+   eval(pre + layer + post).position = 'relative'; 
+   eval(pre + layer + post).visibility = 'visible'; }
+
+function hide_layer(layer) {
+   eval(pre + layer + post).visibility = 'hidden';
+   eval(pre + layer + post).position = 'absolute'; }
+
+function hide_folder(folder) {
+    hide_folding_layer(folder)
+    show_layer('show'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function show_folder(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_layer('show'+folder+'_'+i); }
+}
+function show_folder_completely(folder) {
+    // Precondition: all subfolders are folded
+
+    show_layer('hide'+folder);
+    hide_layer('show'+folder);
+    show_layer('fold'+folder);
+
+    scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+
+    var i;
+    for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+
+
+function hide_folding_layer(folder) {
+   var i;
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folding_layer(folder+'_'+i); }
+
+   hide_layer('hide'+folder);
+   hide_layer('show'+folder);
+   hide_layer('fold'+folder);
+
+   scrollBy(0,0); // This is a work around to make it work in Browsers (Explorer, Mozilla)
+}
+
+function fold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       hide_folder(folder+'_'+i); }
+}
+
+function unfold_document() {
+   var i;
+   var folder = '1';
+   for (i=1; layer_exists('fold'+folder+'_'+i); ++i) {
+       show_folder_completely(folder+'_'+i); }
+}
+
+</script>
+<span class="foldspecial" onclick="fold_document()">All +</span>
+<span class="foldspecial" onclick="unfold_document()">All -</span>
+<p>Deep Work - Website
+</p><ul><li>Redux
+<ul><li>User Color Options on save send to firebase
+
+</li>
+<li>Sleep Page, Animation
+
+</li>
+<li>Charts Menu
+
+</li>
+<li>Footer, money data, taken from firebase data
+
+</li>
+<li>firebase data
+
+</li>
+
+</ul>
+</li>
+<li>color legend
+<ul><li><span style="color: #000000;">Logged In</span>
+
+</li>
+<li>Logged Out
+
+</li>
+
+</ul>
+</li>
+<li>Components
+<ul><li><span id="show1_1" class="foldclosed" onclick="show_folder(&#39;1_1&#39;)" style="position: relative; visibility: visible;">+</span> <span id="hide1_1" class="foldopened" onclick="hide_folder(&#39;1_1&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Atoms
+<ul id="fold1_1" style="position: absolute; visibility: hidden;"><li>button
+
+</li>
+<li>chart button
+
+</li>
+<li>color button picker
+
+</li>
+<li>table cell
+
+</li>
+<li>date cell
+
+</li>
+<li>Sleep Image
+
+</li>
+<li>menu icon
+
+</li>
+<li>% cost sign
+
+</li>
+<li>% cost left
+
+</li>
+<li>loader
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_2" class="foldclosed" onclick="show_folder(&#39;1_2&#39;)" style="position: relative; visibility: visible;">+</span> <span id="hide1_2" class="foldopened" onclick="hide_folder(&#39;1_2&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Molecules
+<ul id="fold1_2" style="position: absolute; visibility: hidden;"><li>table container
+
+</li>
+<li>sleep manula picker
+
+</li>
+<li>navigation
+
+</li>
+<li>dates
+
+</li>
+<li>hours
+
+</li>
+<li>modal
+
+</li>
+<li>analytic
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_3" class="foldclosed" onclick="show_folder(&#39;1_3&#39;)" style="position: relative; visibility: visible;">+</span> <span id="hide1_3" class="foldopened" onclick="hide_folder(&#39;1_3&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Organisms
+<ul id="fold1_3" style="position: absolute; visibility: hidden;"><li>Settings menu
+
+</li>
+<li>chart menu
+
+</li>
+<li>color picker
+
+</li>
+<li>footer
+
+</li>
+<li>header
+
+</li>
+<li>settings
+
+</li>
+<li>analyzer
+
+</li>
+<li>day
+
+</li>
+<li>week
+
+</li>
+<li>month
+
+</li>
+<li>year
+
+</li>
+
+</ul>
+</li>
+<li>Templates
+<ul><li>PageTemplate
+
+</li>
+<li>GenericTemplate
+
+</li>
+<li>Settings?
+
+</li>
+
+</ul>
+</li>
+<li>Pages
+<ul><li>Sleep page
+
+</li>
+<li>Charts
+
+</li>
+<li>Settings (modal? menu? or new page?)
+
+</li>
+
+</ul>
+</li>
+<li><span id="show1_4" class="foldclosed" onclick="show_folder(&#39;1_4&#39;)" style="position: relative; visibility: visible;">+</span> <span id="hide1_4" class="foldopened" onclick="hide_folder(&#39;1_4&#39;)" style="visibility: hidden; position: absolute;">-</span>
+themes: #check with arc
+<ul id="fold1_4" style="position: absolute; visibility: hidden;"><li>PRIMARY: GOLD, BLACK, WHITE, YELLOW
+
+</li>
+<li>SECONDARY: YELLOW
+
+</li>
+<li>DANGER
+
+</li>
+<li>ALERT
+
+</li>
+<li>SUCCESS
+
+</li>
+<li>GRAYSCALE
+
+</li>
+<li>WHITE
+
+</li>
+<li>FONTS
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_5" class="foldclosed" onclick="show_folder(&#39;1_5&#39;)" style="position: relative; visibility: visible;">+</span> <span id="hide1_5" class="foldopened" onclick="hide_folder(&#39;1_5&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Initial idea
+<ul id="fold1_5" style="position: absolute; visibility: hidden;"><li>Header
+<ul><li>BUTTON: Login
+
+</li>
+<li>BUTTON: About/donate
+
+</li>
+<li>BUTTON: Settings
+
+</li>
+<li>BUTTON: Logout
+
+</li>
+
+</ul>
+</li>
+<li>Footer
+<ul><li>Show server % cost on bottom; e.g. yasp
+
+</li>
+<li>Payment/subscription
+
+</li>
+<li>graph of bills
+
+</li>
+
+</ul>
+</li>
+<li>Settings
+<ul><li>Colors
+<ul><li>cell work color
+
+</li>
+<li>background color
+
+</li>
+<li>Box color
+
+</li>
+<li>color for deep
+
+</li>
+<li>color for shallow
+
+</li>
+<li>mixed deep, shallow
+
+</li>
+
+</ul>
+</li>
+<li>export to
+<ul><li>JSON
+
+</li>
+<li>CAML
+
+</li>
+<li>CSV
+
+</li>
+
+</ul>
+</li>
+<li>Sleep Page
+<ul><li>relaxing to look at
+
+</li>
+<li>choose color or pre defined style
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Loading/Sleeping Page
+<ul><li><p>Sleep button to close the charts and just put "Deep Work" loading page on so one doesn't have to look at the charts.
+</p><p>possible nature type relax eyes stuff ( water lentils, eye relaxing)
+</p></li>
+</ul>
+</li>
+<li>Charts
+<ul><li>ASIDE: Colors taken from settings
+
+</li>
+<li>Daily
+<ul><li>Goal
+<ul><li>Show 
+
+</li>
+<li>select to fill cells with deep or shallow work
+
+</li>
+<li>plan ahead deep or shallow work
+
+</li>
+<li>notifications on goals and end of work day
+
+</li>
+
+</ul>
+</li>
+<li>components
+<ul><li>cell
+
+</li>
+<li>cell containers
+
+</li>
+<li>hours matching # of cells
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Weekly
+<ul><li>Show git style color chart
+
+</li>
+<li>option: show # with deep, shallow
+
+</li>
+
+</ul>
+</li>
+<li>Monthly
+<ul><li><p>Stack of weeks with date
+</p><p>same as options as weekly
+</p><p>on hover over [liquid style animation] show deep/shallow numbers instead of color. on hover could show all of the week or just that day. &nbsp;Animation could slightly grey out the other numbers as well
+</p></li>
+</ul>
+</li>
+<li>Yearly
+<ul><li>possibly github style
+
+</li>
+<li>animations same as monthly 
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li>Analytics
+<ul><li>show amount worked on side of each chart with stats for that day/week/month/year
+
+</li>
+<li>on click, more indepth stats and graphs
+
+</li>
+
+</ul>
+</li>
+<li>Data
+<ul><li>day, week, month, year dates. &nbsp;only day for logged out lazy load for others once logged in
+
+</li>
+
+</ul>
+</li>
+
+</ul>
+</li>
+<li><span id="show1_6" class="foldclosed" onclick="show_folder(&#39;1_6&#39;)" style="position: relative; visibility: visible;">+</span> <span id="hide1_6" class="foldopened" onclick="hide_folder(&#39;1_6&#39;)" style="visibility: hidden; position: absolute;">-</span>
+Additional Ideas
+<ul id="fold1_6" style="position: absolute; visibility: hidden;"><li>additional options other than deepwork to fill out per day. e.g. daily rituals, worked out, mem tech
+
+</li>
+<li>Analytic to show graphs
+
+</li>
+<li>comments for the day
+
+</li>
+<li>Other
+
+</li>
+
+</ul>
+</li>
+
+</ul><script type="text/javascript">
+fold_document();
+</script>
+
+
+</body></html>
